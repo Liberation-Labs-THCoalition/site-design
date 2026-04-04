@@ -1,0 +1,52 @@
+# Liberation Labs site — integrates with THCoalition's Caddy reverse proxy.
+#
+# Deployment options:
+#
+# 1. Standalone (own Caddy, own TLS):
+#    docker compose up -d
+#
+# 2. Behind THCoalition's Caddy (recommended):
+#    - Build just the static files container
+#    - THCoalition's Caddy serves this as a path or subdomain
+#    - See caddy-integration.yml for the Caddy config snippet
+#
+# Network: connects to thcoalition_network so the parent Caddy can reach it.
+
+services:
+  liberationlabs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: liberationlabs-web
+    restart: unless-stopped
+    networks:
+      - thcoalition_network
+      - default
+    labels:
+      - "caddy=liberationlabs.org"
+      - "caddy.reverse_proxy={{upstreams 80}}"
+    volumes:
+      # Override Caddyfile for integration mode — serves on :80 without TLS
+      # (THCoalition's Caddy terminates TLS)
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+
+  # Static file builder — use this if you just need the built files
+  # without running a separate Caddy instance. Copy output to shared volume.
+  liberationlabs-build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: build
+    container_name: liberationlabs-build
+    profiles: ["build-only"]
+    volumes:
+      - site-dist:/app/dist
+
+volumes:
+  site-dist:
+
+networks:
+  thcoalition_network:
+    external: true
+  default:

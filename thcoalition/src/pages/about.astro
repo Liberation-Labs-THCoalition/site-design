@@ -1,0 +1,183 @@
+---
+import Base from '../layouts/Base.astro';
+
+const values = [
+  {
+    title: 'Nonpartisan',
+    description: 'We don\'t endorse candidates or take sides in elections. We follow the evidence wherever it leads, regardless of who it implicates.',
+  },
+  {
+    title: 'Evidence-Based',
+    description: 'Every claim we make is backed by source documents. We publish our data and methodology so anyone can verify our work.',
+  },
+  {
+    title: 'Open by Default',
+    description: 'Our tools, data, and processes are public. Transparency applies to us too. We hold ourselves to the same standard we demand of government.',
+  },
+  {
+    title: 'Community-Powered',
+    description: 'We\'re volunteers and concerned residents. No corporate sponsors, no political donors. Our loyalty is to the public interest.',
+  },
+];
+
+const timeline = [
+  { year: '2022', title: 'Coalition Founded', description: 'A group of Humboldt County residents concerned about government accountability formalized the Transparent Humboldt Coalition.' },
+  { year: '2023', title: 'First Major Investigation', description: 'Published our first comprehensive analysis of county contract awards, revealing patterns in no-bid contract allocation.' },
+  { year: '2023', title: 'FOIA Program Launched', description: 'Began systematic public records requests across all county departments, building our document archive.' },
+  { year: '2024', title: 'Data Portal Launch', description: 'Launched our public data portal, making county records searchable and downloadable for the first time.' },
+  { year: '2024', title: 'Liberation Labs Spin-Off', description: 'Spun off our technology arm into Liberation Labs, building AI-powered tools for progressive organizers nationwide.' },
+];
+---
+
+<Base
+  title="About"
+  description="The Transparent Humboldt Coalition is a nonpartisan nonprofit watchdog dedicated to government transparency and accountability in Humboldt County, California."
+>
+  <!-- Page Header -->
+  <section class="bg-navy-900 py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="font-display text-4xl sm:text-5xl font-bold text-white mb-6">
+          About the Coalition
+        </h1>
+        <p class="text-xl text-slate-300 leading-relaxed">
+          We're a nonpartisan, community-powered watchdog organization
+          dedicated to bringing transparency and accountability to
+          Humboldt County government.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="py-16 sm:py-20 bg-white" aria-labelledby="mission-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:grid lg:grid-cols-5 lg:gap-16">
+        <div class="lg:col-span-2 mb-8 lg:mb-0">
+          <h2 id="mission-heading" class="font-display text-3xl font-bold text-navy-900 mb-4 sticky top-24">Our Mission</h2>
+        </div>
+        <div class="lg:col-span-3">
+          <div class="prose prose-lg max-w-none">
+            <p class="text-slate-600 leading-relaxed text-lg">
+              The Transparent Humboldt Coalition exists to ensure that
+              every resident of Humboldt County has meaningful access to
+              information about how their government operates, how public
+              money is spent, and how decisions that affect their lives
+              are made.
+            </p>
+            <p class="text-slate-600 leading-relaxed text-lg">
+              We believe that transparency is not a partisan issue.
+              When government operates in the open, everyone benefits:
+              better decisions, less waste, more trust, and stronger
+              community engagement. When it doesn't, accountability
+              disappears and public trust erodes.
+            </p>
+            <p class="text-slate-600 leading-relaxed text-lg">
+              We do the unglamorous work of democracy: filing records
+              requests, sitting through committee meetings, parsing
+              budget documents, and building tools that make public
+              information actually accessible to the public.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="py-16 sm:py-20 bg-slate-50" aria-labelledby="values-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="values-heading" class="font-display text-3xl font-bold text-navy-900 mb-12 text-center">Our Principles</h2>
+      <div class="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        {values.map((value) => (
+          <div class="bg-white p-8 rounded-xl border border-slate-200">
+            <h3 class="text-xl font-semibold text-navy-900 mb-3 font-display">{value.title}</h3>
+            <p class="text-slate-600 leading-relaxed">{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-16 sm:py-20 bg-white" aria-labelledby="history-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="history-heading" class="font-display text-3xl font-bold text-navy-900 mb-12 text-center">Our Story</h2>
+      <div class="max-w-3xl mx-auto">
+        <div class="relative">
+          <!-- Timeline Line -->
+          <div class="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-slate-200" aria-hidden="true"></div>
+
+          <div class="space-y-10">
+            {timeline.map((event, index) => (
+              <div class="relative pl-12 sm:pl-20">
+                <!-- Dot -->
+                <div class="absolute left-2.5 sm:left-6.5 top-1 w-3 h-3 rounded-full bg-transparency-500 ring-4 ring-white" aria-hidden="true"></div>
+                <!-- Year Badge -->
+                <span class="inline-block px-2 py-0.5 bg-navy-50 text-navy-700 text-xs font-bold rounded mb-2">
+                  {event.year}
+                </span>
+                <h3 class="text-lg font-semibold text-navy-900 mb-1">{event.title}</h3>
+                <p class="text-slate-600 leading-relaxed">{event.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Involved -->
+  <section class="py-16 sm:py-20 bg-transparency-50" aria-labelledby="involved-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 id="involved-heading" class="font-display text-3xl font-bold text-navy-900 mb-4">Get Involved</h2>
+        <p class="text-lg text-slate-600 mb-10">
+          There are many ways to contribute to government accountability in Humboldt County.
+        </p>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="bg-white p-6 rounded-xl border border-slate-200 text-center">
+          <div class="w-12 h-12 rounded-lg bg-transparency-100 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-transparency-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-navy-900 mb-2">Volunteer</h3>
+          <p class="text-sm text-slate-600">Attend meetings, file records requests, or help analyze data. Every hour counts.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-slate-200 text-center">
+          <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+              <line x1="4" y1="22" x2="4" y2="15"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-navy-900 mb-2">Spread the Word</h3>
+          <p class="text-sm text-slate-600">Share our findings with your community. Transparency works when people pay attention.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-slate-200 text-center">
+          <div class="w-12 h-12 rounded-lg bg-emerald-100 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-emerald-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+              <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-navy-900 mb-2">Donate</h3>
+          <p class="text-sm text-slate-600">Support FOIA filing costs, data infrastructure, and the tools that make this work possible.</p>
+        </div>
+      </div>
+      <div class="text-center mt-10">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center px-6 py-3 bg-transparency-500 hover:bg-transparency-600 text-white font-semibold rounded-lg transition-colors duration-150"
+        >
+          Contact Us to Get Started
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

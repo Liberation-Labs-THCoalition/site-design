@@ -1,0 +1,108 @@
+---
+import Base from '../layouts/Base.astro';
+
+const investigations = [
+  {
+    status: 'active',
+    title: 'County Contract Award Patterns FY 2023-2024',
+    description: 'Analyzing competitive bidding rates, sole-source justifications, and vendor concentration across all county departments.',
+    started: 'January 2024',
+    documents: 47,
+    foiaRequests: 12,
+  },
+  {
+    status: 'active',
+    title: 'Public Notice Compliance Audit',
+    description: 'Reviewing whether county meetings and contract awards meet California public notice requirements under the Brown Act and Public Contract Code.',
+    started: 'March 2024',
+    documents: 23,
+    foiaRequests: 8,
+  },
+  {
+    status: 'completed',
+    title: 'Emergency Services Budget Analysis',
+    description: 'Comprehensive review of emergency services spending patterns and mutual aid agreements across Humboldt County jurisdictions.',
+    started: 'September 2023',
+    documents: 89,
+    foiaRequests: 15,
+  },
+];
+
+const statusStyles: Record<string, { bg: string; text: string; dot: string; label: string }> = {
+  active: { bg: 'bg-emerald-50', text: 'text-emerald-700', dot: 'bg-emerald-500', label: 'Active' },
+  completed: { bg: 'bg-slate-100', text: 'text-slate-600', dot: 'bg-slate-400', label: 'Completed' },
+  planned: { bg: 'bg-amber-50', text: 'text-amber-700', dot: 'bg-amber-500', label: 'Planned' },
+};
+---
+
+<Base
+  title="Investigations"
+  description="Current and completed transparency investigations by the Transparent Humboldt Coalition, with source documents and analysis."
+>
+  <!-- Page Header -->
+  <section class="bg-navy-900 py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="font-display text-4xl sm:text-5xl font-bold text-white mb-6">
+          Investigations
+        </h1>
+        <p class="text-xl text-slate-300 leading-relaxed">
+          Systematic investigations into Humboldt County government operations.
+          Every finding backed by source documents. Every analysis open to scrutiny.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Investigations List -->
+  <section class="py-16 sm:py-20 bg-slate-50" aria-labelledby="investigations-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="investigations-heading" class="sr-only">Current investigations</h2>
+      <div class="space-y-6">
+        {investigations.map((inv) => {
+          const style = statusStyles[inv.status];
+          return (
+            <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 hover:border-transparency-200 hover:shadow-md transition-all duration-200">
+              <div class="flex items-center gap-3 mb-4">
+                <span class:list={['inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-2xs font-semibold uppercase tracking-wider', style.bg, style.text]}>
+                  <span class:list={['w-1.5 h-1.5 rounded-full', style.dot]} aria-hidden="true"></span>
+                  {style.label}
+                </span>
+                <span class="text-2xs text-slate-400">Started {inv.started}</span>
+              </div>
+              <h3 class="text-xl font-display font-bold text-navy-900 mb-3">{inv.title}</h3>
+              <p class="text-slate-600 leading-relaxed mb-4">{inv.description}</p>
+              <div class="flex flex-wrap gap-4 text-sm text-slate-500">
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+                  </svg>
+                  {inv.documents} documents
+                </span>
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                  </svg>
+                  {inv.foiaRequests} FOIA requests
+                </span>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- Suggest Investigation -->
+      <div class="mt-12 text-center">
+        <p class="text-slate-600 mb-4">
+          Know something that should be investigated? We take tips seriously.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center px-6 py-3 bg-transparency-500 hover:bg-transparency-600 text-white font-semibold rounded-lg transition-colors duration-150"
+        >
+          Submit a Tip
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

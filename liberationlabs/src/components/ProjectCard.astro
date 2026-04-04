@@ -1,0 +1,71 @@
+---
+interface Props {
+  title: string;
+  slug: string;
+  description: string;
+  status: 'active' | 'development' | 'research' | 'planning';
+  icon?: string;
+  tags?: string[];
+}
+
+const { title, slug, description, status, icon = '/', tags = [] } = Astro.props;
+
+const statusColors = {
+  active: { bg: 'bg-green-500/10', text: 'text-green-400', dot: 'bg-green-400' },
+  development: { bg: 'bg-kintsugi-400/10', text: 'text-kintsugi-400', dot: 'bg-kintsugi-400' },
+  research: { bg: 'bg-consciousness-500/10', text: 'text-consciousness-400', dot: 'bg-consciousness-400' },
+  planning: { bg: 'bg-warm-500/10', text: 'text-warm-400', dot: 'bg-warm-400' },
+};
+
+const s = statusColors[status];
+---
+
+<article
+  id={slug}
+  class="group relative rounded-xl border border-warm-800/50 bg-warm-900/20 hover:bg-warm-900/40 hover:border-kintsugi-400/30 transition-all duration-300 overflow-hidden"
+>
+  <!-- Top golden accent line -->
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-kintsugi-400/0 to-transparent group-hover:via-kintsugi-400/60 transition-all duration-500"></div>
+
+  <div class="p-6 sm:p-8">
+    <!-- Status badge -->
+    <div class="flex items-center justify-between mb-4">
+      <span class={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono ${s.bg} ${s.text}`}>
+        <span class={`w-1 h-1 rounded-full ${s.dot}`}></span>
+        {status}
+      </span>
+    </div>
+
+    <!-- Title -->
+    <h3 class="font-display font-bold text-xl sm:text-2xl text-soft group-hover:text-kintsugi-400 transition-colors duration-200 mb-3">
+      {title}
+    </h3>
+
+    <!-- Description -->
+    <p class="text-warm-400 text-sm leading-relaxed mb-6">
+      {description}
+    </p>
+
+    <!-- Tags -->
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-6">
+        {tags.map((tag) => (
+          <span class="px-2 py-0.5 text-xs font-mono text-warm-500 border border-warm-700/50 rounded">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )}
+
+    <!-- Learn more link -->
+    <div class="flex items-center gap-2 text-sm font-medium text-warm-500 group-hover:text-kintsugi-400 transition-colors duration-200">
+      <span>Learn more</span>
+      <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Corner glow effect on hover -->
+  <div class="absolute -bottom-12 -right-12 w-32 h-32 bg-kintsugi-400/0 group-hover:bg-kintsugi-400/5 rounded-full blur-2xl transition-all duration-500"></div>
+</article>

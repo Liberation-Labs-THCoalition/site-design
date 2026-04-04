@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Astro build output
+dist/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker volumes (local dev)
+caddy_data/
+caddy_config/
+
+# Keystatic
+.keystatic/

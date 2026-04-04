@@ -1,0 +1,82 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  slug: string;
+  category?: string;
+  author?: string;
+  heroImage?: string;
+  tags?: string[];
+}
+
+const { title, description, pubDate, slug, category = 'news', author = 'THC Staff', heroImage, tags = [] } = Astro.props;
+
+const categoryStyles: Record<string, { bg: string; text: string; label: string }> = {
+  investigation: { bg: 'bg-red-50', text: 'text-red-700', label: 'Investigation' },
+  news: { bg: 'bg-transparency-50', text: 'text-transparency-700', label: 'News' },
+  'press-release': { bg: 'bg-purple-50', text: 'text-purple-700', label: 'Press Release' },
+  analysis: { bg: 'bg-navy-50', text: 'text-navy-700', label: 'Analysis' },
+  'data-release': { bg: 'bg-emerald-50', text: 'text-emerald-700', label: 'Data Release' },
+  community: { bg: 'bg-amber-50', text: 'text-amber-700', label: 'Community' },
+};
+
+const style = categoryStyles[category] || categoryStyles.news;
+
+const formattedDate = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}).format(pubDate);
+---
+
+<article class="group bg-white rounded-xl border border-slate-200 hover:border-slate-300 hover:shadow-lg transition-all duration-200 overflow-hidden">
+  {heroImage && (
+    <a href={`/blog/${slug}`} class="block aspect-[16/9] overflow-hidden" tabindex="-1" aria-hidden="true">
+      <img
+        src={heroImage}
+        alt=""
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        loading="lazy"
+      />
+    </a>
+  )}
+  <div class="p-6">
+    <!-- Category & Date -->
+    <div class="flex items-center gap-3 mb-3">
+      <span class:list={['inline-flex items-center px-2.5 py-0.5 rounded-full text-2xs font-semibold uppercase tracking-wider', style.bg, style.text]}>
+        {style.label}
+      </span>
+      <time datetime={pubDate.toISOString()} class="text-2xs text-slate-400 font-medium">
+        {formattedDate}
+      </time>
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-lg font-display font-bold text-navy-900 mb-2 leading-snug">
+      <a href={`/blog/${slug}`} class="hover:text-transparency-600 transition-colors duration-150">
+        {title}
+      </a>
+    </h3>
+
+    <!-- Description -->
+    <p class="text-sm text-slate-600 leading-relaxed mb-4 line-clamp-3">
+      {description}
+    </p>
+
+    <!-- Footer -->
+    <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+      <span class="text-2xs text-slate-500 font-medium">{author}</span>
+      <a
+        href={`/blog/${slug}`}
+        class="inline-flex items-center gap-1 text-sm font-medium text-transparency-600 hover:text-transparency-700 transition-colors duration-150"
+      >
+        Read more
+        <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-150" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14"/>
+          <path d="m12 5 7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</article>

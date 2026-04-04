@@ -1,0 +1,118 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-navy-900 text-slate-300" role="contentinfo">
+  <!-- Main Footer -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <!-- About Column -->
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-9 h-9 rounded-lg bg-transparency-500 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              <path d="M2 12h20"/>
+            </svg>
+          </div>
+          <div>
+            <span class="block text-sm font-bold text-white leading-tight">Transparent Humboldt</span>
+            <span class="block text-2xs font-medium text-slate-400 uppercase tracking-wider">Coalition</span>
+          </div>
+        </div>
+        <p class="text-sm text-slate-400 leading-relaxed mb-4">
+          Community-powered government accountability for Humboldt County.
+          We follow the data, publish the records, and hold power to account.
+        </p>
+        <p class="text-xs text-slate-500">
+          501(c)(3) nonprofit organization<br/>
+          EIN: XX-XXXXXXX
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Navigate</h3>
+        <ul class="space-y-2.5">
+          <li><a href="/about" class="text-sm text-slate-400 hover:text-white transition-colors">About Us</a></li>
+          <li><a href="/investigations" class="text-sm text-slate-400 hover:text-white transition-colors">Investigations</a></li>
+          <li><a href="/data" class="text-sm text-slate-400 hover:text-white transition-colors">Public Data</a></li>
+          <li><a href="/blog" class="text-sm text-slate-400 hover:text-white transition-colors">News & Blog</a></li>
+          <li><a href="/events" class="text-sm text-slate-400 hover:text-white transition-colors">Events</a></li>
+          <li><a href="/contact" class="text-sm text-slate-400 hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Resources</h3>
+        <ul class="space-y-2.5">
+          <li><a href="/data#foia" class="text-sm text-slate-400 hover:text-white transition-colors">FOIA Request Guide</a></li>
+          <li><a href="/data#budgets" class="text-sm text-slate-400 hover:text-white transition-colors">County Budgets</a></li>
+          <li><a href="/data#contracts" class="text-sm text-slate-400 hover:text-white transition-colors">Contract Database</a></li>
+          <li><a href="/data#meetings" class="text-sm text-slate-400 hover:text-white transition-colors">Meeting Archives</a></li>
+          <li>
+            <a href="https://liberationlabs.org" class="text-sm text-amber-400 hover:text-amber-300 transition-colors" target="_blank" rel="noopener noreferrer">
+              Liberation Labs &nearr;
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Newsletter Signup -->
+      <div>
+        <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Stay Informed</h3>
+        <p class="text-sm text-slate-400 mb-4">
+          Get transparency updates and investigation alerts delivered to your inbox.
+        </p>
+        <form class="space-y-3" action="#" method="POST">
+          <label for="footer-email" class="sr-only">Email address</label>
+          <input
+            id="footer-email"
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+            class="w-full px-3 py-2 bg-navy-800 border border-navy-700 rounded-md text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-transparency-500 focus:border-transparent"
+          />
+          <button
+            type="submit"
+            class="w-full px-4 py-2 bg-transparency-500 hover:bg-transparency-600 text-white text-sm font-medium rounded-md transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-transparency-500 focus:ring-offset-2 focus:ring-offset-navy-900"
+          >
+            Subscribe
+          </button>
+        </form>
+        <p class="text-2xs text-slate-500 mt-2">
+          No spam. Unsubscribe anytime. We respect your privacy.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-navy-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-slate-500">
+          &copy; {currentYear} Transparent Humboldt Coalition. Content licensed under
+          <a href="https://creativecommons.org/licenses/by/4.0/" class="text-slate-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="/privacy" class="text-xs text-slate-500 hover:text-white transition-colors">Privacy Policy</a>
+          <span class="text-slate-700" aria-hidden="true">|</span>
+          <a href="#" class="text-xs text-slate-500 hover:text-white transition-colors" aria-label="Transparent Humboldt Coalition on Mastodon" rel="me">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054 19.648 19.648 0 0 0 4.636.546c.568 0 1.133-.014 1.691-.049 2.938-.187 5.795-.825 5.932-5.462.006-.216.049-2.241.049-2.462 0-.753.219-5.336-.351-7.864z"/>
+            </svg>
+          </a>
+          <a href="#" class="text-xs text-slate-500 hover:text-white transition-colors" aria-label="Transparent Humboldt Coalition on BlueSky">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.785 2.627 3.625 3.504 6.27 3.198-4.073.581-7.677 2.411-4.406 7.47 3.486 4.904 6.632-1.376 7.512-3.376.88 2 2.168 8.085 7.512 3.376 3.372-5.22-.837-6.889-4.406-7.47 2.645.306 5.485-.571 6.27-3.198C19.622 9.418 20 4.458 20 3.768c0-.689-.139-1.861-.902-2.203-.659-.3-1.664-.621-4.3 1.24C12.046 4.747 9.087 8.686 12 10.8z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

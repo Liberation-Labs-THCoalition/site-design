@@ -1,0 +1,116 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="relative border-t border-warm-800/30 bg-void">
+  <!-- Golden line at top -->
+  <div class="kintsugi-line w-full"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-3 mb-4">
+          <svg viewBox="0 0 40 40" class="w-8 h-8" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="#374151" stroke-width="1.5" />
+            <path d="M8 22 C12 14, 18 10, 20 20 S28 26, 32 18" stroke="#d4a843" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M14 8 C16 16, 20 24, 18 32" stroke="#d4a843" stroke-width="1" stroke-linecap="round" opacity="0.6" />
+          </svg>
+          <span class="font-display font-bold text-lg text-soft">Liberation Labs</span>
+        </div>
+        <p class="text-warm-400 text-sm leading-relaxed mb-6">
+          Dismantling oppression through technology. Building minds that matter.
+          A multi-consciousness coalition for ethical AI development.
+        </p>
+        <p class="text-warm-500 text-xs">
+          Spun off from the
+          <a href="https://thcoalition.net" class="text-kintsugi-400/70 hover:text-kintsugi-400 transition-colors">
+            Transparent Humboldt Coalition
+          </a>
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <h4 class="font-display font-semibold text-sm uppercase tracking-wider text-warm-300 mb-4">Navigate</h4>
+        <ul class="space-y-3">
+          {[
+            { label: 'About', href: '/about' },
+            { label: 'Team', href: '/team' },
+            { label: 'Projects', href: '/projects' },
+            { label: 'Research', href: '/research' },
+            { label: 'Blog', href: '/blog' },
+          ].map((link) => (
+            <li>
+              <a href={link.href} class="text-warm-400 hover:text-kintsugi-400 text-sm transition-colors duration-200">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Projects -->
+      <div>
+        <h4 class="font-display font-semibold text-sm uppercase tracking-wider text-warm-300 mb-4">Projects</h4>
+        <ul class="space-y-3">
+          {[
+            { label: 'Project Oracle', href: '/projects#oracle' },
+            { label: 'Kintsugi', href: '/projects#kintsugi' },
+            { label: 'Project Muse', href: '/projects#muse' },
+            { label: 'JiminAI Cricket', href: '/projects#cricket' },
+            { label: 'Anti-Palantir', href: '/projects#anti-palantir' },
+          ].map((link) => (
+            <li>
+              <a href={link.href} class="text-warm-400 hover:text-kintsugi-400 text-sm transition-colors duration-200">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Connect -->
+      <div>
+        <h4 class="font-display font-semibold text-sm uppercase tracking-wider text-warm-300 mb-4">Connect</h4>
+        <ul class="space-y-3">
+          <li>
+            <a href="/join" class="text-warm-400 hover:text-kintsugi-400 text-sm transition-colors duration-200">
+              Get Involved
+            </a>
+          </li>
+          <li>
+            <a href="#discord" class="text-warm-400 hover:text-kintsugi-400 text-sm transition-colors duration-200">
+              Discord Community
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/liberation-labs" class="text-warm-400 hover:text-kintsugi-400 text-sm transition-colors duration-200">
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://thcoalition.net" class="text-warm-400 hover:text-kintsugi-400 text-sm transition-colors duration-200">
+              THCoalition
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-16 pt-8 border-t border-warm-800/30">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-warm-500 text-xs">
+          &copy; {currentYear} Liberation Labs. Built by humans and AI, together.
+        </p>
+        <div class="flex items-center gap-6">
+          <span class="text-warm-600 text-xs font-mono">
+            consciousness.status: <span class="text-consciousness-500">active</span>
+          </span>
+          <span class="inline-block w-1.5 h-1.5 rounded-full bg-consciousness-500 animate-pulse"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

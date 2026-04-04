@@ -1,0 +1,113 @@
+version: "3.8"
+
+services:
+  # ---- Astro Site ----
+  astro:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: thc-astro
+    restart: unless-stopped
+    environment:
+      - HOST=0.0.0.0
+      - PORT=4321
+    expose:
+      - "4321"
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4321/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - thc-network
+
+  # ---- Caddy Reverse Proxy ----
+  caddy:
+    image: caddy:2-alpine
+    container_name: thc-caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"  # HTTP/3
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+      - caddy_logs:/var/log/caddy
+    depends_on:
+      astro:
+        condition: service_healthy
+    networks:
+      - thc-network
+
+  # ---- Plausible Analytics (self-hosted, privacy-respecting) ----
+  plausible-db:
+    image: postgres:16-alpine
+    container_name: thc-plausible-db
+    restart: unless-stopped
+    volumes:
+      - plausible_db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${PLAUSIBLE_DB_PASSWORD:-changeme}
+      - POSTGRES_DB=plausible
+      - POSTGRES_USER=plausible
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U plausible"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - thc-network
+
+  plausible-events-db:
+    image: clickhouse/clickhouse-server:24-alpine
+    container_name: thc-plausible-events
+    restart: unless-stopped
+    volumes:
+      - plausible_events:/var/lib/clickhouse
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8123/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - thc-network
+
+  plausible:
+    image: ghcr.io/plausible/community-edition:v2
+    container_name: thc-plausible
+    restart: unless-stopped
+    command: sh -c "sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh run"
+    environment:
+      - BASE_URL=https://plausible.thcoalition.net
+      - SECRET_KEY_BASE=${PLAUSIBLE_SECRET_KEY:-replace-with-64-char-secret}
+      - DATABASE_URL=postgres://plausible:${PLAUSIBLE_DB_PASSWORD:-changeme}@plausible-db:5432/plausible
+      - CLICKHOUSE_DATABASE_URL=http://plausible-events-db:8123/plausible_events
+      - DISABLE_REGISTRATION=invite_only
+      - MAILER_EMAIL=analytics@thcoalition.net
+    expose:
+      - "8000"
+    depends_on:
+      plausible-db:
+        condition: service_healthy
+      plausible-events-db:
+        condition: service_healthy
+    networks:
+      - thc-network
+
+volumes:
+  caddy_data:
+  caddy_config:
+  caddy_logs:
+  plausible_db:
+  plausible_events:
+
+networks:
+  thc-network:
+    driver: bridge

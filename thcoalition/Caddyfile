@@ -1,0 +1,56 @@
+# Transparent Humboldt Coalition - Caddy Configuration
+# Auto-SSL via Let's Encrypt, reverse proxy to Astro
+
+thcoalition.net, www.thcoalition.net {
+    # Redirect www to bare domain
+    @www host www.thcoalition.net
+    redir @www https://thcoalition.net{uri} permanent
+
+    # Security headers
+    header {
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        X-XSS-Protection "1; mode=block"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Permissions-Policy "camera=(), microphone=(), geolocation=()"
+        Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+        -Server
+    }
+
+    # Reverse proxy to Astro container
+    reverse_proxy astro:4321 {
+        health_uri /
+        health_interval 30s
+    }
+
+    # Cache static assets aggressively
+    @static path *.css *.js *.svg *.png *.jpg *.jpeg *.webp *.woff2 *.woff
+    header @static Cache-Control "public, max-age=31536000, immutable"
+
+    # Shorter cache for HTML
+    @html path *.html /
+    header @html Cache-Control "public, max-age=3600, must-revalidate"
+
+    # Compression
+    encode gzip zstd
+
+    # Logging
+    log {
+        output file /var/log/caddy/thcoalition-access.log {
+            roll_size 10mb
+            roll_keep 5
+        }
+    }
+}
+
+# Plausible analytics subdomain
+plausible.thcoalition.net {
+    reverse_proxy plausible:8000
+
+    header {
+        X-Content-Type-Options "nosniff"
+        -Server
+    }
+
+    encode gzip zstd
+}

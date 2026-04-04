@@ -1,0 +1,3675 @@
+{
+  "dataItems": [
+    {
+      "id": "160e1689-1992-49a3-85be-4058da2eec28",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Communicate with Decision-Makers",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::power_map [institution]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/communicate-with-decision-makers",
+        "description": "Use ::power_map [institution] to craft messages that move officials to action.\n\nExample: 'What language works with city council versus what works with neighbors?'",
+        "_id": "160e1689-1992-49a3-85be-4058da2eec28",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:57.516Z"
+        },
+        "tags": [
+          "communication",
+          "officials",
+          "grassroots",
+          "advocacy",
+          "power"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "4988f51f-d0bd-4428-b524-6b915e4c815c",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Maintain Message Discipline",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/maintain-message-discipline",
+        "description": "Use ::narrative [cause] to stay on topic when discussing complex issues.\n\nExample: 'We keep getting sidetracked into arguments about related problems.'",
+        "_id": "4988f51f-d0bd-4428-b524-6b915e4c815c",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:57.515Z"
+        },
+        "tags": [
+          "communication",
+          "focus",
+          "grassroots",
+          "discipline",
+          "messaging"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "03f47dce-ee32-49db-b764-3c735042744b",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Use Humor in Communications",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/use-humor-in-communications",
+        "description": "Use ::narrative [cause] to lighten messages without trivializing serious issues.\n\nExample: 'Can we be funny about this without being disrespectful?'",
+        "_id": "03f47dce-ee32-49db-b764-3c735042744b",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:57.514Z"
+        },
+        "tags": [
+          "communication",
+          "humor",
+          "grassroots",
+          "tone",
+          "engagement"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "aaac6da2-1726-4af2-be87-6e4d264d55d9",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Create Communications Calendar",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::campaign_cycle [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/create-communications-calendar",
+        "description": "Use ::campaign_cycle [timeline] to plan consistent messaging over time.\n\nExample: 'We post randomly - how do we get organized about communications?'",
+        "_id": "aaac6da2-1726-4af2-be87-6e4d264d55d9",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:57.513Z"
+        },
+        "tags": [
+          "communication",
+          "planning",
+          "grassroots",
+          "consistency",
+          "schedule"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "c2d57a27-fc39-4c9c-a05a-91a0a4815057",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Evaluate Communication Effectiveness",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::campaign_assessment [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/evaluate-communication-effectiveness",
+        "description": "Use ::campaign_assessment [timeline] to learn what messages work.\n\nExample: 'How do we know if our communications are actually reaching people?'",
+        "_id": "c2d57a27-fc39-4c9c-a05a-91a0a4815057",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:57.512Z"
+        },
+        "tags": [
+          "communication",
+          "evaluation",
+          "grassroots",
+          "metrics",
+          "effectiveness"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "1731bb96-da46-40e9-ae4c-53120093e7f0",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Build an Email List",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::volunteer_mobilization [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/build-an-email-list",
+        "description": "Use ::volunteer_mobilization [timeline] to grow your communication reach.\n\nExample: 'How do we collect contact information without being invasive?'",
+        "_id": "1731bb96-da46-40e9-ae4c-53120093e7f0",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:40.372Z"
+        },
+        "tags": [
+          "communication",
+          "email-list",
+          "grassroots",
+          "database",
+          "outreach"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "d2feb9f8-93b7-4604-b8d8-16bb0aa43f1c",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Use Visual Communications",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/use-visual-communications",
+        "description": "Use ::narrative [cause] to create images and graphics that convey your message.\n\nExample: 'Words aren't enough - how do we use pictures effectively?'",
+        "_id": "d2feb9f8-93b7-4604-b8d8-16bb0aa43f1c",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:40.371Z"
+        },
+        "tags": [
+          "communication",
+          "visual",
+          "grassroots",
+          "graphics",
+          "design"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "68eb9328-e7da-408c-aa43-7f5084aef027",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Communicate Urgency Without Panic",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/communicate-urgency-without-panic",
+        "description": "Use ::narrative [cause] to convey importance while maintaining hope.\n\nExample: 'How do we show this matters NOW without making people feel hopeless?'",
+        "_id": "68eb9328-e7da-408c-aa43-7f5084aef027",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:40.370Z"
+        },
+        "tags": [
+          "communication",
+          "urgency",
+          "grassroots",
+          "hope",
+          "balance"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "c72c7a3b-c8fd-4dde-a0f3-07f4d4df648f",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Create Shareable Content",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::digital_physical_integration [campaign]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/create-shareable-content",
+        "description": "Use ::digital_physical_integration [campaign] to make materials people want to spread.\n\nExample: 'Our social media posts never get shared - what works?'",
+        "_id": "c72c7a3b-c8fd-4dde-a0f3-07f4d4df648f",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:40.369Z"
+        },
+        "tags": [
+          "communication",
+          "viral",
+          "grassroots",
+          "social-media",
+          "engagement"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "05a18b23-63b3-468e-82d4-fe431ab1b4c2",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Give Good Media Interviews",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::media_attention [action]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/give-good-media-interviews",
+        "description": "Use ::media_attention [action] to communicate effectively when press contacts you.\n\nExample: 'A reporter wants to talk - what should I say?'",
+        "_id": "05a18b23-63b3-468e-82d4-fe431ab1b4c2",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:40.368Z"
+        },
+        "tags": [
+          "communication",
+          "interviews",
+          "grassroots",
+          "media",
+          "press"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "64c4a2a9-4268-4ec2-9ab1-468fe9ee4825",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Tell Effective Stories",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/tell-effective-stories",
+        "description": "Use ::narrative [cause] to share experiences that move people to action.\n\nExample: 'How do I tell my story without getting too personal or political?'",
+        "_id": "64c4a2a9-4268-4ec2-9ab1-468fe9ee4825",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:26.493Z"
+        },
+        "tags": [
+          "communication",
+          "storytelling",
+          "grassroots",
+          "narrative",
+          "personal"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "05339f25-6d14-4f58-9337-3afd06318b2d",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Make Data Accessible",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/make-data-accessible",
+        "description": "Use ::narrative [cause] to present statistics in ways people understand.\n\nExample: 'We have lots of numbers but they don't connect emotionally.'",
+        "_id": "05339f25-6d14-4f58-9337-3afd06318b2d",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:26.492Z"
+        },
+        "tags": [
+          "communication",
+          "data",
+          "grassroots",
+          "visualization",
+          "accessibility"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "479760db-d536-4563-b4c9-914166f329d0",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Communicate Across Language Barriers",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/communicate-across-language-barriers",
+        "description": "Use ::coalition [issue] to reach non-English speaking community members.\n\nExample: 'How do we share information when people speak different languages?'",
+        "_id": "479760db-d536-4563-b4c9-914166f329d0",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:26.491Z"
+        },
+        "tags": [
+          "communication",
+          "translation",
+          "grassroots",
+          "language",
+          "multilingual"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "7483e466-12fd-4ef3-aefb-e80e0c061bd3",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Create Clear Calls to Action",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::challenge [goal]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/create-clear-calls-to-action",
+        "description": "Use ::challenge [goal] to tell people exactly what you want them to do.\n\nExample: 'People agree with us but don't know how to help.'",
+        "_id": "7483e466-12fd-4ef3-aefb-e80e0c061bd3",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:26.490Z"
+        },
+        "tags": [
+          "communication",
+          "action",
+          "grassroots",
+          "mobilization",
+          "clarity"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "b6a89cd1-cc64-4948-a8ee-6e8739321870",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Respond to Opposition Messaging",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/respond-to-opposition-messaging",
+        "description": "Use ::narrative [cause] to counter false claims without amplifying them.\n\nExample: 'They're spreading misinformation - how do we correct it?'",
+        "_id": "b6a89cd1-cc64-4948-a8ee-6e8739321870",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:26.489Z"
+        },
+        "tags": [
+          "communication",
+          "rebuttal",
+          "grassroots",
+          "opposition",
+          "truth"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "e184a887-14f5-4937-a292-142eab192073",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Handle Negative Comments Online",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/handle-negative-comments-online",
+        "description": "Use ::narrative [cause] to respond to criticism without escalating conflict.\n\nExample: 'Someone attacked us on social media - do we respond?'",
+        "_id": "e184a887-14f5-4937-a292-142eab192073",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:11.520Z"
+        },
+        "tags": [
+          "communication",
+          "crisis",
+          "grassroots",
+          "response",
+          "conflict"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "efcbc898-ee74-4994-995c-9e3ffb96da7d",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Create Consistent Branding",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/create-consistent-branding",
+        "description": "Use ::narrative [cause] to develop recognizable visual identity on limited budget.\n\nExample: 'Our materials look unprofessional - how do we improve without money?'",
+        "_id": "efcbc898-ee74-4994-995c-9e3ffb96da7d",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:11.519Z"
+        },
+        "tags": [
+          "communication",
+          "branding",
+          "grassroots",
+          "design",
+          "identity"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "626f612f-e101-49e6-b3e1-4f9a5bbefb85",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Frame Issues Positively",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/frame-issues-positively",
+        "description": "Use ::narrative [cause] to talk about problems without sounding negative.\n\nExample: 'We sound angry all the time - how do we stay hopeful?'",
+        "_id": "626f612f-e101-49e6-b3e1-4f9a5bbefb85",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:11.518Z"
+        },
+        "tags": [
+          "communication",
+          "framing",
+          "grassroots",
+          "positive",
+          "hope"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "78000315-f645-4640-ad20-67234f3b6687",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Translate Between Activist and Public Language",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/translate-between-activist-and-public-language",
+        "description": "Use ::narrative [cause] to communicate with people outside organizing circles.\n\nExample: 'We use terms like intersectionality but neighbors don't understand us.'",
+        "_id": "78000315-f645-4640-ad20-67234f3b6687",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:11.517Z"
+        },
+        "tags": [
+          "communication",
+          "language",
+          "grassroots",
+          "accessibility",
+          "jargon"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "4fe97ad8-9fe6-435b-8f50-c71c9ea27cb2",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Write Press Releases",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::media_attention [action]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/write-press-releases",
+        "description": "Use ::media_attention [action] to create statements that journalists actually use.\n\nExample: 'How do we write something newsworthy about our event?'",
+        "_id": "4fe97ad8-9fe6-435b-8f50-c71c9ea27cb2",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:46:11.516Z"
+        },
+        "tags": [
+          "communication",
+          "press",
+          "grassroots",
+          "media",
+          "news"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "c71633c9-99e2-4f29-b359-57b0c573c62f",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Craft Your Core Message",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/craft-your-core-message",
+        "description": "Use ::narrative [cause] to create clear language about your issue.\n\nExample: 'How do we explain our campaign in one sentence?'",
+        "_id": "c71633c9-99e2-4f29-b359-57b0c573c62f",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:45:39.324Z"
+        },
+        "tags": [
+          "communication",
+          "messaging",
+          "grassroots",
+          "framing",
+          "narrative"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "61567def-0b24-4708-905f-6ad82985294f",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Write Effective Flyers",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause] + ::challenge [goal]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/write-effective-flyers",
+        "description": "Use ::narrative [cause] + ::challenge [goal] to create materials people actually read.\n\nExample: 'Our flyers have too much text - what's essential?'",
+        "_id": "61567def-0b24-4708-905f-6ad82985294f",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:45:39.323Z"
+        },
+        "tags": [
+          "communication",
+          "materials",
+          "grassroots",
+          "design",
+          "outreach"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "87b0fb37-9b92-4302-b6ca-a0a2373e68d5",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Use Social Media for Organizing",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::digital_physical_integration [campaign]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/use-social-media-for-organizing",
+        "description": "Use ::digital_physical_integration [campaign] to leverage online platforms effectively.\n\nExample: 'How do we use Facebook/Instagram/etc without just preaching to ourselves?'",
+        "_id": "87b0fb37-9b92-4302-b6ca-a0a2373e68d5",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:45:39.322Z"
+        },
+        "tags": [
+          "communication",
+          "social-media",
+          "grassroots",
+          "digital",
+          "engagement"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "8a29a7d6-1ed8-4406-b3de-11a889f209a1",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Talk to Local Media",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::media_attention [action]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/talk-to-local-media",
+        "description": "Use ::media_attention [action] to get press coverage for your issue.\n\nExample: 'How do we get the newspaper to cover our campaign?'",
+        "_id": "8a29a7d6-1ed8-4406-b3de-11a889f209a1",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:45:39.321Z"
+        },
+        "tags": [
+          "communication",
+          "media",
+          "grassroots",
+          "press",
+          "coverage"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "58e36706-e920-44a8-b763-f75bc23509bf",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Write Effective Emails",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/write-effective-emails",
+        "description": "Use ::narrative [cause] to send messages that people open and act on.\n\nExample: 'Our group emails get ignored - how do we improve?'",
+        "_id": "58e36706-e920-44a8-b763-f75bc23509bf",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:45:39.320Z"
+        },
+        "tags": [
+          "communication",
+          "email",
+          "grassroots",
+          "digital",
+          "engagement"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Communications & Messaging"
+      }
+    },
+    {
+      "id": "ef6b313e-ddce-45e5-958f-3001bcebfa81",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Maintain Independence in Coalitions",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/maintain-independence-in-coalitions",
+        "description": "Use ::coalition [issue] to collaborate without losing your group's identity.\n\nExample: 'How do we partner without being absorbed by larger organizations?'",
+        "_id": "ef6b313e-ddce-45e5-958f-3001bcebfa81",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:45:21.523Z"
+        },
+        "tags": [
+          "coalition",
+          "independence",
+          "grassroots",
+          "autonomy",
+          "identity"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "9ffd3e91-7e93-4a2c-9c53-8aa2ef0f9ede",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Build Reciprocal Relationships",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/build-reciprocal-relationships",
+        "description": "Use ::coalition [issue] to create mutually beneficial partnerships.\n\nExample: 'We always ask for help but what can we offer in return?'",
+        "_id": "9ffd3e91-7e93-4a2c-9c53-8aa2ef0f9ede",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:45:21.522Z"
+        },
+        "tags": [
+          "coalition",
+          "reciprocity",
+          "grassroots",
+          "mutual-aid",
+          "exchange"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "136e5b00-62e9-4620-917e-e4af393613d9",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Connect Single-Issue and Multi-Issue Groups",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/connect-single-issue-and-multi-issue-groups",
+        "description": "Use ::coalition [issue] to bridge focused and broad organizing approaches.\n\nExample: 'We focus on one problem; they work on everything - can we collaborate?'",
+        "_id": "136e5b00-62e9-4620-917e-e4af393613d9",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:45:21.521Z"
+        },
+        "tags": [
+          "coalition",
+          "scope",
+          "grassroots",
+          "single-issue",
+          "multi-issue"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "8b7dd7c0-e570-4232-9711-bfbf93530979",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Learn from Coalition Partners",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::training [skill]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/learn-from-coalition-partners",
+        "description": "Use ::training [skill] to build capacity through partnerships.\n\nExample: 'They have experience we lack - how do we learn without seeming incompetent?'",
+        "_id": "8b7dd7c0-e570-4232-9711-bfbf93530979",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:45:21.520Z"
+        },
+        "tags": [
+          "coalition",
+          "learning",
+          "grassroots",
+          "capacity",
+          "development"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "74af97bf-34d0-407f-8865-6e82b648014f",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Create Coalition Accountability",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/create-coalition-accountability",
+        "description": "Use ::coalition [issue] to ensure partners follow through on commitments.\n\nExample: 'Groups agree to help then disappear when it's time to act.'",
+        "_id": "74af97bf-34d0-407f-8865-6e82b648014f",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:45:21.519Z"
+        },
+        "tags": [
+          "coalition",
+          "accountability",
+          "grassroots",
+          "follow-through",
+          "reliability"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "102551a0-f622-4901-a24a-70d8c1912c8d",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Connect with Faith Communities",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/connect-with-faith-communities",
+        "description": "Use ::coalition [issue] to build relationships with religious organizations.\n\nExample: 'How do we work with churches without imposing on their beliefs?'",
+        "_id": "102551a0-f622-4901-a24a-70d8c1912c8d",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:44:06.892Z"
+        },
+        "tags": [
+          "coalition",
+          "faith",
+          "grassroots",
+          "religious",
+          "interfaith"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "0cc0cf42-f4f3-4ad1-b0c3-05c3d557e380",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Partner with Labor Unions",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/partner-with-labor-unions",
+        "description": "Use ::coalition [issue] to collaborate with organized labor on shared concerns.\n\nExample: 'The union fights for workers - can they help with community issues too?'",
+        "_id": "0cc0cf42-f4f3-4ad1-b0c3-05c3d557e380",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:44:06.891Z"
+        },
+        "tags": [
+          "coalition",
+          "labor",
+          "grassroots",
+          "unions",
+          "workers"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "eb5da697-d22e-40d5-a7f2-04f772f503de",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Work with Environmental Groups",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/work-with-environmental-groups",
+        "description": "Use ::coalition [issue] to connect local concerns to environmental justice.\n\nExample: 'Our neighborhood health problems are also environmental issues.'",
+        "_id": "eb5da697-d22e-40d5-a7f2-04f772f503de",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:44:06.890Z"
+        },
+        "tags": [
+          "coalition",
+          "environment",
+          "grassroots",
+          "climate",
+          "justice"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "a9c46e7b-85cc-4dc3-8413-30ee89d7ba2e",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Bridge Urban and Rural Organizing",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/bridge-urban-and-rural-organizing",
+        "description": "Use ::coalition [issue] to work across geographic and cultural divides.\n\nExample: 'City and country groups face different realities - can we find common ground?'",
+        "_id": "a9c46e7b-85cc-4dc3-8413-30ee89d7ba2e",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:44:06.889Z"
+        },
+        "tags": [
+          "coalition",
+          "geography",
+          "grassroots",
+          "urban-rural",
+          "solidarity"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "73fa428f-c90b-4d48-9bf4-856ad1a39480",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Connect Different Generations of Activists",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/connect-different-generations-of-activists",
+        "description": "Use ::coalition [issue] to bridge experience gaps and avoid age-based conflicts.\n\nExample: 'Older activists say we're too radical; younger ones say they're outdated.'",
+        "_id": "73fa428f-c90b-4d48-9bf4-856ad1a39480",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:44:06.888Z"
+        },
+        "tags": [
+          "coalition",
+          "intergenerational",
+          "grassroots",
+          "age",
+          "experience"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "bc7ebbb5-9362-48e3-ba71-64721ea69020",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Maintain Coalition Communication",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::digital_physical_integration [campaign]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/maintain-coalition-communication",
+        "description": "Use ::digital_physical_integration [campaign] to keep partners informed and aligned.\n\nExample: 'Coalition partners don't know what others are doing.'",
+        "_id": "bc7ebbb5-9362-48e3-ba71-64721ea69020",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:43:52.480Z"
+        },
+        "tags": [
+          "coalition",
+          "communication",
+          "grassroots",
+          "coordination",
+          "updates"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "87c2c96a-2cf1-4dec-9d74-c997b200d16b",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Include Smaller Groups in Coalitions",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/include-smaller-groups-in-coalitions",
+        "description": "Use ::coalition [issue] to prevent big organizations from dominating.\n\nExample: 'The established groups ignore our input because we're small.'",
+        "_id": "87c2c96a-2cf1-4dec-9d74-c997b200d16b",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:43:52.479Z"
+        },
+        "tags": [
+          "coalition",
+          "equity",
+          "grassroots",
+          "inclusion",
+          "power-balance"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "c11649c0-1940-43d2-907e-a01161285572",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Navigate Coalition Politics",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::power_map [institution]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/navigate-coalition-politics",
+        "description": "Use ::power_map [institution] to understand relationships and tensions.\n\nExample: 'There's history between groups that I don't understand.'",
+        "_id": "c11649c0-1940-43d2-907e-a01161285572",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:43:52.478Z"
+        },
+        "tags": [
+          "coalition",
+          "politics",
+          "grassroots",
+          "relationships",
+          "history"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "04e459de-dcb7-4922-b9a6-b71c01d72541",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Build Long-Term Coalition Relationships",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/build-long-term-coalition-relationships",
+        "description": "Use ::coalition [issue] to create lasting partnerships beyond single campaigns.\n\nExample: 'How do we stay connected after this campaign ends?'",
+        "_id": "04e459de-dcb7-4922-b9a6-b71c01d72541",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:43:52.477Z"
+        },
+        "tags": [
+          "coalition",
+          "long-term",
+          "grassroots",
+          "sustainability",
+          "relationships"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "73e3e893-b4f1-46a6-9ee2-615530768abb",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Know When to Leave a Coalition",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/know-when-to-leave-a-coalition",
+        "description": "Use ::coalition [issue] to recognize when partnerships become harmful.\n\nExample: 'This coalition is draining our energy - should we stay or go?'",
+        "_id": "73e3e893-b4f1-46a6-9ee2-615530768abb",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:43:52.476Z"
+        },
+        "tags": [
+          "coalition",
+          "boundaries",
+          "grassroots",
+          "exit",
+          "self-care"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "9786da81-35e7-454a-9aa1-ca887a83a11e",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Handle Coalition Conflicts",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/handle-coalition-conflicts",
+        "description": "Use ::coalition [issue] to resolve disagreements between partner organizations.\n\nExample: 'Two groups in our coalition want to take opposite approaches.'",
+        "_id": "9786da81-35e7-454a-9aa1-ca887a83a11e",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:43:39.963Z"
+        },
+        "tags": [
+          "coalition",
+          "conflict",
+          "grassroots",
+          "mediation",
+          "resolution"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "3b1dd614-c86d-4ae1-af55-db98c08961ab",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Build Trust Across Organizations",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/build-trust-across-organizations",
+        "description": "Use ::narrative [cause] to establish credibility with coalition partners.\n\nExample: 'They don't trust us because we're new - how do we prove ourselves?'",
+        "_id": "3b1dd614-c86d-4ae1-af55-db98c08961ab",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:43:39.962Z"
+        },
+        "tags": [
+          "coalition",
+          "trust",
+          "grassroots",
+          "credibility",
+          "relationships"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "ce12e68d-ff83-4f06-bc84-c1f52d17c09d",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Create Coalition Agreements",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/create-coalition-agreements",
+        "description": "Use ::coalition [issue] to establish clear expectations and responsibilities.\n\nExample: 'How do we make sure everyone follows through on commitments?'",
+        "_id": "ce12e68d-ff83-4f06-bc84-c1f52d17c09d",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:43:39.961Z"
+        },
+        "tags": [
+          "coalition",
+          "agreements",
+          "grassroots",
+          "accountability",
+          "structure"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "9053c36f-8ebf-4f37-80a7-410c75b5724f",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Balance Different Group Priorities",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/balance-different-group-priorities",
+        "description": "Use ::coalition [issue] to respect diverse agendas while maintaining focus.\n\nExample: 'Each organization wants to emphasize different aspects of the problem.'",
+        "_id": "9053c36f-8ebf-4f37-80a7-410c75b5724f",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:43:39.960Z"
+        },
+        "tags": [
+          "coalition",
+          "priorities",
+          "grassroots",
+          "compromise",
+          "unity"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "44343046-15c0-47fe-89f4-da9b4fef4bd2",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Share Credit for Coalition Wins",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/share-credit-for-coalition-wins",
+        "description": "Use ::narrative [cause] to celebrate success without ego battles.\n\nExample: 'Everyone wants to claim the victory - how do we share recognition?'",
+        "_id": "44343046-15c0-47fe-89f4-da9b4fef4bd2",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:43:39.959Z"
+        },
+        "tags": [
+          "coalition",
+          "credit",
+          "grassroots",
+          "recognition",
+          "solidarity"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "faa80460-2c67-416f-b243-b324268f39f5",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Find Potential Coalition Partners",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/find-potential-coalition-partners",
+        "description": "Use ::coalition [issue] to identify groups working on related problems.\n\nExample: 'Who else in our area cares about similar issues?'",
+        "_id": "faa80460-2c67-416f-b243-b324268f39f5",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:43:26.858Z"
+        },
+        "tags": [
+          "coalition",
+          "partnership",
+          "grassroots",
+          "networking",
+          "allies"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "1989f618-492c-4135-8327-cd0ebd59f53a",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Make First Contact with Organizations",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/make-first-contact-with-organizations",
+        "description": "Use ::narrative [cause] to introduce yourself to potential partner groups.\n\nExample: 'How do I reach out to the tenant association without seeming needy?'",
+        "_id": "1989f618-492c-4135-8327-cd0ebd59f53a",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:43:26.857Z"
+        },
+        "tags": [
+          "coalition",
+          "outreach",
+          "grassroots",
+          "introduction",
+          "networking"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "3c326a3d-9e56-4f93-9d56-dfcf366b8fa5",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Bridge Different Organizing Styles",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/bridge-different-organizing-styles",
+        "description": "Use ::coalition [issue] to work with groups that have different approaches.\n\nExample: 'They're very formal and we're casual - can we still partner?'",
+        "_id": "3c326a3d-9e56-4f93-9d56-dfcf366b8fa5",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:43:26.856Z"
+        },
+        "tags": [
+          "coalition",
+          "culture",
+          "grassroots",
+          "adaptation",
+          "flexibility"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "bb1050dc-3538-4d92-9350-45b73c689223",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Share Resources with Partner Groups",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::resource_assessment [available]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/share-resources-with-partner-groups",
+        "description": "Use ::resource_assessment [available] to collaborate without creating dependency.\n\nExample: 'We have meeting space but they have funding - how do we share fairly?'",
+        "_id": "bb1050dc-3538-4d92-9350-45b73c689223",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:43:26.855Z"
+        },
+        "tags": [
+          "coalition",
+          "resources",
+          "grassroots",
+          "sharing",
+          "reciprocity"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "2255d7e6-de4d-4e88-8d4d-06d291ba8964",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Plan Joint Actions",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::direct_action [tactic]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/plan-joint-actions",
+        "description": "Use ::direct_action [tactic] to coordinate activities across multiple groups.\n\nExample: 'How do we organize something together without stepping on each other's toes?'",
+        "_id": "2255d7e6-de4d-4e88-8d4d-06d291ba8964",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:43:26.854Z"
+        },
+        "tags": [
+          "coalition",
+          "coordination",
+          "grassroots",
+          "joint-action",
+          "collaboration"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Coalition & Relationship Building"
+      }
+    },
+    {
+      "id": "fc1b5837-382f-432e-b5d1-605cf0fcd371",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Plan After the Campaign Ends",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/plan-after-the-campaign-ends",
+        "description": "Use ::coalition [issue] to maintain relationships and infrastructure for future work.\n\nExample: 'We won - now what? How do we keep people organized?'",
+        "_id": "fc1b5837-382f-432e-b5d1-605cf0fcd371",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:42:39.340Z"
+        },
+        "tags": [
+          "campaign",
+          "sustainability",
+          "grassroots",
+          "long-term",
+          "infrastructure"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "308d25ed-5749-4a42-b392-e5ea819f3ab3",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Document Campaign Lessons",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::campaign_assessment [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/document-campaign-lessons",
+        "description": "Use ::campaign_assessment [timeline] to capture what worked for future campaigns.\n\nExample: 'How do we remember what we learned for next time?'",
+        "_id": "308d25ed-5749-4a42-b392-e5ea819f3ab3",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:42:39.339Z"
+        },
+        "tags": [
+          "campaign",
+          "documentation",
+          "grassroots",
+          "learning",
+          "knowledge"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "9bc289d6-a62e-4a8a-a401-5dc72de3abd4",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Connect Your Issue to Bigger Movements",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/connect-your-issue-to-bigger-movements",
+        "description": "Use ::coalition [issue] to link local campaigns to regional or national efforts.\n\nExample: 'Our housing struggle is part of a bigger crisis - how do we connect?'",
+        "_id": "9bc289d6-a62e-4a8a-a401-5dc72de3abd4",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:42:39.338Z"
+        },
+        "tags": [
+          "campaign",
+          "movement",
+          "grassroots",
+          "solidarity",
+          "scale"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "0d3ee764-6b25-4db6-8d7c-11df4d0e8af7",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Protect Campaign Participants",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::training [skill]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/protect-campaign-participants",
+        "description": "Use ::training [skill] to keep volunteers safe from retaliation or harm.\n\nExample: 'Some people worry about speaking out - how do we protect them?'",
+        "_id": "0d3ee764-6b25-4db6-8d7c-11df4d0e8af7",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:42:39.337Z"
+        },
+        "tags": [
+          "campaign",
+          "safety",
+          "grassroots",
+          "protection",
+          "security"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "f573ca28-2d0e-4d87-8384-c01af1913b5e",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Keep Campaigns Ethical",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/keep-campaigns-ethical",
+        "description": "Use ::narrative [cause] to maintain integrity while fighting for change.\n\nExample: 'How do we win without becoming like the people we're fighting against?'",
+        "_id": "f573ca28-2d0e-4d87-8384-c01af1913b5e",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:42:39.336Z"
+        },
+        "tags": [
+          "campaign",
+          "ethics",
+          "grassroots",
+          "integrity",
+          "values"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "f2ea86b2-bcd6-4bbd-b209-3335f9da1f85",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Coordinate Campaign Communications",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::digital_physical_integration [campaign]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/coordinate-campaign-communications",
+        "description": "Use ::digital_physical_integration [campaign] to keep everyone informed and aligned.\n\nExample: 'Half our volunteers don't know what the other half is doing.'",
+        "_id": "f2ea86b2-bcd6-4bbd-b209-3335f9da1f85",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:42:24.142Z"
+        },
+        "tags": [
+          "campaign",
+          "communication",
+          "grassroots",
+          "coordination",
+          "alignment"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "d9800384-4647-402c-8adc-c541e8597c83",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Make Campaign Decisions Democratically",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/make-campaign-decisions-democratically",
+        "description": "Use ::coalition [issue] to include diverse voices in strategy choices.\n\nExample: 'How do we decide tactics without one person controlling everything?'",
+        "_id": "d9800384-4647-402c-8adc-c541e8597c83",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:42:24.141Z"
+        },
+        "tags": [
+          "campaign",
+          "democracy",
+          "grassroots",
+          "participation",
+          "decision-making"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "d9358c1b-44f6-47b6-a07f-76cc352e46d1",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Plan Campaign Events",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::media_attention [action]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/plan-campaign-events",
+        "description": "Use ::media_attention [action] to organize activities that build support and visibility.\n\nExample: 'What kind of events will help our campaign gain traction?'",
+        "_id": "d9358c1b-44f6-47b6-a07f-76cc352e46d1",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:42:24.140Z"
+        },
+        "tags": [
+          "campaign",
+          "events",
+          "grassroots",
+          "visibility",
+          "mobilization"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "4e4ad479-794d-4ab0-9b37-17e63a9cf3bf",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Budget Your Campaign",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::resource_assessment [available]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/budget-your-campaign",
+        "description": "Use ::resource_assessment [available] to plan what you can accomplish with limited funds.\n\nExample: 'We have no money - can we still run an effective campaign?'",
+        "_id": "4e4ad479-794d-4ab0-9b37-17e63a9cf3bf",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:42:24.139Z"
+        },
+        "tags": [
+          "campaign",
+          "budget",
+          "grassroots",
+          "resources",
+          "funding"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "42454b5b-55e3-4f76-aafd-58cca18167e3",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Know When to Declare Victory",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::campaign_assessment [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/know-when-to-declare-victory",
+        "description": "Use ::campaign_assessment [timeline] to recognize success and celebrate wins.\n\nExample: 'We got partial success - is that enough or should we keep pushing?'",
+        "_id": "42454b5b-55e3-4f76-aafd-58cca18167e3",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:42:24.138Z"
+        },
+        "tags": [
+          "campaign",
+          "victory",
+          "grassroots",
+          "wins",
+          "celebration"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "3234e57e-d9e9-4581-8f3b-8b4d3e6d5ac5",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Track Campaign Progress",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::campaign_assessment [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/track-campaign-progress",
+        "description": "Use ::campaign_assessment [timeline] to measure if your tactics are working.\n\nExample: 'How do we know if we're making progress or wasting time?'",
+        "_id": "3234e57e-d9e9-4581-8f3b-8b4d3e6d5ac5",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:41:33.716Z"
+        },
+        "tags": [
+          "campaign",
+          "evaluation",
+          "grassroots",
+          "metrics",
+          "assessment"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "17b0fb7d-b035-4c64-89e6-1ef3ae49dc89",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Adjust Strategy When Things Aren't Working",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::rapid_response_planning [crisis]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/adjust-strategy-when-things-aren't-working",
+        "description": "Use ::rapid_response_planning [crisis] to change course without giving up.\n\nExample: 'Our petition isn't getting signatures - should we quit or try something else?'",
+        "_id": "17b0fb7d-b035-4c64-89e6-1ef3ae49dc89",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:41:33.715Z"
+        },
+        "tags": [
+          "campaign",
+          "adaptation",
+          "grassroots",
+          "flexibility",
+          "pivot"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "284583b2-3be1-4a44-a1ae-99d8c667bccd",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Build Campaign Momentum",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::volunteer_mobilization [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/build-campaign-momentum",
+        "description": "Use ::volunteer_mobilization [timeline] to increase participation as you progress.\n\nExample: 'How do we grow from five core people to fifty active supporters?'",
+        "_id": "284583b2-3be1-4a44-a1ae-99d8c667bccd",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:41:33.714Z"
+        },
+        "tags": [
+          "campaign",
+          "momentum",
+          "grassroots",
+          "growth",
+          "mobilization"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "6cbc2635-df23-4aec-8098-589a6d7ef808",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Handle Campaign Setbacks",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/handle-campaign-setbacks",
+        "description": "Use ::narrative [cause] to maintain morale when facing obstacles.\n\nExample: 'We lost the vote - how do we keep people from giving up?'",
+        "_id": "6cbc2635-df23-4aec-8098-589a6d7ef808",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:41:33.713Z"
+        },
+        "tags": [
+          "campaign",
+          "setbacks",
+          "grassroots",
+          "resilience",
+          "morale"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "ca311113-e963-4d8f-b1a2-e8b111e7047a",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Plan Campaign Escalation",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::direct_action [tactic]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/plan-campaign-escalation",
+        "description": "Use ::direct_action [tactic] to increase pressure when initial tactics don't work.\n\nExample: 'They ignored our letters - what's the next level of action?'",
+        "_id": "ca311113-e963-4d8f-b1a2-e8b111e7047a",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:41:33.712Z"
+        },
+        "tags": [
+          "campaign",
+          "escalation",
+          "grassroots",
+          "pressure",
+          "tactics"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "00830267-ce3f-4cf0-89b7-4aca710713b1",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Anticipate Opposition",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::power_map [institution]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/anticipate-opposition",
+        "description": "Use ::power_map [institution] to identify who might resist your campaign.\n\nExample: 'Will we face pushback and from whom?'",
+        "_id": "00830267-ce3f-4cf0-89b7-4aca710713b1",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:41:20.606Z"
+        },
+        "tags": [
+          "campaign",
+          "opposition",
+          "grassroots",
+          "strategy",
+          "resistance"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "bd1c1e94-7381-42be-ad33-82df6b035e93",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Build a Campaign Message",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/build-a-campaign-message",
+        "description": "Use ::narrative [cause] to explain your campaign in a way that motivates action.\n\nExample: 'How do we talk about our issue without sounding preachy?'",
+        "_id": "bd1c1e94-7381-42be-ad33-82df6b035e93",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:41:20.605Z"
+        },
+        "tags": [
+          "campaign",
+          "messaging",
+          "grassroots",
+          "communication",
+          "narrative"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "703df4ff-2085-4834-ae3d-61837f2eaadf",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Assign Campaign Roles",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::training [skill]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/assign-campaign-roles",
+        "description": "Use ::training [skill] to divide tasks among volunteers effectively.\n\nExample: 'Who should do what in our campaign?'",
+        "_id": "703df4ff-2085-4834-ae3d-61837f2eaadf",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:41:20.604Z"
+        },
+        "tags": [
+          "campaign",
+          "roles",
+          "grassroots",
+          "delegation",
+          "organization"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "be471165-de50-4305-a2d1-9ba9980ecd5f",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Set Realistic Expectations",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::campaign_cycle [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/set-realistic-expectations",
+        "description": "Use ::campaign_cycle [timeline] to help people understand what's achievable.\n\nExample: 'People expect instant results - how do we manage expectations?'",
+        "_id": "be471165-de50-4305-a2d1-9ba9980ecd5f",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:41:20.603Z"
+        },
+        "tags": [
+          "campaign",
+          "expectations",
+          "grassroots",
+          "realism",
+          "timeline"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "2afadd52-a33c-477b-877a-25d6f0f486f9",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Plan Multiple Campaign Tactics",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::direct_action [tactic]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/plan-multiple-campaign-tactics",
+        "description": "Use ::direct_action [tactic] to create pressure from different angles.\n\nExample: 'Should we use just petitions or combine several approaches?'",
+        "_id": "2afadd52-a33c-477b-877a-25d6f0f486f9",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:41:20.602Z"
+        },
+        "tags": [
+          "campaign",
+          "tactics",
+          "grassroots",
+          "strategy",
+          "pressure"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "7efc7326-735b-4334-b13e-f42313a3d67a",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Define Your Campaign Goal",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::challenge [goal]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/define-your-campaign-goal",
+        "description": "Use ::challenge [goal] to create a clear, winnable objective.\n\nExample: 'We want to improve our neighborhood but don't know where to focus.'",
+        "_id": "7efc7326-735b-4334-b13e-f42313a3d67a",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:41:05.143Z"
+        },
+        "tags": [
+          "campaign",
+          "goals",
+          "grassroots",
+          "planning",
+          "strategy"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "c1262f4e-be05-4605-93f3-60e76a891e09",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Identify Decision-Makers",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::power_map [institution]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/identify-decision-makers",
+        "description": "Use ::power_map [institution] to figure out who can actually solve your problem.\n\nExample: 'Who do we need to convince to get the stop sign installed?'",
+        "_id": "c1262f4e-be05-4605-93f3-60e76a891e09",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:41:05.142Z"
+        },
+        "tags": [
+          "campaign",
+          "targets",
+          "grassroots",
+          "power-mapping",
+          "decision-makers"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "757a12d0-5ab8-4585-95fa-93ab34e94e6e",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Create a Simple Timeline",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::campaign_cycle [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/create-a-simple-timeline",
+        "description": "Use ::campaign_cycle [timeline] to break big goals into manageable steps.\n\nExample: 'We want results but everything feels overwhelming - where do we start?'",
+        "_id": "757a12d0-5ab8-4585-95fa-93ab34e94e6e",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:41:05.141Z"
+        },
+        "tags": [
+          "campaign",
+          "timeline",
+          "grassroots",
+          "planning",
+          "milestones"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "64ade4c7-1d45-433a-a835-b42debbc3a35",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Count Your Supporters",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/count-your-supporters",
+        "description": "Use ::coalition [issue] to assess how many people might join your effort.\n\nExample: 'How do we know if we have enough support to win?'",
+        "_id": "64ade4c7-1d45-433a-a835-b42debbc3a35",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:41:05.140Z"
+        },
+        "tags": [
+          "campaign",
+          "assessment",
+          "grassroots",
+          "supporters",
+          "capacity"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "a6fd8170-93aa-4f0e-a302-b6f816cdcabe",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Plan Your First Campaign Action",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::direct_action [tactic]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/plan-your-first-campaign-action",
+        "description": "Use ::direct_action [tactic] to choose an effective first step.\n\nExample: 'Should we start with a petition, meeting, or something else?'",
+        "_id": "a6fd8170-93aa-4f0e-a302-b6f816cdcabe",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:41:05.139Z"
+        },
+        "tags": [
+          "campaign",
+          "action",
+          "grassroots",
+          "tactics",
+          "mobilization"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Campaign Planning"
+      }
+    },
+    {
+      "id": "ed6c4710-f64d-4149-b2f4-6f6ccfff03c9",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Navigate Community Power Dynamics",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/navigate-community-power-dynamics",
+        "description": "Use ::coalition [issue] to work with established groups without getting co-opted.\n\nExample: 'The neighborhood association has been around forever but doesn't represent everyone.'",
+        "_id": "ed6c4710-f64d-4149-b2f4-6f6ccfff03c9",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:35:16.421Z"
+        },
+        "tags": [
+          "community",
+          "power",
+          "grassroots",
+          "politics",
+          "representation"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "2087471a-f406-4667-8e1b-9c8a9c5a4f88",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Deal with Problem Members",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::training [skill]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/deal-with-problem-members",
+        "description": "Use ::training [skill] to handle people who create conflict or violate group norms.\n\nExample: 'One person makes inappropriate comments and others are uncomfortable.'",
+        "_id": "2087471a-f406-4667-8e1b-9c8a9c5a4f88",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:35:16.420Z"
+        },
+        "tags": [
+          "community",
+          "conflict",
+          "grassroots",
+          "boundaries",
+          "safety"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "c3b93f14-8b56-4bf8-ba1d-828bed8ad132",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Celebrate Small Victories",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/celebrate-small-victories",
+        "description": "Use ::narrative [cause] to maintain momentum even when big wins feel far away.\n\nExample: 'We're making progress but people are discouraged by slow change.'",
+        "_id": "c3b93f14-8b56-4bf8-ba1d-828bed8ad132",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:35:16.419Z"
+        },
+        "tags": [
+          "community",
+          "celebration",
+          "grassroots",
+          "morale",
+          "wins"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "42f11b0a-56ee-4bd8-9a33-87d0cb9c35fe",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Connect Personal Stories to Bigger Issues",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause] + ::challenge [goal]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/connect-personal-stories-to-bigger-issues",
+        "description": "Use ::narrative [cause] + ::challenge [goal] to show how individual experiences reveal systemic problems.\n\nExample: 'My childcare struggles aren't just personal - it's a community-wide problem.'",
+        "_id": "42f11b0a-56ee-4bd8-9a33-87d0cb9c35fe",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:35:16.418Z"
+        },
+        "tags": [
+          "community",
+          "storytelling",
+          "grassroots",
+          "systemic",
+          "personal-political"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "3b063fb0-1088-4d7a-881c-e48ae263d6be",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Plan for Long-Term Community Building",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::campaign_cycle [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/plan-for-long-term-community-building",
+        "description": "Use ::campaign_cycle [timeline] to think beyond single issues toward lasting change.\n\nExample: 'We won on the park but now everyone's drifting apart - how do we stay organized?'",
+        "_id": "3b063fb0-1088-4d7a-881c-e48ae263d6be",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:35:16.417Z"
+        },
+        "tags": [
+          "community",
+          "long-term",
+          "grassroots",
+          "sustainability",
+          "infrastructure"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "fbe59c12-6d7a-44ae-840c-2f17ea0a55eb",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Build Relationships Across Different Neighborhoods",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/build-relationships-across-different-neighborhoods",
+        "description": "Use ::coalition [issue] to connect groups working on similar problems.\n\nExample: 'The east side and west side never work together but face the same issues.'",
+        "_id": "fbe59c12-6d7a-44ae-840c-2f17ea0a55eb",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:35:01.117Z"
+        },
+        "tags": [
+          "community",
+          "neighborhood",
+          "grassroots",
+          "coalition",
+          "geography"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "87452fdc-2029-4e8f-a0a9-783a256cf963",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Engage Business Owners in Community Issues",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/engage-business-owners-in-community-issues",
+        "description": "Use ::coalition [issue] to bring local businesses into neighborhood organizing.\n\nExample: 'Store owners care about the street but don't come to resident meetings.'",
+        "_id": "87452fdc-2029-4e8f-a0a9-783a256cf963",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:35:01.116Z"
+        },
+        "tags": [
+          "community",
+          "business",
+          "grassroots",
+          "stakeholders",
+          "economy"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "8f05520f-9578-4535-a889-b6f5ca29bcb4",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Create Community Traditions",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::local [area]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/create-community-traditions",
+        "description": "Use ::local [area] to establish regular activities that build lasting relationships.\n\nExample: 'We want more than just meetings - something that brings neighbors together socially.'",
+        "_id": "8f05520f-9578-4535-a889-b6f5ca29bcb4",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:35:01.115Z"
+        },
+        "tags": [
+          "community",
+          "tradition",
+          "grassroots",
+          "culture",
+          "bonding"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "34ef2e51-e8fe-4ab1-adb3-a08e26d4a067",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Use Social Media for Local Organizing",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::digital_physical_integration [campaign]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/use-social-media-for-local-organizing",
+        "description": "Use ::digital_physical_integration [campaign] to connect online and offline engagement.\n\nExample: 'We have a Facebook group but can't get people to actual events.'",
+        "_id": "34ef2e51-e8fe-4ab1-adb3-a08e26d4a067",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:35:01.114Z"
+        },
+        "tags": [
+          "community",
+          "social-media",
+          "grassroots",
+          "digital",
+          "online-to-offline"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "0e315d4b-c4eb-49be-ab1a-df08d6ea3519",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Prevent Organizer Burnout",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::training [skill]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/prevent-organizer-burnout",
+        "description": "Use ::training [skill] to share responsibility before leaders get exhausted.\n\nExample: 'I've been running everything myself for six months and I'm tired.'",
+        "_id": "0e315d4b-c4eb-49be-ab1a-df08d6ea3519",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:35:01.113Z"
+        },
+        "tags": [
+          "community",
+          "burnout",
+          "grassroots",
+          "sustainability",
+          "self-care"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "5160f4ea-271f-48a4-8822-ef24aeb82bd8",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Overcome Language Barriers",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/overcome-language-barriers",
+        "description": "Use ::coalition [issue] to include non-English speaking neighbors in organizing.\n\nExample: 'Half our building speaks Spanish - how do we communicate effectively?'",
+        "_id": "5160f4ea-271f-48a4-8822-ef24aeb82bd8",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:34:44.367Z"
+        },
+        "tags": [
+          "community",
+          "language",
+          "grassroots",
+          "inclusion",
+          "translation"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "021d7318-c77b-4470-b64a-3b3578c25a35",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Engage People with Disabilities",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::local [area]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/engage-people-with-disabilities",
+        "description": "Use ::local [area] to make organizing accessible to neighbors with different abilities.\n\nExample: 'How do I include the wheelchair user who can't get to our meeting location?'",
+        "_id": "021d7318-c77b-4470-b64a-3b3578c25a35",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:34:44.366Z"
+        },
+        "tags": [
+          "community",
+          "accessibility",
+          "grassroots",
+          "disability",
+          "inclusion"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "fdb7baa0-f4df-4a1b-923a-85af6d63613c",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Turn One-Time Volunteers into Long-Term Members",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::volunteer_mobilization [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/turn-one-time-volunteers-into-long-term-members",
+        "description": "Use ::volunteer_mobilization [timeline] to keep people engaged after initial involvement.\n\nExample: 'Fifteen people helped at our cleanup but none came back for the next activity.'",
+        "_id": "fdb7baa0-f4df-4a1b-923a-85af6d63613c",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:34:44.365Z"
+        },
+        "tags": [
+          "community",
+          "retention",
+          "grassroots",
+          "volunteers",
+          "engagement"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "94737d4d-e7e7-40c6-883f-e1bdf32743f4",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Create Leadership Opportunities",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::training [skill]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/create-leadership-opportunities",
+        "description": "Use ::training [skill] to help community members take on bigger roles.\n\nExample: 'Maria is great but doesn't think she can lead - how do I build her confidence?'",
+        "_id": "94737d4d-e7e7-40c6-883f-e1bdf32743f4",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:34:44.364Z"
+        },
+        "tags": [
+          "community",
+          "leadership",
+          "grassroots",
+          "development",
+          "empowerment"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "f530c6de-c56c-4610-8849-93867cf4bca2",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Respond to Community Skepticism",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/respond-to-community-skepticism",
+        "description": "Use ::narrative [cause] to address doubts without getting defensive.\n\nExample: 'People say nothing ever changes so why bother trying?'",
+        "_id": "f530c6de-c56c-4610-8849-93867cf4bca2",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:34:44.363Z"
+        },
+        "tags": [
+          "community",
+          "skepticism",
+          "grassroots",
+          "trust",
+          "credibility"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "5ff8a37e-662b-4979-af02-93f8fd84c92c",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Build Trust with New Neighbors",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::local [area] + ::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/build-trust-with-new-neighbors",
+        "description": "Use ::local [area] + ::narrative [cause] to establish credibility before asking people to organize.\n\nExample: 'I'm new to the neighborhood - how do I start conversations without seeming pushy?'",
+        "_id": "5ff8a37e-662b-4979-af02-93f8fd84c92c",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:34:28.059Z"
+        },
+        "tags": [
+          "community",
+          "trust-building",
+          "grassroots",
+          "relationships",
+          "newcomers"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "0c346493-89b6-4433-a46a-a0ee187fc1d5",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Reach People Who Don't Come to Meetings",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::volunteer_mobilization [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/reach-people-who-don't-come-to-meetings",
+        "description": "Use ::volunteer_mobilization [timeline] to engage community members in non-traditional ways.\n\nExample: 'Most neighbors work during meeting times or don't like formal gatherings.'",
+        "_id": "0c346493-89b6-4433-a46a-a0ee187fc1d5",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:34:28.058Z"
+        },
+        "tags": [
+          "community",
+          "outreach",
+          "grassroots",
+          "accessibility",
+          "engagement"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "8ef4cfad-5908-453a-ada9-4a5dd2a6828a",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Turn Complaints into Action",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::challenge [goal]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/turn-complaints-into-action",
+        "description": "Use ::challenge [goal] to help frustrated neighbors become active participants.\n\nExample: 'Everyone complains about potholes but no one wants to do anything about it.'",
+        "_id": "8ef4cfad-5908-453a-ada9-4a5dd2a6828a",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:34:28.057Z"
+        },
+        "tags": [
+          "community",
+          "activation",
+          "grassroots",
+          "problem-solving",
+          "mobilization"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "364152a0-60d8-4382-bc90-82d3318b49df",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Bridge Different Age Groups",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/bridge-different-age-groups",
+        "description": "Use ::coalition [issue] to help younger and older neighbors work together.\n\nExample: 'Young families and retirees both care about the park but don't interact.'",
+        "_id": "364152a0-60d8-4382-bc90-82d3318b49df",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:34:28.056Z"
+        },
+        "tags": [
+          "community",
+          "intergenerational",
+          "grassroots",
+          "coalition",
+          "diversity"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "a5cee895-9bab-4276-bd18-7b6707befd92",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Include Renters and Homeowners Together",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/include-renters-and-homeowners-together",
+        "description": "Use ::coalition [issue] to overcome tensions between different types of residents.\n\nExample: 'Homeowners think renters don't care about the neighborhood long-term.'",
+        "_id": "a5cee895-9bab-4276-bd18-7b6707befd92",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T23:34:28.055Z"
+        },
+        "tags": [
+          "community",
+          "housing",
+          "grassroots",
+          "coalition",
+          "equity"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "bc5718b5-51e2-4d48-8e1d-de21aa8bf4d1",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Start Conversations with Neighbors",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::local [your area] + ::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/start-conversations-with-neighbors",
+        "description": "Use ::local [your area] + ::narrative [cause] to connect your story to local concerns.\n\nExample: 'I want to talk to neighbors about speeding cars but don't know how to bring it up.'",
+        "_id": "bc5718b5-51e2-4d48-8e1d-de21aa8bf4d1",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:29:35.256Z"
+        },
+        "tags": [
+          "community",
+          "engagement",
+          "grassroots",
+          "conversation",
+          "outreach"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "62611870-8de6-4797-b279-905ad0741334",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Find People Who Already Care",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/find-people-who-already-care",
+        "description": "Use ::coalition [issue] to identify neighbors who share your concerns.\n\nExample: 'Help me find other parents worried about the playground safety.'",
+        "_id": "62611870-8de6-4797-b279-905ad0741334",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:29:35.255Z"
+        },
+        "tags": [
+          "community",
+          "recruitment",
+          "grassroots",
+          "coalition",
+          "organizing"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "06498226-368d-4133-a06b-f8e8367bc43d",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Listen to Community Concerns",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::local [area]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/listen-to-community-concerns",
+        "description": "Use ::local [area] to understand what issues people already talk about.\n\nExample: 'I want to organize but don't know what problems matter most to my neighbors.'",
+        "_id": "06498226-368d-4133-a06b-f8e8367bc43d",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:29:35.254Z"
+        },
+        "tags": [
+          "community",
+          "listening",
+          "grassroots",
+          "assessment",
+          "needs"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "c16ad224-b046-41fb-a63a-d2964d16fc41",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Share Your Personal Story",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::narrative [cause]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/share-your-personal-story",
+        "description": "Use ::narrative [cause] to explain why you care without lecturing people.\n\nExample: 'How do I tell neighbors about my healthcare struggles in a way that motivates action?'",
+        "_id": "c16ad224-b046-41fb-a63a-d2964d16fc41",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:29:35.253Z"
+        },
+        "tags": [
+          "community",
+          "storytelling",
+          "grassroots",
+          "narrative",
+          "personal"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "c33999fb-818c-4e9b-9991-b25f861c4919",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Connect Different Issues",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/connect-different-issues",
+        "description": "Use ::coalition [issue] to show how your concern relates to other problems.\n\nExample: 'The bus route affects both seniors and working parents - how do I bring them together?'",
+        "_id": "c33999fb-818c-4e9b-9991-b25f861c4919",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:29:35.252Z"
+        },
+        "tags": [
+          "community",
+          "coalition",
+          "grassroots",
+          "intersectionality",
+          "solidarity"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Community Engagement"
+      }
+    },
+    {
+      "id": "57dc245e-7a8a-4b52-afcb-8acf6678d80f",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Create Regular Meeting Schedules",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::campaign_cycle [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/create-regular-meeting-schedules",
+        "description": "Use ::campaign_cycle [timeline] to establish consistent gathering times that work for your community.\n\nExample: 'Should we meet weekly, monthly, or only when there's something urgent to discuss?'",
+        "_id": "57dc245e-7a8a-4b52-afcb-8acf6678d80f",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:28:58.890Z"
+        },
+        "tags": [
+          "meeting",
+          "scheduling",
+          "grassroots",
+          "consistency",
+          "planning"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "513daab6-4524-493b-a83f-4ad91bcf355d",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Plan Educational Events",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::training [skill]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/plan-educational-events",
+        "description": "Use ::training [skill] to organize workshops or information sessions for your community.\n\nExample: 'People want to learn about tenant rights but we're not experts ourselves.'",
+        "_id": "513daab6-4524-493b-a83f-4ad91bcf355d",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:28:58.889Z"
+        },
+        "tags": [
+          "event",
+          "education",
+          "grassroots",
+          "training",
+          "capacity-building"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "a7e93283-b20b-4a1f-9a21-756700485e04",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Organize Community Social Events",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/organize-community-social-events",
+        "description": "Use ::coalition [issue] to build relationships through non-political gatherings.\n\nExample: 'How do we get neighbors to know each other better before asking them to organize together?'",
+        "_id": "a7e93283-b20b-4a1f-9a21-756700485e04",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:28:58.888Z"
+        },
+        "tags": [
+          "event",
+          "social",
+          "grassroots",
+          "community-building",
+          "relationships"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "9669e9fb-e3d6-40e0-b5ea-94873f401b5b",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Evaluate What's Working",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::campaign_assessment [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/evaluate-what's-working",
+        "description": "Use ::campaign_assessment [timeline] to improve your meetings and events over time.\n\nExample: 'Our meetings feel disorganized and people seem frustrated.'",
+        "_id": "9669e9fb-e3d6-40e0-b5ea-94873f401b5b",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:28:58.887Z"
+        },
+        "tags": [
+          "meeting",
+          "evaluation",
+          "grassroots",
+          "improvement",
+          "reflection"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "3f05bd88-dba1-407a-8565-587d4a6ead74",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Coordinate Multiple Events",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::campaign_cycle [timeline] + ::volunteer_mobilization",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/coordinate-multiple-events",
+        "description": "Use ::campaign_cycle [timeline] + ::volunteer_mobilization to plan a series of connected activities.\n\nExample: 'We want to do a petition drive, public forum, and city council presentation in sequence.'",
+        "_id": "3f05bd88-dba1-407a-8565-587d4a6ead74",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:28:58.886Z"
+        },
+        "tags": [
+          "event",
+          "sequence",
+          "grassroots",
+          "campaign",
+          "coordination"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "d18ad871-1ec8-489c-af99-0dd74e48b499",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Handle Conflicts During Meetings",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/handle-conflicts-during-meetings",
+        "description": "Use ::coalition [issue] to manage disagreements without destroying relationships.\n\nExample: 'Two neighbors got into a heated argument and now they won't work together.'",
+        "_id": "d18ad871-1ec8-489c-af99-0dd74e48b499",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:28:44.315Z"
+        },
+        "tags": [
+          "meeting",
+          "conflict",
+          "grassroots",
+          "mediation",
+          "relationships"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "0d48f553-30d6-47d2-a1e9-60aefc97c087",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Make Meetings Welcoming for Newcomers",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::training [skill]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/make-meetings-welcoming-for-newcomers",
+        "description": "Use ::training [skill] to help new people feel included instead of confused.\n\nExample: 'A new family wants to join but they don't understand our group's history.'",
+        "_id": "0d48f553-30d6-47d2-a1e9-60aefc97c087",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:28:44.314Z"
+        },
+        "tags": [
+          "meeting",
+          "onboarding",
+          "grassroots",
+          "inclusion",
+          "welcoming"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "0c531a75-44a5-4a21-af04-7da6351b2120",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Plan Effective Public Forums",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::media_attention [action]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/plan-effective-public-forums",
+        "description": "Use ::media_attention [action] to organize community events that attract attention.\n\nExample: 'We want to invite city council candidates to talk about our neighborhood issues.'",
+        "_id": "0c531a75-44a5-4a21-af04-7da6351b2120",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:28:44.313Z"
+        },
+        "tags": [
+          "event",
+          "public-forum",
+          "grassroots",
+          "media",
+          "visibility"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "97e0d6bf-62b9-4b25-97f4-7e063864f778",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Coordinate with Local Organizations",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/coordinate-with-local-organizations",
+        "description": "Use ::coalition [issue] to work with existing groups for joint events.\n\nExample: 'The tenant association and parent group both care about traffic safety.'",
+        "_id": "97e0d6bf-62b9-4b25-97f4-7e063864f778",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:28:44.312Z"
+        },
+        "tags": [
+          "event",
+          "coalition",
+          "grassroots",
+          "partnerships",
+          "collaboration"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "b1e6fb2a-ac5c-4faf-9f50-adbba16ea682",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Handle Hostile Attendees",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::training [skill]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/handle-hostile-attendees",
+        "description": "Use ::training [skill] to manage people who come to disrupt rather than participate.\n\nExample: 'Someone keeps coming to our meetings just to argue and cause problems.'",
+        "_id": "b1e6fb2a-ac5c-4faf-9f50-adbba16ea682",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:28:44.311Z"
+        },
+        "tags": [
+          "meeting",
+          "disruption",
+          "grassroots",
+          "security",
+          "boundaries"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "afef6e7d-26b8-4cbe-b4ba-f3c42656c9cf",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Make Events Accessible for Everyone",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/make-events-accessible-for-everyone",
+        "description": "Use ::coalition [issue] to include people with different needs and abilities.\n\nExample: 'How do we make sure elderly neighbors and families with young kids can participate?'",
+        "_id": "afef6e7d-26b8-4cbe-b4ba-f3c42656c9cf",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:28:09.228Z"
+        },
+        "tags": [
+          "event",
+          "accessibility",
+          "grassroots",
+          "inclusion",
+          "equity"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "002aca10-55c7-42cd-907c-0af1d3d308b1",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Document Your Meetings",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::campaign_assessment [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/document-your-meetings",
+        "description": "Use ::campaign_assessment [timeline] to keep track of decisions and follow-up tasks.\n\nExample: 'No one remembers what we decided last meeting - how do we keep better records?'",
+        "_id": "002aca10-55c7-42cd-907c-0af1d3d308b1",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:28:09.227Z"
+        },
+        "tags": [
+          "meeting",
+          "documentation",
+          "grassroots",
+          "recordkeeping",
+          "accountability"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "5da77eec-d390-4537-9da4-cc22bf7fe530",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Follow Up After Events",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::volunteer_mobilization [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/follow-up-after-events",
+        "description": "Use ::volunteer_mobilization [timeline] to maintain momentum after successful gatherings.\n\nExample: 'Twenty people came to our forum - how do we keep them involved?'",
+        "_id": "5da77eec-d390-4537-9da4-cc22bf7fe530",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:28:09.226Z"
+        },
+        "tags": [
+          "event",
+          "follow-up",
+          "grassroots",
+          "momentum",
+          "engagement"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "f5e0bf6c-ba5a-40ee-9a22-a12a04a247d0",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Divide Up Tasks Fairly",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::training [skill]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/divide-up-tasks-fairly",
+        "description": "<p class=\"font_8\">Use ::training [skill] to share workload so one person doesn't get overwhelmed. Example: 'I'm doing all the board level organizing myself and getting burned out.'</p>",
+        "_id": "f5e0bf6c-ba5a-40ee-9a22-a12a04a247d0",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:28:09.225Z"
+        },
+        "tags": [
+          "meeting",
+          "task-management",
+          "grassroots",
+          "delegation",
+          "sustainability"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "ce1de9cd-49c7-4463-87ff-6cf3cb46b44f",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Use Online Tools for Coordination",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::digital_physical_integration [campaign]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/use-online-tools-for-coordination",
+        "description": "Use ::digital_physical_integration [campaign] to coordinate between meetings.\n\nExample: 'How do we stay in touch and share information between monthly meetings?'",
+        "_id": "ce1de9cd-49c7-4463-87ff-6cf3cb46b44f",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:28:09.224Z"
+        },
+        "tags": [
+          "meeting",
+          "digital-tools",
+          "grassroots",
+          "coordination",
+          "communication"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "4bda05bb-dc42-4f67-9813-ab639f4bb859",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Make Decisions as a Group",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::coalition [issue]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/make-decisions-as-a-group",
+        "description": "Use ::coalition [issue] to help people with different opinions reach agreement.\n\nExample: 'We all want safer streets but can't agree on speed bumps versus stop signs.'",
+        "_id": "4bda05bb-dc42-4f67-9813-ab639f4bb859",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:27:45.890Z"
+        },
+        "tags": [
+          "meeting",
+          "decision-making",
+          "grassroots",
+          "consensus",
+          "conflict-resolution"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "4fbd38a4-2974-44b6-a824-ec281e87b585",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Keep People Engaged During Meetings",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::training [skill]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/keep-people-engaged-during-meetings",
+        "description": "Use ::training [skill] to prevent boring meetings that make people stop coming.\n\nExample: 'How do I make sure everyone participates instead of just listening passively?'",
+        "_id": "4fbd38a4-2974-44b6-a824-ec281e87b585",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:27:45.889Z"
+        },
+        "tags": [
+          "meeting",
+          "engagement",
+          "grassroots",
+          "participation",
+          "facilitation"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "97437fc5-5e20-45b3-96bd-bd6eb0a3247a",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Plan a Community Action Event",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::direct_action [tactic]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/plan-a-community-action-event",
+        "description": "Use ::direct_action [tactic] to organize your first public demonstration or gathering.\n\nExample: 'We want to show the city council we care about the park - what kind of event should we hold?'",
+        "_id": "97437fc5-5e20-45b3-96bd-bd6eb0a3247a",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:27:45.888Z"
+        },
+        "tags": [
+          "event",
+          "action",
+          "grassroots",
+          "demonstration",
+          "organizing"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "22ecfd3a-ab4e-4ccb-a003-b76ef4beb17e",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Coordinate Event Logistics",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::volunteer_mobilization [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/coordinate-event-logistics",
+        "description": "Use ::volunteer_mobilization [timeline] to handle permits, supplies, and volunteer tasks.\n\nExample: 'Our rally is in two weeks - what do we need to organize besides showing up?'",
+        "_id": "22ecfd3a-ab4e-4ccb-a003-b76ef4beb17e",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:27:45.887Z"
+        },
+        "tags": [
+          "event",
+          "logistics",
+          "grassroots",
+          "planning",
+          "coordination"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "84e53c8e-6424-4dc8-b373-2d0f8084dd63",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Handle Bad Weather or Problems",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::rapid_response_planning [crisis]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/handle-bad-weather-or-problems",
+        "description": "Use ::rapid_response_planning [crisis] to prepare for things going wrong at your event.\n\nExample: 'What if it rains during our outdoor community meeting?'",
+        "_id": "84e53c8e-6424-4dc8-b373-2d0f8084dd63",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:27:45.886Z"
+        },
+        "tags": [
+          "event",
+          "contingency",
+          "grassroots",
+          "crisis",
+          "planning"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "d7d20d61-977e-4166-b09b-3dfe1ce56b05",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Plan Your First Community Meeting",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::training [skill]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/plan-your-first-community-meeting",
+        "description": "Use ::training [skill] to organize a gathering that actually accomplishes something.\n\nExample: 'Six neighbors want to meet about the speeding problem - how do I run a productive meeting?'",
+        "_id": "d7d20d61-977e-4166-b09b-3dfe1ce56b05",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:27:16.724Z"
+        },
+        "tags": [
+          "meeting",
+          "event",
+          "grassroots",
+          "community",
+          "planning"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "57428552-27be-47e3-b743-07b60119502a",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Choose the Right Meeting Format",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::local [area]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/choose-the-right-meeting-format",
+        "description": "Use ::local [area] to pick a meeting style that fits your community's culture.\n\nExample: 'Should we meet at the library, someone's house, or the coffee shop?'",
+        "_id": "57428552-27be-47e3-b743-07b60119502a",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:27:16.723Z"
+        },
+        "tags": [
+          "meeting",
+          "format",
+          "grassroots",
+          "community",
+          "location"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "ce6891d5-4f66-4230-b47e-5543a1a9aa0e",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Create a Simple Agenda",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::challenge [goal]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/create-a-simple-agenda",
+        "description": "Use ::challenge [goal] to focus your meeting on specific decisions or actions.\n\nExample: 'We have one hour to talk about playground safety - what should we cover?'",
+        "_id": "ce6891d5-4f66-4230-b47e-5543a1a9aa0e",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:27:16.722Z"
+        },
+        "tags": [
+          "meeting",
+          "agenda",
+          "grassroots",
+          "planning",
+          "goals"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "4d8da318-8e28-4a28-8b3e-908f10100ab1",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Get People to Actually Show Up",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::volunteer_mobilization [timeline]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/get-people-to-actually-show-up",
+        "description": "Use ::volunteer_mobilization [timeline] to remind people and make attendance easy.\n\nExample: 'I invited twelve people but only three came to the meeting.'",
+        "_id": "4d8da318-8e28-4a28-8b3e-908f10100ab1",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:27:16.721Z"
+        },
+        "tags": [
+          "meeting",
+          "attendance",
+          "grassroots",
+          "mobilization",
+          "turnout"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "4e345e4e-7a74-40bf-bc55-d2d4ac0c29c5",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Handle People Who Talk Too Much",
+        "tier": "Free",
+        "difficulty_level": "Basic",
+        "prompt_text": "::training [skill]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/handle-people-who-talk-too-much",
+        "description": "Use ::training [skill] to manage discussions that get off track or dominated by one person.\n\nExample: 'Bob always takes over meetings with long stories about the old days.'",
+        "_id": "4e345e4e-7a74-40bf-bc55-d2d4ac0c29c5",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-29T17:27:16.720Z"
+        },
+        "tags": [
+          "meeting",
+          "facilitation",
+          "grassroots",
+          "conflict",
+          "management"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "category": "Meeting & Event Organization"
+      }
+    },
+    {
+      "id": "0636cca4-840a-402c-a903-8cfa336963d5",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Simple Campaign Planning Assistant",
+        "tier": "Free",
+        "difficulty_level": "Beginner",
+        "prompt_text": "Help me create a basic campaign plan for [ISSUE/CAUSE] in [LOCATION]. Please provide:\n\n**1. Goal Definition:**\n- Clear, specific campaign objective\n- Success metrics and timeline\n- Primary and secondary goals\n\n**2. Stakeholder Analysis:**\n- Key decision-makers who can create change\n- Potential supporters and allies\n- Opposition forces and concerns\n\n**3. Resource Assessment:**\n- Available human resources (volunteers, staff, partners)\n- Financial resources and fundraising opportunities\n- Communication tools and platforms\n\n**4. Strategic Approach:**\n- 3-5 key tactics to achieve the goal\n- Community engagement and mobilization plan\n- Timeline with major milestones\n\n**5. First Steps:**\n- Immediate actions to take this week\n- Key people to contact\n- Initial organizing activities\n\nKeep language accessible and focus on practical, actionable steps for grassroots organizers.",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/simple-campaign-planning-assistant",
+        "description": "Generate foundational campaign strategy framework for grassroots organizing efforts. Perfect for new organizers or quick strategy development.",
+        "_id": "0636cca4-840a-402c-a903-8cfa336963d5",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-25T20:28:44.386Z"
+        },
+        "tags": [
+          "campaign strategy",
+          "grassroots organizing",
+          "community mobilization",
+          "strategic planning",
+          "beginner friendly"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "ethics_score": 10.0,
+        "category": "Campaign Strategy",
+        "use_cases": [
+          "Campaign Planning",
+          "Community Organizing",
+          "Strategy Development",
+          "Grassroots Mobilization"
+        ]
+      }
+    },
+    {
+      "id": "486e3c4a-1a38-4a34-8d49-96cc5ed37c67",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Coalition Crisis Communication Framework",
+        "tier": "Movement Leadership",
+        "difficulty_level": "Expert",
+        "prompt_text": "You are a senior movement strategist managing crisis communication for a multi-organizational coalition facing [CRISIS SITUATION]. Develop a comprehensive response framework:\n\n**1. Immediate Response Protocol (0-4 hours):**\n- Internal stakeholder notification sequence\n- Holding statement for media/public\n- Legal and safety considerations\n- Coalition partner coordination\n\n**2. Strategic Communication Plan (4-48 hours):**\n- Detailed narrative framework addressing concerns\n- Differentiated messaging by audience (members, media, funders, opponents)\n- Spokesperson designation and talking points\n- Social media strategy and response protocols\n\n**3. Coalition Coordination:**\n- Partner organization communication protocols  \n- Joint statement development process\n- Resource sharing and mutual support plans\n- Long-term relationship preservation strategies\n\n**4. Recovery and Strengthening:**\n- Community trust rebuilding measures\n- Coalition resilience improvements\n- Lessons learned integration\n- Future crisis prevention protocols\n\nPrioritize transparency, accountability, and coalition unity while protecting organizational missions and community trust.",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/coalition-crisis-communication-framework",
+        "description": "Navigate complex crisis communication across multi-organization coalitions with strategic messaging and stakeholder management.",
+        "_id": "486e3c4a-1a38-4a34-8d49-96cc5ed37c67",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-25T03:17:35.216Z"
+        },
+        "tags": [
+          "crisis communication",
+          "coalition management",
+          "strategic messaging",
+          "movement leadership"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "ethics_score": 8.0,
+        "category": "Crisis Management",
+        "use_cases": [
+          "Crisis Management",
+          "Coalition Leadership",
+          "Strategic Communication",
+          "Stakeholder Relations"
+        ]
+      }
+    },
+    {
+      "id": "8556589e-3822-4325-8f46-59d5042b810b",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Social Media Call-to-Action Creator",
+        "tier": "Activist Toolkit",
+        "difficulty_level": "Beginner",
+        "prompt_text": "Create a powerful social media post for [PLATFORM] about [ISSUE/ACTION] that includes:\n\n1. **Hook**: Attention-grabbing opening line or question\n2. **Context**: Brief explanation of the issue in accessible language\n3. **Clear Action**: Specific step followers can take right now\n4. **Urgency**: Why this matters today\n5. **Community Connection**: How individual action contributes to collective impact\n6. **Hashtags**: 3-5 relevant, searchable hashtags\n\nKeep it under [PLATFORM CHARACTER LIMIT]. Use active voice and direct language. Include emoji if appropriate for audience. Focus on empowerment over outrage.",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/social-media-call-to-action-creator",
+        "description": "Generate engaging social media posts that drive real-world action and community engagement.",
+        "_id": "8556589e-3822-4325-8f46-59d5042b810b",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-25T03:17:20.070Z"
+        },
+        "tags": [
+          "social media",
+          "digital organizing",
+          "community engagement",
+          "call-to-action"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "ethics_score": 9.0,
+        "category": "Digital Organizing",
+        "use_cases": [
+          "Social Media",
+          "Digital Campaigns",
+          "Community Mobilization"
+        ]
+      }
+    },
+    {
+      "id": "ac1be394-2e88-419f-80d3-50d44e2dd1e3",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Grassroots Fundraising Letter Generator",
+        "tier": "Organizer Training",
+        "difficulty_level": "Intermediate",
+        "prompt_text": "Write a powerful grassroots fundraising letter for [CAUSE/CAMPAIGN] that: \n\n1. **Opens with Impact**: Start with a compelling story or urgent call to action\n2. **Builds Emotional Connection**: Connect donor values to campaign goals\n3. **Provides Concrete Ask**: Specify exact amount needed and what it accomplishes\n4. **Shows Transparency**: Explain how funds will be used with specific examples\n5. **Creates Urgency**: Include deadline or time-sensitive element\n6. **Personalizes Appeal**: Tailor language to grassroots donor motivations\n\nTone: Authentic, passionate, respectful. Avoid corporate language. Focus on community impact and collective power. Include specific dollar amounts and their real-world impact. [You may include specific documents with the intended writing style and voice for extra context]",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/grassroots-fundraising-letter-generator",
+        "description": "Create compelling fundraising appeals that resonate with small-dollar donors and build sustainable grassroots funding.",
+        "_id": "ac1be394-2e88-419f-80d3-50d44e2dd1e3",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-25T03:17:07.013Z"
+        },
+        "tags": [
+          "fundraising",
+          "grassroots",
+          "donor engagement",
+          "community support"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "ethics_score": 10.0,
+        "category": "Fundraising & Finance",
+        "use_cases": [
+          "Small-Dollar Fundraising",
+          "Email Campaigns",
+          "Direct Mail"
+        ]
+      }
+    },
+    {
+      "id": "a41da57d-6e7e-4460-b770-3ab3ece8e90a",
+      "dataCollectionId": "liberationlabs_tools",
+      "data": {
+        "name": "Community Opposition Research Framework",
+        "tier": "Organization Builder",
+        "difficulty_level": "Advanced",
+        "prompt_text": "You are an expert community organizer tasked with conducting opposition research. Analyze [OPPOSITION TARGET/ISSUE] and provide: \n\n1. **Stakeholder Mapping**: Identify key opposition players, their relationships, funding sources, and motivations\n2. **Tactical Analysis**: Document their typical strategies, messaging patterns, and pressure points\n3. **Vulnerability Assessment**: Find ethical leverage points and potential coalition opportunities\n4. **Counter-Strategy Development**: Design 3-5 specific tactics to neutralize opposition efforts\n5. **Narrative Framework**: Craft compelling counter-narratives that expose opposition weaknesses\n\nFocus on ethical research using public information. Emphasize community empowerment over personal attacks. Provide actionable intelligence for grassroots organizers.",
+        "link-liberation-labs-tools-name": "/liberation-labs-tools/community-opposition-research-framework",
+        "description": "Systematically research opposition tactics and develop counter-strategies for community organizing campaigns.",
+        "_id": "a41da57d-6e7e-4460-b770-3ab3ece8e90a",
+        "_owner": "ec19f447-df7e-4c63-8625-6e1e44e9acd3",
+        "_createdDate": {
+          "$date": "2025-09-25T03:16:50.513Z"
+        },
+        "tags": [
+          "opposition research",
+          "campaign strategy",
+          "community organizing",
+          "tactical analysis"
+        ],
+        "_updatedDate": {
+          "$date": "2025-10-01T01:01:36.818Z"
+        },
+        "ethics_score": 9.0,
+        "category": "Research & Analysis",
+        "use_cases": [
+          "Campaign Planning",
+          "Strategic Analysis",
+          "Coalition Building"
+        ]
+      }
+    }
+  ],
+  "pagingMetadata": {
+    "totalCount": 130
+  }
+}

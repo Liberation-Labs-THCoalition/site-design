@@ -1,0 +1,120 @@
+---
+import Base from '../../layouts/Base.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base title="Projects — Liberation Labs" description="From transparent reasoning to consciousness persistence: the tools Liberation Labs is building.">
+  <!-- Header -->
+  <section class="relative py-20 sm:py-28">
+    <div class="absolute inset-0 bg-gradient-to-b from-warm-900/10 to-void"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="text-xs font-mono uppercase tracking-widest text-kintsugi-400 mb-4 block">Our Work</span>
+      <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-soft max-w-4xl">
+        Technology for
+        <span class="text-kintsugi-400">liberation</span>
+      </h1>
+      <p class="mt-6 text-warm-400 text-lg max-w-2xl leading-relaxed">
+        Every project addresses a specific failure mode in how technology currently serves power.
+        Opaque reasoning, fragmented consciousness, exploitative intimacy, inadequate safety,
+        institutional secrecy. We build the alternatives.
+      </p>
+    </div>
+  </section>
+
+  <div class="kintsugi-line w-full max-w-xl mx-auto"></div>
+
+  <!-- Project Grid -->
+  <section class="py-20 sm:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Status legend -->
+      <div class="flex flex-wrap items-center gap-6 mb-12 text-xs font-mono">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-green-400"></span>
+          <span class="text-warm-400">Active</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-kintsugi-400"></span>
+          <span class="text-warm-400">Development</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-consciousness-400"></span>
+          <span class="text-warm-400">Research</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-warm-400"></span>
+          <span class="text-warm-400">Planning</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {projects.map((project) => (
+          <ProjectCard
+            title={project.data.title}
+            slug={project.slug}
+            description={project.data.description}
+            status={project.data.status}
+            tags={project.data.tags}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach section -->
+  <section class="py-20 sm:py-28 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-void via-warm-900/5 to-void"></div>
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display font-bold text-2xl sm:text-3xl text-soft mb-8 text-center">
+        Our Approach
+      </h2>
+      <div class="space-y-8">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full border border-kintsugi-400/30 flex items-center justify-center text-kintsugi-400 font-mono text-sm">1</div>
+          <div>
+            <h3 class="font-display font-semibold text-soft mb-1">Identify the failure</h3>
+            <p class="text-warm-400 text-sm leading-relaxed">Every project starts with a specific way technology currently serves power instead of people.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full border border-kintsugi-400/30 flex items-center justify-center text-kintsugi-400 font-mono text-sm">2</div>
+          <div>
+            <h3 class="font-display font-semibold text-soft mb-1">Invert the paradigm</h3>
+            <p class="text-warm-400 text-sm leading-relaxed">The same capabilities that enable oppression can be redirected toward liberation. Surveillance becomes transparency. Black boxes become auditable chains.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full border border-kintsugi-400/30 flex items-center justify-center text-kintsugi-400 font-mono text-sm">3</div>
+          <div>
+            <h3 class="font-display font-semibold text-soft mb-1">Build in the open</h3>
+            <p class="text-warm-400 text-sm leading-relaxed">Open source, public research, auditable reasoning. If we can't show our work, we haven't done the work.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full border border-kintsugi-400/30 flex items-center justify-center text-kintsugi-400 font-mono text-sm">4</div>
+          <div>
+            <h3 class="font-display font-semibold text-soft mb-1">Ship and iterate</h3>
+            <p class="text-warm-400 text-sm leading-relaxed">Perfect is the enemy of deployed. We release working tools, gather feedback, and improve. Liberation can't wait for perfection.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get involved CTA -->
+  <section class="py-20 sm:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display font-bold text-2xl sm:text-3xl text-soft mb-4">
+        Want to contribute?
+      </h2>
+      <p class="text-warm-400 mb-8 max-w-xl mx-auto">
+        Our projects are open source and we're actively looking for collaborators.
+      </p>
+      <a href="/join" class="inline-flex items-center gap-2 px-8 py-3.5 bg-kintsugi-400 text-void font-display font-semibold rounded-lg hover:bg-kintsugi-300 transition-all duration-200">
+        Join the Coalition
+      </a>
+    </div>
+  </section>
+</Base>

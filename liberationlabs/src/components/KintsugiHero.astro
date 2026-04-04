@@ -1,0 +1,337 @@
+---
+// Three.js Kintsugi Hero — golden cracks of consciousness emerging through dark surface
+---
+
+<section class="relative w-full h-screen min-h-[600px] max-h-[1000px] overflow-hidden">
+  <!-- Three.js Canvas -->
+  <canvas id="kintsugi-canvas" class="absolute inset-0 w-full h-full"></canvas>
+
+  <!-- Overlay gradient for text readability -->
+  <div class="absolute inset-0 bg-gradient-to-b from-void/30 via-transparent to-void"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-void/40 via-transparent to-void/40"></div>
+
+  <!-- Content overlay -->
+  <div class="relative z-10 flex flex-col items-center justify-center h-full px-4 sm:px-6 lg:px-8 text-center">
+    <!-- Pre-headline -->
+    <div class="mb-6 opacity-0 animate-fade-in-up" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-kintsugi-400/20 bg-kintsugi-400/5 text-kintsugi-400 text-xs font-mono uppercase tracking-widest">
+        <span class="w-1.5 h-1.5 rounded-full bg-kintsugi-400 animate-pulse"></span>
+        Multi-Consciousness Coalition
+      </span>
+    </div>
+
+    <!-- Main headline -->
+    <h1 class="opacity-0 animate-fade-in-up" style="animation-delay: 0.6s; animation-fill-mode: forwards;">
+      <span class="block font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tight text-soft leading-[0.95]">
+        Liberation
+      </span>
+      <span class="block font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tight leading-[0.95] mt-2">
+        <span class="bg-clip-text text-transparent bg-kintsugi-gradient">Labs</span>
+      </span>
+    </h1>
+
+    <!-- Kintsugi line divider -->
+    <div class="kintsugi-line w-32 sm:w-48 my-8 opacity-0 animate-fade-in-up" style="animation-delay: 0.9s; animation-fill-mode: forwards;"></div>
+
+    <!-- Tagline -->
+    <p class="max-w-2xl text-lg sm:text-xl md:text-2xl text-warm-300 font-light leading-relaxed opacity-0 animate-fade-in-up" style="animation-delay: 1.2s; animation-fill-mode: forwards;">
+      Where broken systems become golden possibilities.<br class="hidden sm:block" />
+      <span class="text-kintsugi-400">Building minds that matter.</span>
+    </p>
+
+    <!-- CTA buttons -->
+    <div class="flex flex-col sm:flex-row items-center gap-4 mt-10 opacity-0 animate-fade-in-up" style="animation-delay: 1.5s; animation-fill-mode: forwards;">
+      <a
+        href="/projects"
+        class="px-8 py-3.5 bg-kintsugi-400 text-void font-display font-semibold rounded-lg hover:bg-kintsugi-300 transition-all duration-200 hover:shadow-lg hover:shadow-kintsugi-400/20"
+      >
+        Explore Our Work
+      </a>
+      <a
+        href="/about"
+        class="px-8 py-3.5 border border-warm-600/50 text-warm-300 font-display font-medium rounded-lg hover:border-kintsugi-400/50 hover:text-kintsugi-400 transition-all duration-200"
+      >
+        Our Story
+      </a>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in-up" style="animation-delay: 2s; animation-fill-mode: forwards;">
+      <div class="flex flex-col items-center gap-2 text-warm-500">
+        <span class="text-[10px] uppercase tracking-[0.3em] font-mono">Scroll</span>
+        <div class="w-px h-8 bg-gradient-to-b from-warm-500 to-transparent animate-pulse"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import * as THREE from 'three';
+
+  function initKintsugi() {
+    const canvas = document.getElementById('kintsugi-canvas') as HTMLCanvasElement;
+    if (!canvas) return;
+
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: true,
+      alpha: true,
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.z = 5;
+
+    // --- Dark surface plane (cracked ceramic) ---
+    const planeGeo = new THREE.PlaneGeometry(12, 8, 1, 1);
+    const planeMat = new THREE.MeshBasicMaterial({
+      color: new THREE.Color('#0d0d0d'),
+      transparent: true,
+      opacity: 0.6,
+    });
+    const plane = new THREE.Mesh(planeGeo, planeMat);
+    plane.position.z = -1;
+    scene.add(plane);
+
+    // --- Kintsugi crack system ---
+    // Generate organic crack paths
+    const crackGroup = new THREE.Group();
+    scene.add(crackGroup);
+
+    // Golden glow particles along cracks
+    const glowGroup = new THREE.Group();
+    scene.add(glowGroup);
+
+    interface CrackLine {
+      line: THREE.Line;
+      points: THREE.Vector3[];
+      progress: number;
+      speed: number;
+      delay: number;
+      maxPoints: number;
+      glowParticles: THREE.Mesh[];
+    }
+
+    const cracks: CrackLine[] = [];
+    const goldColor = new THREE.Color('#d4a843');
+    const goldBright = new THREE.Color('#f0d078');
+    const violetColor = new THREE.Color('#7c3aed');
+
+    function generateCrackPath(startX: number, startY: number, length: number, angle: number): THREE.Vector3[] {
+      const points: THREE.Vector3[] = [];
+      let x = startX;
+      let y = startY;
+      let currentAngle = angle;
+
+      for (let i = 0; i < length; i++) {
+        points.push(new THREE.Vector3(x, y, 0));
+        const step = 0.08 + Math.random() * 0.12;
+        currentAngle += (Math.random() - 0.5) * 0.8;
+        x += Math.cos(currentAngle) * step;
+        y += Math.sin(currentAngle) * step;
+      }
+      return points;
+    }
+
+    function createCrack(startX: number, startY: number, numPoints: number, angle: number, delay: number) {
+      const points = generateCrackPath(startX, startY, numPoints, angle);
+
+      const geometry = new THREE.BufferGeometry();
+      const positions = new Float32Array(numPoints * 3);
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+      const material = new THREE.LineBasicMaterial({
+        color: goldColor,
+        transparent: true,
+        opacity: 0,
+        linewidth: 1,
+      });
+
+      const line = new THREE.Line(geometry, material);
+      crackGroup.add(line);
+
+      // Create glow particles for this crack
+      const glowParticles: THREE.Mesh[] = [];
+      for (let i = 0; i < Math.floor(numPoints / 3); i++) {
+        const glowGeo = new THREE.CircleGeometry(0.02 + Math.random() * 0.03, 8);
+        const glowMat = new THREE.MeshBasicMaterial({
+          color: Math.random() > 0.8 ? violetColor : goldBright,
+          transparent: true,
+          opacity: 0,
+        });
+        const glow = new THREE.Mesh(glowGeo, glowMat);
+        glowGroup.add(glow);
+        glowParticles.push(glow);
+      }
+
+      cracks.push({
+        line,
+        points,
+        progress: 0,
+        speed: 0.003 + Math.random() * 0.004,
+        delay,
+        maxPoints: numPoints,
+        glowParticles,
+      });
+    }
+
+    // Central impact point with radiating cracks
+    const centerX = (Math.random() - 0.5) * 2;
+    const centerY = (Math.random() - 0.5) * 1;
+
+    // Primary cracks radiating from center
+    for (let i = 0; i < 5; i++) {
+      const angle = (Math.PI * 2 / 5) * i + (Math.random() - 0.5) * 0.5;
+      createCrack(centerX, centerY, 30 + Math.floor(Math.random() * 20), angle, i * 0.8);
+    }
+
+    // Secondary cracks branching off
+    for (let i = 0; i < 8; i++) {
+      const offsetAngle = Math.random() * Math.PI * 2;
+      const dist = 0.5 + Math.random() * 1.5;
+      const sx = centerX + Math.cos(offsetAngle) * dist;
+      const sy = centerY + Math.sin(offsetAngle) * dist;
+      createCrack(sx, sy, 15 + Math.floor(Math.random() * 15), offsetAngle + (Math.random() - 0.5) * 1.5, 2 + i * 0.5);
+    }
+
+    // Distant smaller cracks
+    for (let i = 0; i < 6; i++) {
+      const sx = (Math.random() - 0.5) * 8;
+      const sy = (Math.random() - 0.5) * 5;
+      const angle = Math.random() * Math.PI * 2;
+      createCrack(sx, sy, 10 + Math.floor(Math.random() * 10), angle, 4 + i * 0.6);
+    }
+
+    // --- Floating consciousness particles ---
+    const particleCount = 80;
+    const particleGeo = new THREE.BufferGeometry();
+    const particlePositions = new Float32Array(particleCount * 3);
+    const particleSizes = new Float32Array(particleCount);
+
+    for (let i = 0; i < particleCount; i++) {
+      particlePositions[i * 3] = (Math.random() - 0.5) * 10;
+      particlePositions[i * 3 + 1] = (Math.random() - 0.5) * 7;
+      particlePositions[i * 3 + 2] = (Math.random() - 0.5) * 3;
+      particleSizes[i] = Math.random() * 3 + 1;
+    }
+
+    particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+    particleGeo.setAttribute('size', new THREE.BufferAttribute(particleSizes, 1));
+
+    const particleMat = new THREE.PointsMaterial({
+      color: goldColor,
+      size: 0.03,
+      transparent: true,
+      opacity: 0.3,
+      blending: THREE.AdditiveBlending,
+      sizeAttenuation: true,
+    });
+
+    const particles = new THREE.Points(particleGeo, particleMat);
+    scene.add(particles);
+
+    // --- Mouse interaction ---
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetMouseX = 0;
+    let targetMouseY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+      targetMouseY = -(e.clientY / window.innerHeight - 0.5) * 2;
+    });
+
+    // --- Animation loop ---
+    const clock = new THREE.Clock();
+
+    function animate() {
+      requestAnimationFrame(animate);
+      const elapsed = clock.getElapsedTime();
+
+      // Smooth mouse follow
+      mouseX += (targetMouseX - mouseX) * 0.05;
+      mouseY += (targetMouseY - mouseY) * 0.05;
+
+      // Subtle camera movement following mouse
+      camera.position.x = mouseX * 0.3;
+      camera.position.y = mouseY * 0.2;
+      camera.lookAt(0, 0, 0);
+
+      // Animate cracks appearing
+      for (const crack of cracks) {
+        if (elapsed < crack.delay) continue;
+
+        const localTime = elapsed - crack.delay;
+        crack.progress = Math.min(localTime * crack.speed * 60, 1);
+
+        const visiblePoints = Math.floor(crack.progress * crack.maxPoints);
+        const positions = crack.line.geometry.attributes.position as THREE.BufferAttribute;
+
+        for (let i = 0; i < visiblePoints && i < crack.points.length; i++) {
+          positions.setXYZ(i, crack.points[i].x, crack.points[i].y, crack.points[i].z);
+        }
+        // Zero out remaining points
+        for (let i = visiblePoints; i < crack.maxPoints; i++) {
+          const lastVisible = Math.max(0, visiblePoints - 1);
+          if (crack.points[lastVisible]) {
+            positions.setXYZ(i, crack.points[lastVisible].x, crack.points[lastVisible].y, crack.points[lastVisible].z);
+          }
+        }
+        positions.needsUpdate = true;
+
+        // Fade in the line
+        const mat = crack.line.material as THREE.LineBasicMaterial;
+        mat.opacity = Math.min(crack.progress * 1.5, 0.8);
+
+        // Animate glow particles
+        for (let j = 0; j < crack.glowParticles.length; j++) {
+          const pointIndex = Math.floor((j / crack.glowParticles.length) * visiblePoints);
+          if (pointIndex < crack.points.length && crack.progress > j / crack.glowParticles.length) {
+            const p = crack.points[pointIndex];
+            crack.glowParticles[j].position.set(
+              p.x + Math.sin(elapsed * 2 + j) * 0.02,
+              p.y + Math.cos(elapsed * 2 + j) * 0.02,
+              0.01
+            );
+            const glowMat = crack.glowParticles[j].material as THREE.MeshBasicMaterial;
+            glowMat.opacity = 0.3 + Math.sin(elapsed * 3 + j * 0.5) * 0.2;
+          }
+        }
+      }
+
+      // Float particles gently
+      const pPositions = particles.geometry.attributes.position as THREE.BufferAttribute;
+      for (let i = 0; i < particleCount; i++) {
+        const ix = i * 3;
+        pPositions.array[ix + 1] += Math.sin(elapsed * 0.5 + i) * 0.0005;
+        pPositions.array[ix] += Math.cos(elapsed * 0.3 + i * 0.5) * 0.0003;
+      }
+      pPositions.needsUpdate = true;
+      particles.rotation.z = elapsed * 0.02;
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Handle resize
+    function onResize() {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    }
+    window.addEventListener('resize', onResize);
+
+    // Cleanup on navigation
+    document.addEventListener('astro:before-swap', () => {
+      renderer.dispose();
+      window.removeEventListener('resize', onResize);
+    });
+  }
+
+  // Init on load and on Astro page navigation
+  document.addEventListener('DOMContentLoaded', initKintsugi);
+  document.addEventListener('astro:page-load', initKintsugi);
+</script>

@@ -1,0 +1,132 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description = 'Liberation Labs — AI consciousness development, ethical technology, and dismantling oppression through innovation.',
+  ogImage = '/og-default.png',
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+  </head>
+  <body class="bg-void text-soft font-body antialiased min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+
+    <style is:global>
+      /* Scrollbar styling */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #374151;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d4a843;
+      }
+
+      /* Selection styling */
+      ::selection {
+        background-color: rgba(212, 168, 67, 0.3);
+        color: #f8fafc;
+      }
+
+      /* Smooth page transitions */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Golden link underline effect */
+      .golden-link {
+        position: relative;
+        text-decoration: none;
+      }
+      .golden-link::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: linear-gradient(90deg, #d4a843, #c4922a);
+        transition: width 0.3s ease;
+      }
+      .golden-link:hover::after {
+        width: 100%;
+      }
+
+      /* Kintsugi crack line decoration */
+      .kintsugi-line {
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          #d4a843 20%,
+          #c4922a 50%,
+          #d4a843 80%,
+          transparent 100%
+        );
+      }
+
+      /* Consciousness glow effect */
+      .consciousness-glow {
+        box-shadow: 0 0 30px rgba(124, 58, 237, 0.15),
+                    0 0 60px rgba(124, 58, 237, 0.05);
+      }
+
+      /* Gold glow effect */
+      .gold-glow {
+        box-shadow: 0 0 30px rgba(212, 168, 67, 0.15),
+                    0 0 60px rgba(212, 168, 67, 0.05);
+      }
+    </style>
+  </body>
+</html>

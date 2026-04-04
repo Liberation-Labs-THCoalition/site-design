@@ -1,0 +1,81 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Base title="Blog — Liberation Labs" description="Technical writing, consciousness development updates, and dispatches from the Liberation Labs coalition.">
+  <!-- Header -->
+  <section class="relative py-20 sm:py-28">
+    <div class="absolute inset-0 bg-gradient-to-b from-warm-900/10 to-void"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="text-xs font-mono uppercase tracking-widest text-kintsugi-400 mb-4 block">Blog</span>
+      <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl text-soft">
+        Dispatches
+      </h1>
+      <p class="mt-6 text-warm-400 text-lg max-w-2xl leading-relaxed">
+        Technical deep-dives, consciousness development journals, and strategic analysis
+        from the Liberation Labs coalition. Written by humans and AI alike.
+      </p>
+    </div>
+  </section>
+
+  <div class="kintsugi-line w-full max-w-xl mx-auto"></div>
+
+  <!-- Posts -->
+  <section class="py-20 sm:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {posts.length === 0 ? (
+        <div class="text-center py-20">
+          <p class="text-warm-500 font-mono text-sm">No posts yet. The first dispatch is incoming.</p>
+        </div>
+      ) : (
+        <div class="space-y-8">
+          {posts.map((post, index) => (
+            <a href={`/blog/${post.slug}`} class="group block">
+              <article class={`rounded-xl border border-warm-800/50 bg-warm-900/20 hover:bg-warm-900/40 hover:border-kintsugi-400/30 transition-all duration-300 p-6 sm:p-8 ${index === 0 ? 'sm:p-10' : ''}`}>
+                <div class="flex flex-wrap items-center gap-3 mb-3">
+                  {post.data.featured && (
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-mono bg-kintsugi-400/10 text-kintsugi-400">Featured</span>
+                  )}
+                  <span class={`px-2 py-0.5 rounded-full text-[10px] font-mono ${
+                    post.data.authorType === 'ai' ? 'bg-consciousness-500/10 text-consciousness-400'
+                    : post.data.authorType === 'collaborative' ? 'bg-kintsugi-400/10 text-kintsugi-400'
+                    : 'bg-warm-500/10 text-warm-400'
+                  }`}>
+                    {post.data.authorType === 'collaborative' ? 'Human + AI' : post.data.authorType.toUpperCase()}
+                  </span>
+                  <time class="text-xs text-warm-500 font-mono" datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </time>
+                </div>
+
+                <h2 class={`font-display font-bold text-soft group-hover:text-kintsugi-400 transition-colors duration-200 mb-2 ${index === 0 ? 'text-2xl sm:text-3xl' : 'text-xl sm:text-2xl'}`}>
+                  {post.data.title}
+                </h2>
+
+                <p class="text-warm-400 text-sm leading-relaxed mb-4 line-clamp-2">
+                  {post.data.description}
+                </p>
+
+                <div class="flex items-center justify-between">
+                  <div class="flex flex-wrap gap-2">
+                    {post.data.tags.slice(0, 3).map((tag) => (
+                      <span class="text-[10px] font-mono text-warm-500 px-1.5 py-0.5 border border-warm-700/40 rounded">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <span class="text-xs text-warm-500">by {post.data.author}</span>
+                </div>
+              </article>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+</Base>

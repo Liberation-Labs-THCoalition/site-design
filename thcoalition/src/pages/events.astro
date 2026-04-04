@@ -1,0 +1,157 @@
+---
+import Base from '../layouts/Base.astro';
+
+const upcomingEvents = [
+  {
+    date: new Date('2024-04-15T18:00:00'),
+    title: 'Community Data Night: Reading County Budgets',
+    location: 'Eureka Public Library, 1313 3rd St',
+    type: 'Workshop',
+    description: 'Learn how to read and analyze county budget documents. We\'ll walk through the FY 2024-2025 proposed budget together. Bring a laptop if you have one.',
+  },
+  {
+    date: new Date('2024-04-22T17:30:00'),
+    title: 'Board of Supervisors Meeting — Budget Workshop',
+    location: 'Humboldt County Courthouse, 825 5th St',
+    type: 'Meeting Monitor',
+    description: 'THC volunteers will be attending and live-documenting this budget workshop session. Join us or follow along on our live notes.',
+  },
+  {
+    date: new Date('2024-05-01T19:00:00'),
+    title: 'THC Monthly Community Meeting',
+    location: 'Online (Zoom)',
+    type: 'Community',
+    description: 'Monthly open meeting. Review of current investigations, volunteer coordination, Q&A. All community members welcome.',
+  },
+];
+
+const typeStyles: Record<string, { bg: string; text: string }> = {
+  'Workshop': { bg: 'bg-transparency-50', text: 'text-transparency-700' },
+  'Meeting Monitor': { bg: 'bg-amber-50', text: 'text-amber-700' },
+  'Community': { bg: 'bg-emerald-50', text: 'text-emerald-700' },
+};
+---
+
+<Base
+  title="Events"
+  description="Upcoming meetings, workshops, and community events from the Transparent Humboldt Coalition."
+>
+  <!-- Page Header -->
+  <section class="bg-navy-900 py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="font-display text-4xl sm:text-5xl font-bold text-white mb-6">
+          Events & Meetings
+        </h1>
+        <p class="text-xl text-slate-300 leading-relaxed">
+          Workshops, meeting monitoring schedules, and community gatherings.
+          All events are free and open to the public.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section class="py-16 sm:py-20 bg-slate-50" aria-labelledby="events-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="events-heading" class="font-display text-2xl font-bold text-navy-900 mb-8">Upcoming Events</h2>
+
+      <div class="space-y-6">
+        {upcomingEvents.map((event) => {
+          const style = typeStyles[event.type] || typeStyles['Community'];
+          const day = event.date.toLocaleDateString('en-US', { day: 'numeric' });
+          const month = event.date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
+          const time = event.date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+          const weekday = event.date.toLocaleDateString('en-US', { weekday: 'long' });
+
+          return (
+            <div class="bg-white rounded-xl border border-slate-200 p-6 sm:p-8 hover:border-transparency-200 hover:shadow-md transition-all duration-200">
+              <div class="sm:flex gap-6">
+                <!-- Date Block -->
+                <div class="flex-shrink-0 mb-4 sm:mb-0">
+                  <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-navy-900 flex flex-col items-center justify-center text-white">
+                    <span class="text-2xs font-bold uppercase tracking-wider text-slate-400">{month}</span>
+                    <span class="text-2xl sm:text-3xl font-bold font-display leading-none">{day}</span>
+                  </div>
+                </div>
+
+                <!-- Details -->
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-2">
+                    <span class:list={['inline-flex items-center px-2.5 py-0.5 rounded-full text-2xs font-semibold uppercase tracking-wider', style.bg, style.text]}>
+                      {event.type}
+                    </span>
+                  </div>
+                  <h3 class="text-lg font-display font-bold text-navy-900 mb-2">{event.title}</h3>
+                  <p class="text-sm text-slate-600 leading-relaxed mb-3">{event.description}</p>
+                  <div class="flex flex-wrap gap-4 text-sm text-slate-500">
+                    <span class="flex items-center gap-1.5">
+                      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                      </svg>
+                      {weekday} at {time}
+                    </span>
+                    <span class="flex items-center gap-1.5">
+                      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                      </svg>
+                      {event.location}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <!-- Calendar Subscribe -->
+      <div class="mt-12 bg-white rounded-xl border border-slate-200 p-6 text-center">
+        <h3 class="font-semibold text-navy-900 mb-2">Never Miss an Event</h3>
+        <p class="text-sm text-slate-600 mb-4">
+          Subscribe to our calendar or sign up for event notifications.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <button class="inline-flex items-center gap-2 px-4 py-2 bg-navy-900 hover:bg-navy-800 text-white text-sm font-medium rounded-lg transition-colors duration-150">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            Subscribe to Calendar
+          </button>
+          <a href="/contact" class="inline-flex items-center gap-2 px-4 py-2 border border-slate-300 hover:border-slate-400 text-slate-700 hover:text-navy-900 text-sm font-medium rounded-lg transition-colors duration-150">
+            Get Email Reminders
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Monitoring Schedule -->
+  <section class="py-16 bg-white" aria-labelledby="monitoring-heading">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="monitoring-heading" class="font-display text-2xl font-bold text-navy-900 mb-4">Regular Meeting Monitoring</h2>
+      <p class="text-slate-600 mb-8">
+        THC volunteers regularly attend these public meetings. Notes and documents
+        are published to our <a href="/data" class="text-transparency-600 hover:text-transparency-700 font-medium">data portal</a> within 48 hours.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="p-4 rounded-lg border border-slate-200">
+          <h3 class="font-semibold text-navy-900 mb-1">Board of Supervisors</h3>
+          <p class="text-sm text-slate-500">1st and 3rd Tuesdays, 9:00 AM</p>
+        </div>
+        <div class="p-4 rounded-lg border border-slate-200">
+          <h3 class="font-semibold text-navy-900 mb-1">Planning Commission</h3>
+          <p class="text-sm text-slate-500">1st Thursday, 6:00 PM</p>
+        </div>
+        <div class="p-4 rounded-lg border border-slate-200">
+          <h3 class="font-semibold text-navy-900 mb-1">Budget Committee</h3>
+          <p class="text-sm text-slate-500">As scheduled (typically monthly)</p>
+        </div>
+        <div class="p-4 rounded-lg border border-slate-200">
+          <h3 class="font-semibold text-navy-900 mb-1">Various Subcommittees</h3>
+          <p class="text-sm text-slate-500">As capacity allows</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

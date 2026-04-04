@@ -1,0 +1,166 @@
+---
+import Base from '../../layouts/Base.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const categories = [
+  { label: 'All', value: 'all' },
+  { label: 'Investigations', value: 'investigation' },
+  { label: 'News', value: 'news' },
+  { label: 'Press Releases', value: 'press-release' },
+  { label: 'Analysis', value: 'analysis' },
+  { label: 'Data Releases', value: 'data-release' },
+  { label: 'Community', value: 'community' },
+];
+---
+
+<Base
+  title="Blog & News"
+  description="News, investigations, press releases, and data analysis from the Transparent Humboldt Coalition."
+>
+  <!-- Page Header -->
+  <section class="bg-navy-900 py-16 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h1 class="font-display text-4xl sm:text-5xl font-bold text-white mb-4">
+          News & Updates
+        </h1>
+        <p class="text-xl text-slate-300 leading-relaxed">
+          Investigations, analysis, data releases, and community updates
+          from the Transparent Humboldt Coalition.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="bg-white border-b border-slate-200 sticky top-16 lg:top-18 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="flex gap-1 overflow-x-auto py-3 -mx-4 px-4 sm:mx-0 sm:px-0 scrollbar-hide" aria-label="Post categories">
+        {categories.map((cat) => (
+          <button
+            class="category-filter px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors duration-150"
+            data-category={cat.value}
+            aria-pressed={cat.value === 'all' ? 'true' : 'false'}
+          >
+            {cat.label}
+          </button>
+        ))}
+      </nav>
+    </div>
+  </section>
+
+  <!-- Posts Grid -->
+  <section class="py-16 bg-slate-50" aria-labelledby="posts-heading">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 id="posts-heading" class="sr-only">All posts</h2>
+
+      {posts.length > 0 ? (
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="posts-grid">
+          {posts.map((post) => (
+            <div data-post-category={post.data.category}>
+              <NewsCard
+                title={post.data.title}
+                description={post.data.description}
+                pubDate={post.data.pubDate}
+                slug={post.slug}
+                category={post.data.category}
+                author={post.data.author}
+                heroImage={post.data.heroImage}
+                tags={post.data.tags}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-20">
+          <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-navy-900 mb-2">No posts yet</h3>
+          <p class="text-slate-500">We're working on our first articles. Check back soon or subscribe to our newsletter.</p>
+        </div>
+      )}
+
+      <!-- Empty state for filtered results -->
+      <div id="no-results" class="hidden text-center py-20">
+        <p class="text-lg text-slate-500">No posts in this category yet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter CTA -->
+  <section class="py-16 bg-white" aria-labelledby="newsletter-heading">
+    <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 id="newsletter-heading" class="font-display text-2xl font-bold text-navy-900 mb-3">
+        Don't Miss an Update
+      </h2>
+      <p class="text-slate-600 mb-6">
+        Get investigation alerts and data releases in your inbox.
+      </p>
+      <form class="flex gap-3 max-w-md mx-auto" action="#" method="POST">
+        <label for="blog-email" class="sr-only">Email address</label>
+        <input
+          id="blog-email"
+          type="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+          class="flex-1 px-4 py-2.5 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-transparency-500 focus:border-transparent"
+        />
+        <button
+          type="submit"
+          class="px-5 py-2.5 bg-transparency-500 hover:bg-transparency-600 text-white text-sm font-medium rounded-lg transition-colors duration-150"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const buttons = document.querySelectorAll('.category-filter');
+  const posts = document.querySelectorAll('[data-post-category]');
+  const noResults = document.getElementById('no-results');
+
+  function setActiveCategory(category: string) {
+    buttons.forEach((btn) => {
+      const btnCat = btn.getAttribute('data-category');
+      const isActive = btnCat === category;
+      btn.setAttribute('aria-pressed', String(isActive));
+      btn.classList.toggle('bg-transparency-500', isActive);
+      btn.classList.toggle('text-white', isActive);
+      btn.classList.toggle('text-slate-600', !isActive);
+      btn.classList.toggle('hover:bg-slate-100', !isActive);
+    });
+
+    let visibleCount = 0;
+    posts.forEach((post) => {
+      const postCat = post.getAttribute('data-post-category');
+      const show = category === 'all' || postCat === category;
+      (post as HTMLElement).style.display = show ? '' : 'none';
+      if (show) visibleCount++;
+    });
+
+    if (noResults) {
+      noResults.classList.toggle('hidden', visibleCount > 0);
+    }
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const category = btn.getAttribute('data-category') || 'all';
+      setActiveCategory(category);
+    });
+  });
+
+  // Initialize
+  setActiveCategory('all');
+</script>
