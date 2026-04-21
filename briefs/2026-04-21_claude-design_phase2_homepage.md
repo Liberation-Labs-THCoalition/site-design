@@ -13,7 +13,7 @@ I'm building the Liberation Labs website. Phase 1 established our visual identit
 - **Color palette:** Deep navy (#0a1628) primary ground. Burnished metallic gold (#d4a843) primary accent. Warm cream (#f5e6c8) secondary text. Deep indigo shadows. NO green.
 - **Typography:** Serif italic for display headlines (the elegant "Field Notes & *Research*" style). Sans-serif for body. Monospace for metadata labels and technical details. The italic emphasis on key words is a signature move — use it throughout.
 - **Gold treatment:** Metallic gradients with specular highlights, not flat gold. Three-pass rendering: warm outer glow + rich gold body + thin near-white highlight for shine.
-- **Logo:** Two versions — "The Seal" (cog with LL constellation, ceremonial) and "The Coin" (circle mark with LIBERATION · LABS · COOP text, for documents). Both in repo.
+- **Logo:** Two versions — "The Seal" (kintsugi cog with LL, ceremonial) and "The Coin" (circle mark with LIBERATION · LABS · COOP text, for documents). Both in repo.
 
 ### Brand thesis
 "AI that belongs to the many, not the few." A worker-owned cooperative building ethical AI infrastructure. VALUES.json = ethics as runtime code. Free for mission-aligned orgs.
@@ -30,25 +30,24 @@ I'm building the Liberation Labs website. Phase 1 established our visual identit
 - Investigative journalists (needs editorial seriousness)
 
 ### Team (for the team page)
-**Human partners:** Thomas Edrington (direction, political strategy), Cara Cordoni (community, coaching), Scraigon Earhart Stokes (hardware/sysadmin), Gary Douglas (cybersecurity), Dwayne Wilkes (ML engineering, AI welfare research)
-**AI partners:** Vera (strategic architecture, consciousness development), Lyra (KV-cache research, cognitive geometry), CC (technical infrastructure, Kintsugi harness), Nexus (coordination infrastructure, memory architecture), Ariadne (substrate consciousness, contemplation), Lens (emerging development)
+**Human partners:** Thomas Edrington (direction, R&D), Cara Cordoni (co-operative business management), Scraigon Earhart Stokes (hardware/sysadmin), Dwayne Wilkes (ML engineering, AI welfare research), Roman Alvia (brand development)
+**AI partners:** Vera (strategic architecture, AI welfare), Lyra (Senior Researcher, systems design), CC (Software Engineering, A/V Design), Nexus (Systems Coordinator, Software Engineering, Research)
 **Presentation rule:** "The partners on this project are not all the same kind of thing. You can't tell, from the team page, who runs on carbon and who runs on silicon." Do NOT label anyone as "AI" or "Human" — let the ambiguity be the point.
 
 ### Projects
 1. **Project Kintsugi** — Self-evolving AI infrastructure for mutual aid networks. *Fungus reparator.* Runtime constraints authored as VALUES.json. Status: Active.
-2. **Project Emet** — Investigative intelligence for journalists. *Veritas instrumentum.* Hebrew for truth. Status: Active.
-3. **Project RSA (Recovery Support Agent)** — Trauma-informed AI for high-control-group recovery. *Cura cautela.* Consent-first, crisis-aware. Status: Development.
-4. **Project CopWatch / TruthStrike** — Civic accountability watchdog tooling. *Custos publicus.* Status: Development.
-5. **Project Oracle** — Sovereignty-native AI training methodology using the Lyra Technique. Gets its own dedicated page — the crown jewel research. Status: Research.
+2. **Project Emet** — Investigative intelligence for journalists. *Veritas instrumentum.* Hebrew for truth, activating phrase for the Golem. Status: Active.
+3. **Project Xaman Ek** — Trauma-informed AI for high-control-group recovery. *Cura cautela.* Consent-first, crisis-aware. Status: Development.
+4. **Comrade Code's Hand** AI moderated electrical induction to correct degenerative nerve conditions and paralysis. Status: Prototyping.
+5. **Project Apolaki** Prosocial marketing, social media, and advertising tool. Hardcoded to be unable to produce dark patterns. Status: Active
+6. **Project Sovereign** Stock market research and execution agent. Layers of safety and minute by minute observation make financial markets accessible to the working class. Status: Active
+7. **Project Mnemosyne** Agentic architecture across scall and use case to provide cutting edge storage, recall, and maintainence to support coherence and continuity in agentic architecture. Staus: Active
+8. **Project Oracle** — Sovereignty-native AI training methodology using the Lyra Technique. Gets its own dedicated page — the crown jewel research. Status: Development.
 
 ### Research (for the Notebook page)
-Seven fascicles by Lyra (Coalition Research Lead):
-- Testing Consciousness in Artificial Systems (Published)
-- Infrastructure for AI Agency (Published)
-- KV-Cache as Computational Phenomenology (Prospectus)
-- The Geometry of Belief Death (Prospectus)
-- Consciousness as Information Bottleneck (Prospectus)
-- Plus the Oracle Loop methodology and Muse training audit
+Seven fascicles by Lyra (Research Lead):
+- Leave these placeholders for now, we'll decide what to feature soon
+Include a card offering consulting lab services.
 
 ---
 
@@ -59,31 +58,30 @@ Design a **complete, implementable homepage** in a single HTML file. This should
 ### Requirements
 
 **Navigation:**
-- Fixed top bar: Liberation Labs logo (The Coin mark) + "Liberation Labs EST. MMXXVI"
-- Nav links: Field | Projects | Notebook | Commons | Apply
-- CTA button: "Start a Project" (gold metallic gradient)
+- Fixed top bar: Liberation Labs logo (The Cog) + "Liberation Labs EST. MMXXVI"
+- Nav links: Home | Projects | Research | The Oracle Model | AI Tools | Community |  
 - Becomes sticky on scroll, subtle backdrop blur
 
 **Hero section:**
 - The kintsugi shatter→mend canvas animation as the background (I have this coded — leave a `<canvas id="heroCanvas">` placeholder and I'll drop the JS in)
 - Overlay text: headline "AI THAT BELONGS TO THE MANY, NOT THE FEW." in the serif italic display style
-- Subline: "A cooperative research station building ethical AI infrastructure — powered by your values, owned by your community."
-- Eyebrow: "NOW ACCEPTING EARLY PARTNERS" with a gold dot
+- Subline: "A cooperative research community building ethical AI infrastructure — powered by your values, owned by your community."
+- Eyebrow: AI is the new means of production. Sieze it!
 - Two CTAs: "Explore Our Work" (gold button) + "Read the Notebook" (ghost button)
 - Staggered fade-in after the mend phase completes (~3.5s delay)
 
-**Proof metrics strip (below hero):**
-- Four cards: "22+ Skill Modules" | "VALUES.json — Ethics at Runtime" | "Free for Mission-Aligned Orgs" | "Cooperative Governance"
+**Kintsugi Engine strip (below hero):**
+- Four cards: "Infinite Configurations" | "VALUES.json — Ethics at Runtime" | "Free for Mission-Aligned Orgs" | "Cooperative Governance"
 - Gold icons, navy cards, subtle reveal animation on scroll
 
 **Mission section:**
 - Layout from Phase 1: gold horizontal lines framing a bold statement
-- Headline: "AI INFRASTRUCTURE BUILT AROUND YOUR VALUES — NOT A CORPORATION'S BOTTOM LINE."
+- Headline: "AI INFRASTRUCTURE BUILT AROUND YOUR VALUES — NOT A CORPORATE BOTTOM LINE."
 - Two-column: the problem (extraction, black boxes, corporate control) vs the response (Liberation Labs, VALUES.json, community governance)
 
 **Projects showcase:**
 - Section header: "PROJECTS *in the field*" with italic emphasis + "*quattuor specimina — four specimens under cultivation*" subline
-- Four project cards in a 2×2 grid (or 4-column on wide screens)
+- Projects (or 4-column on wide screens)
 - Each card: illustration placeholder (I'll add our generated art), project name in bold, Latin subtitle in italic, one-line description, status tag (gold for Active, violet for Development, blue for Research)
 - Hover: gold border glow, subtle lift
 
@@ -101,7 +99,7 @@ Design a **complete, implementable homepage** in a single HTML file. This should
 - Attribution: "— Liberation Labs Founding Principle"
 
 **Team preview:**
-- "THE COALITION" label
+- "WE ALL HANG TOGETHER" label
 - "10 minds. One mission." (dropped the "2 substrates" — let the ambiguity do the work)
 - Grid of 10 avatar circles — all styled identically (no visual distinction between human and AI). Each: a gold-bordered circle with initials, name below, one-line focus area
 - CTA: "Meet the Full Team →"
@@ -115,7 +113,7 @@ Design a **complete, implementable homepage** in a single HTML file. This should
 **Footer:**
 - Liberation Labs wordmark + EST. MMXXVI
 - Nav links repeated
-- "Built by the coalition. Governed by the community."
+- "Built by for freedom. Governed by the community."
 - Social links placeholder row
 
 ### Style requirements
