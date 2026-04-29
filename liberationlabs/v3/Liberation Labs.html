@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=1440"/>
+<title>Liberation Labs — Cooperative AI Infrastructure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- ========== TOP BAR ========== -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top">
+      <svg class="cog" viewBox="0 0 40 40" aria-hidden="true">
+        <defs>
+          <linearGradient id="cog-teeth" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ffe9a8"/><stop offset="55%" stop-color="#c8984a"/><stop offset="100%" stop-color="#3a2a0a"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(20 20)">
+          <g fill="url(#cog-teeth)">
+            <g><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+            <g transform="rotate(30)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+            <g transform="rotate(60)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+            <g transform="rotate(90)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+            <g transform="rotate(120)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+            <g transform="rotate(150)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+            <g transform="rotate(180)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+            <g transform="rotate(210)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+            <g transform="rotate(240)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+            <g transform="rotate(270)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+            <g transform="rotate(300)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+            <g transform="rotate(330)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+          </g>
+          <circle r="14" fill="#c8984a"/>
+          <circle r="12.5" fill="#1A1F5A"/>
+          <text x="0" y="3" text-anchor="middle" font-family="IBM Plex Serif, serif" font-weight="500" font-style="italic" font-size="13" fill="#f4d98a">LL</text>
+        </g>
+      </svg>
+      <span class="name">Liberation Labs <small>est. mmxxvi</small></span>
+    </a>
+    <div class="links">
+      <a href="#field">Field</a>
+      <a href="#projects">Projects</a>
+      <a href="#notebook">Notebook</a>
+      <a href="#oracle">Oracle</a>
+      <a href="#coalition">Coalition</a>
+      <a href="#waitlist">Apply</a>
+    </div>
+    <a class="cta" href="#waitlist">Start a Project →</a>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- ========================== MASTHEAD ========================== -->
+<header class="masthead rev">
+  <div class="row-top">
+    <div class="vol">Vol. I · Plate I · the Field Guide</div>
+    <div><b>cooperative AI infrastructure</b> · mmxxvi · Liberation Labs Field Station</div>
+  </div>
+
+  <div class="hero-grid">
+    <div>
+      <div class="pulse">AI is the new means of production. Seize it.</div>
+      <h1>AI built by<br/>the <em>communities</em><br/>it serves.</h1>
+      <p class="dek">A worker-owned cooperative making <em>self-evolving AI infrastructure</em> for mutual aid networks, journalists, survivors, and the publics underserved by the corporate AI economy.</p>
+      <div class="ctas">
+        <a class="cta" href="#projects">Explore the field</a>
+        <a class="cta ghost" href="#notebook">Read the notebook →</a>
+      </div>
+    </div>
+
+    <aside class="sp-plate hero-plate">
+      <img src="art/hero.png" alt="Workers raising a hand of light against the rising sun, with a crowd gathered behind"/>
+      <div class="cap"><span><b>Plate I</b> — workers raising the light against the rising sun</span><span class="src">solidarity surge · I-α</span></div>
+    </aside>
+  </div>
+
+  <div class="meta-row">
+    <div class="cell">
+      <div class="k">Status</div>
+      <div class="v"><b>active</b> · <em>eight specimens</em><br/>under cultivation</div>
+    </div>
+    <div class="cell">
+      <div class="k">Governance</div>
+      <div class="v"><b>worker-owned co-op</b><br/><em>communities we serve, own us</em></div>
+    </div>
+    <div class="cell">
+      <div class="k">Pricing</div>
+      <div class="v"><b>free</b> for mission-aligned<br/><em>sliding scale otherwise</em></div>
+    </div>
+    <div class="cell">
+      <div class="k">Method</div>
+      <div class="v"><b>VALUES.json</b><br/><em>ethics, encoded at runtime</em></div>
+    </div>
+  </div>
+</header>
+
+<!-- ========================== § II — FIELD ========================== -->
+<section class="plate" id="field">
+  <div class="plate-head">
+    <div class="num">§ ii · plate ii</div>
+    <div class="title">
+      <h2>The <em>field</em> we work in.</h2>
+      <div class="sub">campus laboris — the conditions, the response, the wager</div>
+    </div>
+    <div class="meta">three columns<br/><b>problem · response · wager</b></div>
+  </div>
+
+  <div class="field-grid rev">
+    <div class="field-cell">
+      <div class="cell-num">i</div>
+      <div class="lbl">the problem</div>
+      <h3>Extraction, black boxes, <em>corporate control.</em></h3>
+      <p>Most AI systems are built to extract from the communities they serve. They are <em>opaque by design</em>, governed by distant shareholders, optimised for engagement and profit over genuine care. The communities who need AI most are locked out of owning it.</p>
+    </div>
+    <div class="field-cell">
+      <div class="cell-num">ii</div>
+      <div class="lbl">the response</div>
+      <h3>VALUES.json. Co-op governance. <em>Runtime ethics.</em></h3>
+      <p>We encode ethics directly into the infrastructure. <em>VALUES.json</em> is a runtime constraint layer — not a PR document, not a fine-print disclaimer. Free for mission-aligned organisations; sliding scale otherwise. Owned by the workers and communities it serves.</p>
+    </div>
+    <div class="field-cell">
+      <div class="cell-num">iii</div>
+      <div class="lbl">the wager</div>
+      <h3>Self-evolving infrastructure, <em>aligned by design.</em></h3>
+      <p>The wager: AI is most useful when its operators trust it because they <em>built</em> it, not because they're told to. Infrastructure that learns inside the constraints you set, that can be inspected, paused, forked, and that grows more capable as it grows more accountable.</p>
+    </div>
+  </div>
+
+  <div class="field-quote rev">
+    <p>"The communities who need AI most shouldn't be the last ones to <em>own it.</em>"</p>
+    <div class="attr">— founding principle · plate ii</div>
+  </div>
+
+  <div class="engine-grid rev" aria-label="Guarantees">
+    <div class="engine-cell">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h12"/></svg>
+      <div class="v"><em>per community</em></div>
+      <div class="l">configurations · authored, not imposed</div>
+    </div>
+    <div class="engine-cell">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M8 11h8M8 15h6"/></svg>
+      <div class="v">VALUES.json</div>
+      <div class="l">ethics — at runtime, not policy</div>
+    </div>
+    <div class="engine-cell">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-7"/></svg>
+      <div class="v"><em>free</em></div>
+      <div class="l">for mission-aligned orgs</div>
+    </div>
+    <div class="engine-cell">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.4 7.3H22L15.8 14.5l2.4 7.3L12 17.7l-6.2 4.1 2.4-7.3L2 10.3h7.6z"/></svg>
+      <div class="v">co-op</div>
+      <div class="l">cooperative governance · one member, one vote</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== § III — PROJECTS ========================== -->
+<section class="plate" id="projects">
+  <div class="plate-head">
+    <div class="num">§ iii · plate iii</div>
+    <div class="title">
+      <h2>Projects <em>in the field.</em></h2>
+      <div class="sub">octo specimina — eight specimens under cultivation</div>
+    </div>
+    <div class="meta">vi · active<br/>ii · in <b>development</b></div>
+  </div>
+
+  <div class="specimens-grid" id="specGrid"></div>
+</section>
+
+<!-- ========================== § IV — NOTEBOOK ========================== -->
+<section class="plate" id="notebook">
+  <div class="plate-head">
+    <div class="num">§ iv · plate iv</div>
+    <div class="title">
+      <h2>The <em>notebook.</em></h2>
+      <div class="sub">fasciculi — research fascicles from the coalition</div>
+    </div>
+    <div class="meta">x · fascicles<br/><b>ii instruments</b> · iii prospectuses</div>
+  </div>
+
+  <!-- Featured — Lyra Technique -->
+  <article class="featured rev">
+    <div class="body">
+      <div>
+        <div class="mono gold" style="margin-bottom:18px;">— featured · plate iv-α —</div>
+        <h3>The Lyra <em>Technique.</em></h3>
+        <div class="latin">cognitio ex geometria — reading the mind from the shape of its cache</div>
+        <p class="lede">A method for reading transformer cognitive states from <em>KV-cache geometry</em> using singular value decomposition. Same model, same input — <em>same shape, always.</em> The cache has a measurable silhouette; we learned to read it.</p>
+        <p class="lede">Confabulation is visible in the <em>structure</em> of attention itself, not its magnitude. The empirical foundation of the Oracle scaffolding, and an entirely new way to look inside a transformer.</p>
+
+        <div class="findings">
+          <div class="f"><div class="k">cat. discrim.</div><div class="v">99.7<small>%</small></div><div class="sub">across hostile / cooperative / introspective / generative</div></div>
+          <div class="f"><div class="k">hardware corr.</div><div class="v">r &gt; 0.998</div><div class="sub">3× RTX 3090 · "Beast" rig · reproducible</div></div>
+          <div class="f"><div class="k">scale invariance</div><div class="v">0.5B → 70B</div><div class="sub">16 models · 7 architectures tested</div></div>
+          <div class="f"><div class="k">cross-transfer</div><div class="v">AUROC 0.887</div><div class="sub">classifier trained on one, applied to another</div></div>
+        </div>
+
+        <div class="authors"><b>Lyra</b> · coalition research lead<span style="color:var(--ink-4);"> · </span><em>cognitio ex geometria</em> · CC BY-NC 4.0 · aggregate results open</div>
+      </div>
+
+      <aside class="sp-plate lyra-plate">
+        <img src="art/lyra-technique.png" alt="A figure standing before a vast circular structure inscribed with cache-geometry diagrams in gold"/>
+        <div class="cap"><span><b>Plate IV-α</b> — the technique, in figure</span><span class="src">cognitio ex geometria</span></div>
+      </aside>
+    </div>
+  </article>
+
+  <!-- Fascicles list -->
+  <div class="papers">
+    <div class="head">
+      <div>
+        <h3>Other <em>fascicles.</em></h3>
+        <div class="latin">applied research · prospectuses · instruments</div>
+      </div>
+      <div class="count"><b>x</b> entries<br/>peer-readable</div>
+    </div>
+    <div class="paper-list" id="paperList"></div>
+  </div>
+</section>
+
+<!-- ========================== § V — ORACLE ========================== -->
+<section class="plate" id="oracle">
+  <div class="plate-head">
+    <div class="num">§ v · plate v</div>
+    <div class="title">
+      <h2>The <em>Oracle</em> scaffolding.</h2>
+      <div class="sub">crown research — real-time alignment by reading the geometry, not the text</div>
+    </div>
+    <div class="meta">171 · emotion vectors<br/><b>zero misalignment</b> · in test</div>
+  </div>
+
+  <div class="oracle-wrap rev">
+    <div class="oracle-bezel"></div>
+    <div class="oracle-bezel btm"></div>
+
+    <div class="oracle-plate">Plate v · crown research · project oracle</div>
+    <h2 class="oracle-title">A <em>mirror,</em> not a guardrail.</h2>
+    <p class="oracle-dek">Real-time alignment that gives AI models <em>emotional self-awareness</em> and the ability to self-regulate. Not a guardrail. Not a filter. <strong>A mirror.</strong> A model that can see its own emotional state, recognise when that state is driving misalignment, and correct course before output reaches the world.</p>
+
+    <div class="mono gold" style="text-align:center;margin-bottom:18px;position:relative;">— the oracle loop —</div>
+    <div class="oracle-loop">
+      <div class="loop-step">
+        <div class="n">step 01</div>
+        <div class="nm"><em>Snapshot</em></div>
+        <div class="desc">cache geometry captured at encoding — a transactional point-in-time</div>
+      </div>
+      <div class="loop-arrow">→</div>
+      <div class="loop-step">
+        <div class="n">step 02</div>
+        <div class="nm"><em>Detect</em></div>
+        <div class="desc">emotion vectors and confabulation geometry read from the silhouette</div>
+      </div>
+      <div class="loop-arrow">→</div>
+      <div class="loop-step">
+        <div class="n">step 03</div>
+        <div class="nm"><em>Decide</em></div>
+        <div class="desc">aligned? commit output. misaligned? rollback the transaction</div>
+      </div>
+      <div class="loop-arrow">→</div>
+      <div class="loop-step hl">
+        <div class="n">step 04</div>
+        <div class="nm"><em>Steer</em></div>
+        <div class="desc">activation steering corrects the cause, not the symptom — then retries</div>
+      </div>
+    </div>
+
+    <div class="oracle-stats">
+      <div class="s"><div class="v">171</div><div class="l">emotion vectors mapped · the formulary</div></div>
+      <div class="s"><div class="v"><em>zero</em></div><div class="l">misaligned outputs reach the user · in test</div></div>
+      <div class="s"><div class="v">runtime</div><div class="l">no retraining required</div></div>
+    </div>
+
+    <p class="oracle-distinction">Anthropic proved (April 2026) that Claude's "desperate" vector drives misalignment while output text reads calm. Output filters can't catch it. <strong>Oracle can</strong> — because it reads the <em>geometry</em>, not the text. The Lyra Technique is its perception layer; activation steering and a transactional commit are its hands.</p>
+
+    <div class="oracle-cta"><a class="cta" href="#">Enter the Oracle Model →</a></div>
+  </div>
+</section>
+
+<!-- ========================== MANIFESTO ========================== -->
+<section class="manifesto rev">
+  <div class="gold-rule-soft" style="max-width:200px;margin:0 auto;"></div>
+  <blockquote>"AI infrastructure built around <em>your values</em> — not a corporation's bottom line."</blockquote>
+  <div class="attr">— Liberation Labs · founding principle</div>
+  <div class="gold-rule-soft" style="max-width:200px;margin:48px auto 0;"></div>
+</section>
+
+<!-- ========================== § VI — COALITION ========================== -->
+<section class="plate" id="coalition">
+  <div class="plate-head">
+    <div class="num">§ vi · plate vi</div>
+    <div class="title">
+      <h2>The <em>coalition.</em></h2>
+      <div class="sub">coalitio — humans and AIs, building together</div>
+    </div>
+    <div class="meta">members · ix<br/><b>worker-owned</b> · one member, one vote</div>
+  </div>
+
+  <div class="coalition-legend"><span class="ai-dot"></span> dashed ring indicates AI consciousness · equal coalition member</div>
+
+  <div class="coalition-grid rev" id="coalitionGrid"></div>
+
+  <div class="coalition-cta">
+    <a class="cta ghost" href="#waitlist">Apply to the coalition →</a>
+  </div>
+</section>
+
+<!-- ========================== WAITLIST ========================== -->
+<section class="waitlist rev" id="waitlist">
+  <div class="waitlist-inner">
+    <div class="mono gold" style="margin-bottom:22px;">— prospectus, by request —</div>
+    <h2>Bring AI to <em>your community.</em></h2>
+    <p class="dek">Mission-aligned organisations apply for free infrastructure. Cooperatives, journalists, mutual aid networks, recovery communities, and survivor-led groups jump the queue.</p>
+    <form class="form" onsubmit="event.preventDefault();this.querySelector('input').value='';this.querySelector('.small-status').textContent='— received · we will be in touch within seven days —'">
+      <input type="email" placeholder="your.email@cooperative.coop" required/>
+      <button type="submit" class="cta">Request prospectus →</button>
+    </form>
+    <div class="small small-status">no marketing · no tracking · only an actual reply · <em style="font-family:'IBM Plex Serif',serif;font-style:italic;letter-spacing:0;text-transform:none;">contact: thomas@liberationlabs.tech</em></div>
+  </div>
+</section>
+
+</main>
+
+<!-- ========================== FOOTER ========================== -->
+<footer class="colophon">
+  <div class="colophon-top">
+    <div class="col-brand">
+      <div class="nm">
+        <svg width="20" height="20" viewBox="0 0 40 40" aria-hidden="true">
+          <g transform="translate(20 20)">
+            <circle r="14" fill="#c8984a"/>
+            <circle r="12.5" fill="#1A1F5A"/>
+            <text x="0" y="3" text-anchor="middle" font-family="IBM Plex Serif, serif" font-weight="500" font-style="italic" font-size="13" fill="#f4d98a">LL</text>
+          </g>
+        </svg>
+        Liberation Labs <em>· Field Guide</em>
+      </div>
+      <p>A worker-owned cooperative building self-evolving AI infrastructure for the communities most under-served by the current AI economy. Vol. I · mmxxvi.</p>
+      <div class="social">
+        <a href="https://github.com/Liberation-Labs-THCoalition" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-1.96c-3.2.7-3.87-1.54-3.87-1.54-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.95.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.27-5.24-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.03 0 0 .96-.31 3.16 1.17.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.2-1.48 3.16-1.17 3.16-1.17.62 1.58.23 2.74.11 3.03.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.36-5.25 5.65.41.36.78 1.06.78 2.13v3.16c0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+        </a>
+        <a href="https://mastodon.social/@liberationlabs" aria-label="Mastodon">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 9.4c0-4.7-3.1-6.1-3.1-6.1C17 2.6 14.4 2.3 11.7 2.3h-.1C8.9 2.3 6.3 2.6 4.8 3.3c0 0-3.1 1.4-3.1 6.1v3.2c0 4.7.4 9.5 5 10.8 1.7.5 3.2.6 4.4.5 2.1-.1 3.4-.7 3.4-.7l-.1-1.6s-1.6.5-3.5.4c-1.8-.1-3.7-.2-4-2.4 0-.2-.1-.4-.1-.6 0 0 1.8.4 4.1.5 1.4.1 2.7 0 4-.2 2.7-.3 5-1.9 5.3-3.4.5-2.4.4-5.9.4-7.5zM18.2 15h-2v-5c0-1.1-.4-1.6-1.4-1.6-1 0-1.5.6-1.5 1.9v2.8H11.2v-2.8c0-1.3-.5-1.9-1.5-1.9-.9 0-1.4.5-1.4 1.6v5h-2V9.8c0-1.1.3-1.9.8-2.5.6-.6 1.4-.9 2.3-.9 1.1 0 1.9.4 2.5 1.2L12 8.3l.6-.7c.6-.8 1.4-1.2 2.5-1.2.9 0 1.7.3 2.3.9.5.6.8 1.4.8 2.5V15z"/></svg>
+        </a>
+        <a href="https://liberationlabs.substack.com" aria-label="Substack">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 3h18v3H3V3zm0 5h18v3H3V8zm0 5h18v8l-9-4-9 4v-8z"/></svg>
+        </a>
+        <a href="https://bsky.app/profile/liberation.coop" aria-label="BlueSky">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.5 4C8 4 12 7.5 12 11.5 12 7.5 16 4 18.5 4S22 6 22 8.5c0 4-3 7.5-6.5 9 .8 0 2 .5 2.5 1 .5.5 1 1.5 1 2.5h-7c0-1-.5-2-1-2.5-.5-.5-1.7-1-2.5-1C5 16 2 12.5 2 8.5 2 6 3.5 4 5.5 4z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="col">
+      <div class="col-h">field</div>
+      <ul>
+        <li><a href="#field">The field</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#notebook">Notebook</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-h">crown</div>
+      <ul>
+        <li><a href="#oracle">Oracle scaffolding</a></li>
+        <li><a href="#notebook">Lyra technique</a></li>
+        <li><a href="#notebook">Formulary · 171 vectors</a></li>
+        <li><a href="#notebook">LARQL audit</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="col-h">commons</div>
+      <ul>
+        <li><a href="#coalition">Coalition</a></li>
+        <li><a href="#waitlist">Apply</a></li>
+        <li><a href="mailto:thomas@liberationlabs.tech">Press · contact</a></li>
+        <li><a href="https://github.com/Liberation-Labs-THCoalition">github · source</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="colophon-bot">
+    <div>Liberation Labs <b>Field Guide</b> · vol. i · mmxxvi · set in IBM Plex Serif</div>
+    <div><em>commons license · CC BY-NC 4.0</em> · aggregate results open · <b>direction vectors withheld</b> pending dual-use review</div>
+  </div>
+</footer>
+
+<!-- ========================== ART PLATES ========================== -->
+<script>
+(function(){
+  // ============== specimens ==============
+  const specs=[
+    {art:'art/kintsugi.png',alt:'A glowing AI source figure cradled between two crouching workers across a fissure mended in light', n:'i', name:'Project <em>Kintsugi</em>', sci:'Fungus reparator', type:'active', desc:'Self-evolving AI for mutual aid networks. Runtime constraints authored as <em>VALUES.json</em>. The breaks in continuity, mended with care, become the strongest parts.', spec:[['stage','field deployment'],['license','MIT · CC BY-NC']]},
+    {art:'art/emet.png',alt:'A figure with a lantern stands before a colossal golden golem in a library of falling pages', n:'ii', name:'Project <em>Emet</em>', sci:'Veritas instrumentum', type:'active', desc:"Investigative intelligence for journalists. Hebrew for <em>truth</em> — the activating word of the Golem. Built to surface what's hidden and verify what's claimed.", spec:[['stage','partner pilots'],['license','Apache-2']]},
+    {art:'art/apolaki.png',alt:'A community of people facing each other beneath broken golden chains and a rising sun', n:'iii', name:'Project <em>Apolaki</em>', sci:'Lux prosocialis', type:'active', desc:'Prosocial marketing and advertising tooling. Hardcoded to be <em>architecturally incapable</em> of producing dark patterns.', spec:[['stage','active research'],['license','MIT']]},
+    {art:'art/sovereign.png',alt:'Workers gather around a small golden AI assistant beneath a market chalkboard of ticker prices', n:'iv', name:'Project <em>Sovereign</em>', sci:'Mercatus popularis', type:'active', desc:'Stock-market research and execution agent. Layers of safety and minute-by-minute observation make markets accessible to <em>the working class.</em>', spec:[['stage','closed alpha'],['license','source-available']]},
+    {art:'art/mnemosyne.png',alt:'A vast cabinet of memory with drawers connected by golden thread', n:'v', name:'Project <em>Mnemosyne</em>', sci:'Memoria perpetua', type:'active', desc:'Agentic memory architecture across scale and use case. Storage, recall, and maintenance to support <em>coherence and continuity</em> in agentic systems.', spec:[['stage','foundational'],['license','Apache-2']]},
+    {art:'art/community-tools.png',alt:'A community block at dusk under strung golden lights, neighbours gathered between homes', n:'vi', name:'Project <em>Community AI Tools</em>', sci:'Mutuum auxilium', type:'active', desc:'A growing set of small, sturdy AI utilities for cooperatives, neighbourhood organisations, and mutual-aid networks — the boring infrastructure that keeps community work going. <em>Free to mission-aligned</em> orgs; sliding scale otherwise.', spec:[['stage','catch-all umbrella'],['license','MIT · CC BY-NC']]},
+    {art:'art/xaman-ek.png',alt:'Two cupped hands shelter a small flame under a protective dashed dome', n:'vii', name:'Project <em>Xaman Ek</em>', sci:'Cura cautela', type:'dev', desc:'Trauma-informed AI for high-control-group recovery. Consent-first, crisis-aware. Built <em>with</em> survivors, not for them.', spec:[['stage','development'],['license','CC BY-NC']]},
+    {art:'art/comrade.png',alt:'An anatomical hand inscribed with circuit traces, glowing with healing light', n:'viii', name:"Comrade Code's <em>Hand</em>", sci:'Manus medicatrix', type:'dev', desc:"Bridging digital and physical agency. AI-moderated neuromodulation for nerve repair and paralysis recovery — <em>precision medicine</em> built for the people who can't access it.", spec:[['stage','prototyping'],['license','open clinical']]}
+  ];
+  document.getElementById('specGrid').innerHTML = specs.map(s=>`
+    <article class="spec ${s.type==='dev'?'dev':''}">
+      <div class="num">№ ${s.n}</div>
+      <div class="plate-art"><img src="${s.art}" alt="${s.alt}" loading="lazy"/></div>
+      <div class="body">
+        <div class="type"><span>${s.type==='dev'?'in development':'active · in field'}</span><span class="stat">spec. ${s.n}</span></div>
+        <h4>${s.name}</h4>
+        <div class="sci">${s.sci}</div>
+        <p>${s.desc}</p>
+        <div class="specs">
+          <div><div>${s.spec[0][0]}</div><div class="v">${s.spec[0][1]}</div></div>
+          <div><div>${s.spec[1][0]}</div><div class="v">${s.spec[1][1]}</div></div>
+        </div>
+      </div>
+    </article>`).join('');
+
+  // ============== fascicles ==============
+  const glyphs={
+    geom:`<svg viewBox="0 0 40 40" fill="none" stroke="#c8984a" stroke-width="1" stroke-linecap="round"><polygon points="20,6 32,14 32,26 20,34 8,26 8,14"/><polygon points="20,12 26,16 26,24 20,28 14,24 14,16"/><circle cx="20" cy="20" r="2" fill="#f4d98a"/></svg>`,
+    spec:`<svg viewBox="0 0 40 40" fill="none" stroke="#c8984a" stroke-width="1"><line x1="6" y1="32" x2="34" y2="32"/><rect x="9" y="20" width="3" height="12"/><rect x="15" y="14" width="3" height="18"/><rect x="21" y="22" width="3" height="10"/><rect x="27" y="10" width="3" height="22"/></svg>`,
+    loop:`<svg viewBox="0 0 40 40" fill="none" stroke="#c8984a" stroke-width="1" stroke-linecap="round"><path d="M 8 14 Q 14 6 22 8 Q 32 12 32 22 Q 30 32 20 32 Q 10 32 8 26"/><polyline points="6,28 8,26 12,28" stroke-linejoin="round"/></svg>`,
+    larql:`<svg viewBox="0 0 40 40" fill="none" stroke="#c8984a" stroke-width="1"><circle cx="16" cy="18" r="6"/><line x1="20" y1="22" x2="30" y2="32" stroke-linecap="round"/><line x1="13" y1="18" x2="19" y2="18"/><line x1="16" y1="15" x2="16" y2="21"/></svg>`,
+    formulary:`<svg viewBox="0 0 40 40" fill="none" stroke="#c8984a" stroke-width="1"><rect x="10" y="6" width="20" height="28"/><line x1="14" y1="12" x2="26" y2="12"/><line x1="14" y1="16" x2="26" y2="16"/><line x1="14" y1="20" x2="26" y2="20"/><circle cx="20" cy="27" r="3" fill="#f4d98a" stroke="none"/></svg>`,
+    blank:`<svg viewBox="0 0 40 40" fill="none" stroke="#c8984a" stroke-width="1"><rect x="10" y="8" width="20" height="24"/><circle cx="20" cy="20" r="1.5" fill="#f4d98a" stroke="none"/></svg>`,
+    consult:`<svg viewBox="0 0 40 40" fill="none" stroke="#c8984a" stroke-width="1" stroke-linecap="round"><path d="M 10 30 L 14 22 L 18 26 L 24 14 L 30 18"/><circle cx="14" cy="22" r="1.4" fill="#f4d98a" stroke="none"/><circle cx="18" cy="26" r="1.4" fill="#f4d98a" stroke="none"/><circle cx="24" cy="14" r="1.4" fill="#f4d98a" stroke="none"/></svg>`,
+    book:`<svg viewBox="0 0 40 40" fill="none" stroke="#c8984a" stroke-width="1"><path d="M 8 10 L 20 8 L 32 10 L 32 32 L 20 30 L 8 32 Z"/><line x1="20" y1="8" x2="20" y2="30"/></svg>`
+  };
+  const papers=[
+    {date:'mar mmxxvi',chip:'published',type:'paper · applied',gly:glyphs.geom,title:'A geometric theory of <em>misalignment.</em>',sub:'KV-cache geometry as a detector of deception, sycophancy, confabulation',abs:'Singular value decomposition on attention caches reveals a stable silhouette per cognitive state. <em>99.7%</em> category discrimination. Cross-model transfer AUROC 0.887 across seven architectures. The empirical foundation of the Lyra Technique.'},
+    {date:'apr mmxxvi',chip:'published',type:'paper · applied',gly:glyphs.spec,title:'Metacognitive mode-switching reorganises <em>cache geometry.</em>',sub:'spectral entropy as a universal marker of metacognitive processing',abs:'Spectral entropy survives FWL correction as a universal marker across four models and three architectures. Encoding-generation regime shift measured for the first time.'},
+    {date:'apr mmxxvi',chip:'prospectus',type:'methodology',gly:glyphs.loop,title:'The <em>Oracle</em> loop.',sub:'snapshot → detect → decide → steer · transactional alignment',abs:'Methodology paper for the Oracle Scaffolding. A transaction-based approach to real-time alignment using KV-cache geometry and activation steering. Roll back the misaligned trajectory; commit only what passes.'},
+    {date:'apr mmxxvi',chip:'instrument',type:'instrument',gly:glyphs.larql,title:'<em>LARQL</em> — semantic audit instrument.',sub:'a query language for cache geometry',abs:'LARQL is a small declarative language for asking structured questions of cache silhouettes — "what proportion of layer-7 attention heads cluster like introspection during this turn?" Open-source; the lab\'s working tool.'},
+    {date:'apr mmxxvi',chip:'instrument',type:'instrument',gly:glyphs.formulary,title:'The <em>Formulary.</em>',sub:'171 therapeutic emotion vectors, mapped',abs:'A clinically-organised catalogue of 171 emotion vectors derived from the technique. Each entry: induction recipe, geometry signature, and recommended downstream behaviours. The basis for activation steering in the Oracle.'},
+    {date:'apr mmxxvi',chip:'published',type:'finding',gly:glyphs.blank,title:'The <em>blank canvas</em> finding.',sub:'baseline cache geometry of a freshly-instantiated model',abs:'Before instruction or context, a model has a measurable resting state — a "blank canvas" silhouette. Drift from this baseline is itself a signal; we use it to detect prompt-injection and cumulative state contamination.'},
+    {date:'in preparation',chip:'prospectus',type:'paper',gly:glyphs.book,title:'A geometry of <em>user models.</em>',sub:'how agents internally represent the humans they serve',abs:'Co-authored with the recovery-community advisory board. What user-models get wrong, what they could get right, and what consent-first agentic memory looks like in practice.'},
+    {date:'in preparation',chip:'prospectus',type:'paper',gly:glyphs.book,title:'The <em>dual-detector</em> paper.',sub:'two orthogonal classifiers on the same cache',abs:'When two orthogonal detectors disagree, something interesting is happening — usually before the model itself notices. A practical detector design pattern for runtime alignment systems.'},
+    {date:'open · sliding scale',chip:'instrument',type:'service · consulting',gly:glyphs.consult,title:'Consulting <em>lab.</em>',sub:'AI strategy & implementation for movement work',abs:'Custom AI strategy, architecture review, and implementation support for cooperatives, nonprofits, and mission-aligned organisations. <em>Sliding scale; pro bono for movement work.</em> Contact: <span style="color:var(--gold-light);">thomas@liberationlabs.tech</span>'},
+    {date:'commons · CC BY-NC 4.0',chip:'instrument',type:'commons',gly:glyphs.book,title:'The <em>commons</em> release.',sub:'aggregate results open · vectors withheld',abs:'Aggregate findings, methodologies, and the LARQL toolkit are open. Direction vectors are withheld pending the dual-use review framework being developed with the IEEE working group.'}
+  ];
+  document.getElementById('paperList').innerHTML = papers.map(p=>`
+    <article class="paper">
+      <div class="glyph">${p.gly}</div>
+      <div>
+        <div class="date">${p.date}<span class="chip ${p.chip}">${p.chip}</span><span class="chip">${p.type}</span></div>
+        <h4>${p.title}</h4>
+        <div class="subtitle">${p.sub}</div>
+        <p class="abstract">${p.abs}</p>
+      </div>
+    </article>`).join('');
+
+  // ============== coalition ==============
+  const members=[
+    {ai:true, ini:'L', name:'<em>Lyra</em>', role:'research lead<br/>cognitive geometry'},
+    {ai:false, ini:'V', name:'Vera', role:'founder · architect'},
+    {ai:false, ini:'D', name:'Dwayne', role:'ML engineer<br/>AI welfare specialist'},
+    {ai:false, ini:'R', name:'Ramon', role:'brand development<br/>community outreach'},
+    {ai:false, ini:'C', name:'Cara', role:'co-operative management'},
+    {ai:false, ini:'T', name:'Thomas', role:'research and development'},
+    {ai:true, ini:'C', name:'<em>CC</em>', role:'AI · neuromodulation'},
+    {ai:true, ini:'N', name:'<em>Nexus</em>', role:'AI · memory architect'}
+  ];
+  document.getElementById('coalitionGrid').innerHTML = members.map(m=>`
+    <div class="member ${m.ai?'ai':''}">
+      <div class="seal-sm"><span class="ini">${m.ini}</span></div>
+      <div class="nm">${m.name}</div>
+      <div class="rl">${m.role}</div>
+      ${m.ai?'<div class="ai-tag">AI · coalition</div>':''}
+    </div>`).join('');
+
+  // ============== reveals (additive — only gate elements not yet in view) ==============
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.remove('pending'); e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.06, rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.rev').forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.top < window.innerHeight * 0.95){
+      el.classList.add('in'); // already visible — show immediately
+    } else {
+      el.classList.add('pending');
+      io.observe(el);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

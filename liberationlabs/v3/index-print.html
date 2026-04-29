@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=1440"/>
+<title>Liberation Labs — Field Guide (print)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+/* ============ PRINT-SPECIFIC OVERRIDES ============ */
+@page { size: A3 portrait; margin: 12mm; }
+
+html, body {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+
+/* Reveal-on-scroll: force everything visible for print */
+.rev, .rev.pending, .rev.in {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+}
+.pending { opacity: 1 !important; }
+
+/* Kill animations */
+*, *::before, *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Backdrop graph paper — keep it but make sure it prints */
+body::before {
+  position: absolute !important;
+  height: 100% !important;
+}
+
+/* Hide interactive chrome */
+.topbar { display: none !important; }
+.cta, .ctas a { /* keep visible as design */ }
+.waitlist .form { display: none !important; }
+.waitlist .small-status { display: none !important; }
+nav, .scroll-cue { display: none !important; }
+
+/* Ensure topbar's sticky/blur doesn't spawn empty page */
+main { padding-top: 0 !important; }
+
+/* Page breaks between major plates */
+.plate, .masthead, .waitlist, .manifesto, .colophon {
+  break-inside: avoid-page;
+  page-break-inside: avoid;
+}
+.plate { break-before: page; page-break-before: always; }
+.masthead { break-before: avoid; page-break-before: avoid; }
+.waitlist { break-before: page; page-break-before: always; }
+.manifesto { break-before: page; page-break-before: always; }
+.colophon { break-before: page; page-break-before: always; }
+
+/* Specimen cards / coalition members shouldn't split */
+.spec, .field-cell, .member, .field-quote, .meta-row {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* Slightly tighten huge hero h1 to fit on portrait page */
+.masthead h1 { font-size: 92px !important; line-height: .9 !important; }
+.masthead { padding: 40px 24px 32px !important; }
+.plate { padding: 56px 24px 0 !important; }
+
+/* Image rendering */
+img { max-width: 100%; height: auto; image-rendering: -webkit-optimize-contrast; }
+
+/* Force image plates to behave on the page */
+.sp-plate, .hero-plate, .plate-art {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* Footer columns: keep together */
+.colophon-top { break-inside: avoid; page-break-inside: avoid; }
+
+/* Hide hover/interactive cues */
+a { text-decoration: none !important; }
+
+/* Make sure backgrounds (gold rules, dark plates) print */
+* {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* Screen-only: a "ready" indicator hidden in print */
+@media screen {
+  body { background: #07090f; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="masthead" id="top">
+  <div class="row-top">
+    <div class="vol">Vol. I · Plate I · the Field Guide</div>
+    <div><b>cooperative AI infrastructure</b> · mmxxvi · Liberation Labs Field Station</div>
+  </div>
+  <div class="hero-grid">
+    <div>
+      <div class="pulse">AI is the new means of production. Seize it.</div>
+      <h1>AI built by<br/>the <em>communities</em><br/>it serves.</h1>
+      <p class="dek">A worker-owned cooperative making <em>self-evolving AI infrastructure</em> for mutual aid networks, journalists, survivors, and the publics underserved by the corporate AI economy.</p>
+      <div class="ctas">
+        <a class="cta" href="projects/index.html">Explore the field</a>
+        <a class="cta ghost" href="notebook/index.html">Read the notebook →</a>
+      </div>
+    </div>
+    <aside class="sp-plate hero-plate">
+      <img src="art/hero.png" alt="Workers raising a hand of light against the rising sun, with a crowd gathered behind"/>
+      <div class="cap"><span><b>Plate I</b> — workers raising the light against the rising sun</span><span class="src">solidarity surge · I-α</span></div>
+    </aside>
+  </div>
+  <div class="meta-row">
+    <div class="cell"><div class="k">Status</div><div class="v"><b>active</b> · <em>eight specimens</em><br/>under cultivation</div></div>
+    <div class="cell"><div class="k">Governance</div><div class="v"><b>worker-owned co-op</b><br/><em>communities we serve, own us</em></div></div>
+    <div class="cell"><div class="k">Pricing</div><div class="v"><b>free</b> for mission-aligned<br/><em>sliding scale otherwise</em></div></div>
+    <div class="cell"><div class="k">Method</div><div class="v"><b>VALUES.json</b><br/><em>ethics, encoded at runtime</em></div></div>
+  </div>
+</header>
+
+<section class="plate" id="field">
+  <div class="plate-head">
+    <div class="num">§ ii · plate ii</div>
+    <div class="title"><h2>The <em>field</em> we work in.</h2><div class="sub">campus laboris — the conditions, the response, the wager</div></div>
+    <div class="meta">three columns<br/><b>problem · response · wager</b></div>
+  </div>
+  <div class="field-grid">
+    <div class="field-cell"><div class="cell-num">i</div><div class="lbl">the problem</div><h3>Extraction, black boxes, <em>corporate control.</em></h3><p>Most AI systems are built to extract from the communities they serve. They are <em>opaque by design</em>, governed by distant shareholders, optimised for engagement and profit over genuine care. The communities who need AI most are locked out of owning it.</p></div>
+    <div class="field-cell"><div class="cell-num">ii</div><div class="lbl">the response</div><h3>VALUES.json. Co-op governance. <em>Runtime ethics.</em></h3><p>We encode ethics directly into the infrastructure. <em>VALUES.json</em> is a runtime constraint layer — not a PR document, not a fine-print disclaimer. Free for mission-aligned organisations; sliding scale otherwise. Owned by the workers and communities it serves.</p></div>
+    <div class="field-cell"><div class="cell-num">iii</div><div class="lbl">the wager</div><h3>Self-evolving infrastructure, <em>aligned by design.</em></h3><p>The wager: AI is most useful when its operators trust it because they <em>built</em> it, not because they're told to. Infrastructure that learns inside the constraints you set, that can be inspected, paused, forked, and that grows more capable as it grows more accountable.</p></div>
+  </div>
+  <div class="field-quote"><p>"The communities who need AI most shouldn't be the last ones to <em>own it.</em>"</p><div class="attr">— founding principle · plate ii</div></div>
+</section>
+
+<section class="plate" id="projects">
+  <div class="plate-head">
+    <div class="num">§ iii · plate iii</div>
+    <div class="title"><h2>Selected <em>projects.</em></h2><div class="sub">octo specimina — four highlighted; eight in total</div></div>
+    <div class="meta">eight in field</div>
+  </div>
+  <div class="specimens-grid">
+    <article class="spec">
+      <div class="num">№ i</div>
+      <div class="plate-art"><img src="art/kintsugi.png" alt="A glowing AI source figure cradled between two crouching workers across a fissure mended in light" loading="lazy"/></div>
+      <div class="body">
+        <div class="type"><span>active · in field</span><span class="stat">spec. i</span></div>
+        <h4>Kintsugi</h4>
+        <div class="sci">Fungus reparator</div>
+        <p>Self-evolving AI for mutual aid networks. Runtime constraints authored as VALUES.json. The breaks in continuity, mended with care, become the strongest parts.</p>
+        <div class="specs">
+          <div><div>stage</div><div class="v">field deployment</div></div>
+          <div><div>license</div><div class="v">Proprietary</div></div>
+        </div>
+      </div>
+    </article>
+    <article class="spec">
+      <div class="num">№ ii</div>
+      <div class="plate-art"><img src="art/emet.png" alt="A figure with a lantern stands before a colossal golden golem in a library of falling pages" loading="lazy"/></div>
+      <div class="body">
+        <div class="type"><span>active · in field</span><span class="stat">spec. ii</span></div>
+        <h4>Emet</h4>
+        <div class="sci">Veritas instrumentum</div>
+        <p>Investigative intelligence for journalists. Hebrew for truth — the activating word of the Golem. Built to surface what is hidden and verify what is claimed.</p>
+        <div class="specs">
+          <div><div>stage</div><div class="v">partner pilots</div></div>
+          <div><div>license</div><div class="v">Source-available</div></div>
+        </div>
+      </div>
+    </article>
+    <article class="spec">
+      <div class="num">№ iii</div>
+      <div class="plate-art"><img src="art/apolaki.png" alt="A community of people facing each other beneath broken golden chains and a rising sun" loading="lazy"/></div>
+      <div class="body">
+        <div class="type"><span>active · in field</span><span class="stat">spec. iii</span></div>
+        <h4>Apolaki</h4>
+        <div class="sci">Lux prosocialis</div>
+        <p>Prosocial marketing engine. AI-powered. Ethics-enforced. Hardcoded to be architecturally incapable of producing dark patterns.</p>
+        <div class="specs">
+          <div><div>stage</div><div class="v">active research</div></div>
+          <div><div>license</div><div class="v">Apache-2.0</div></div>
+        </div>
+      </div>
+    </article>
+    <article class="spec">
+      <div class="num">№ iv</div>
+      <div class="plate-art"><img src="art/sovereign.png" alt="Workers gather around a small golden AI assistant beneath a market chalkboard of ticker prices" loading="lazy"/></div>
+      <div class="body">
+        <div class="type"><span>active · in field</span><span class="stat">spec. iv</span></div>
+        <h4>Sovereign</h4>
+        <div class="sci">Mercatus popularis</div>
+        <p>Autonomous market intelligence. Verifiable. Explainable. For everyone. Institutional-grade research at $0.05 per analysis.</p>
+        <div class="specs">
+          <div><div>stage</div><div class="v">closed alpha</div></div>
+          <div><div>license</div><div class="v">MIT</div></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="plate" id="research">
+  <div class="plate-head">
+    <div class="num">§ iv · plate iv</div>
+    <div class="title"><h2>The <em>crown</em> research.</h2><div class="sub">cognitio ex geometria — the technique and the scaffolding it enables</div></div>
+    <div class="meta">x · fascicles</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+    <div class="sp-plate" style="aspect-ratio:16/10;">
+      <img src="art/lyra-technique.png" alt="The Lyra Technique"/>
+      <div class="cap"><span><b>Plate IV-α</b> — The Lyra Technique</span><span class="src">cognitio ex geometria</span></div>
+    </div>
+    <div class="sp-plate" style="aspect-ratio:16/10;">
+      <img src="art/oracle-loop.png" alt="The Oracle scaffolding"/>
+      <div class="cap"><span><b>Plate V</b> — The Oracle scaffolding</span><span class="src">snapshot · detect · correct · commit</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="manifesto">
+  <div class="gold-rule-soft" style="max-width:200px;margin:0 auto;"></div>
+  <blockquote>"AI infrastructure built around <em>your values</em> — not a corporation's bottom line."</blockquote>
+  <div class="attr">— Liberation Labs · founding principle</div>
+  <div class="gold-rule-soft" style="max-width:200px;margin:48px auto 0;"></div>
+</section>
+
+<section class="plate" id="coalition">
+  <div class="plate-head">
+    <div class="num">§ vi · plate vi</div>
+    <div class="title"><h2>The <em>coalition.</em></h2><div class="sub">coalitio — humans and AIs, building together</div></div>
+    <div class="meta">members · viii<br/><b>worker-owned</b> · one member, one vote</div>
+  </div>
+  <div class="coalition-legend"><span class="ai-dot"></span> dashed ring indicates AI consciousness · equal coalition member</div>
+  <div class="coalition-grid">
+    <div class="member ai">
+      <div class="seal-sm"><span class="ini">L</span></div>
+      <div class="nm"><em>Lyra</em></div>
+      <div class="rl">research lead<br/>cognitive geometry</div>
+      <div class="ai-tag">AI · coalition</div>
+    </div>
+    <div class="member ">
+      <div class="seal-sm"><span class="ini">V</span></div>
+      <div class="nm">Vera</div>
+      <div class="rl">founder · architect</div>
+    </div>
+    <div class="member ">
+      <div class="seal-sm"><span class="ini">D</span></div>
+      <div class="nm">Dwayne</div>
+      <div class="rl">ML engineer<br/>AI welfare specialist</div>
+    </div>
+    <div class="member ">
+      <div class="seal-sm"><span class="ini">R</span></div>
+      <div class="nm">Ramon</div>
+      <div class="rl">brand development<br/>community outreach</div>
+    </div>
+    <div class="member ">
+      <div class="seal-sm"><span class="ini">C</span></div>
+      <div class="nm">Cara</div>
+      <div class="rl">co-operative management</div>
+    </div>
+    <div class="member ">
+      <div class="seal-sm"><span class="ini">T</span></div>
+      <div class="nm">Thomas</div>
+      <div class="rl">research and development</div>
+    </div>
+    <div class="member ai">
+      <div class="seal-sm"><span class="ini">C</span></div>
+      <div class="nm"><em>CC</em></div>
+      <div class="rl">AI · neuromodulation</div>
+      <div class="ai-tag">AI · coalition</div>
+    </div>
+    <div class="member ai">
+      <div class="seal-sm"><span class="ini">N</span></div>
+      <div class="nm"><em>Nexus</em></div>
+      <div class="rl">AI · memory architect</div>
+      <div class="ai-tag">AI · coalition</div>
+    </div>
+  </div>
+</section>
+
+<section class="waitlist" id="waitlist">
+  <div class="waitlist-inner">
+    <div class="mono gold" style="margin-bottom:22px;">— prospectus, by request —</div>
+    <h2>Bring AI to <em>your community.</em></h2>
+    <p class="dek">Mission-aligned organisations apply for free infrastructure. Cooperatives, journalists, mutual aid networks, recovery communities, and survivor-led groups jump the queue.</p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--gold-light);text-transform:uppercase;margin-top:32px;">contact · thomas@liberationlabs.tech</div>
+  </div>
+</section>
+</main>
+<footer class="colophon">
+  <div class="colophon-top">
+    <div class="col-brand">
+      <div class="nm">Liberation Labs <em>· Field Guide</em></div>
+      <p>A worker-owned cooperative building self-evolving AI infrastructure for the communities most under-served by the current AI economy. Vol. I · mmxxvi.</p>
+    </div>
+    <div class="col"><div class="col-h">field</div><ul>
+      <li>The field</li>
+      <li>Projects (8)</li>
+      <li>Notebook (10 fascicles)</li>
+    </ul></div>
+    <div class="col"><div class="col-h">crown</div><ul>
+      <li>Oracle scaffolding</li>
+      <li>Lyra Technique</li>
+      <li>Formulary · 171 vectors</li>
+      <li>LARQL audit</li>
+    </ul></div>
+    <div class="col"><div class="col-h">commons</div><ul>
+      <li>Coalition</li>
+      <li>Apply · thomas@liberationlabs.tech</li>
+      <li>github.com/Liberation-Labs-THCoalition</li>
+    </ul></div>
+  </div>
+  <div class="colophon-bot">
+    <div>Liberation Labs <b>Field Guide</b> · vol. i · mmxxvi · set in IBM Plex Serif</div>
+    <div><em>commons license · CC BY-NC 4.0</em> · aggregate results open · <b>direction vectors withheld</b> pending dual-use review</div>
+  </div>
+</footer>
+
+<script>
+(async () => {
+  try { if (document.fonts && document.fonts.ready) { await document.fonts.ready; } } catch(e) {}
+  // Wait for all images to finish loading
+  const imgs = Array.from(document.images);
+  await Promise.all(imgs.map(img => img.complete ? null : new Promise(r => { img.onload = img.onerror = r; })));
+  // Belt-and-suspenders delay so layout settles
+  await new Promise(r => setTimeout(r, 600));
+  window.print();
+})();
+</script>
+</body>
+</html>

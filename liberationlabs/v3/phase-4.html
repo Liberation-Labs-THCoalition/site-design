@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=1440"/>
+<title>Liberation Labs — Commons · Instruments &amp; Protocols</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --gold:#c8984a; --gold-light:#f4d98a; --gold-bright:#ffe9a8; --gold-deep:#3a2a0a;
+    --bg:#07090f; --paper:#0d1018; --panel:#111523;
+    --rule:rgba(232,236,255,.12); --rule-s:rgba(232,236,255,.22);
+    --ink:#e8ecf5; --ink-2:#98a0b8; --ink-3:#5c6178;
+    --indigo:#1A1F5A; --indigo-2:#2b2f78; --indigo-deep:#0a0d2a;
+    --cream:#f4ecd6;
+    --verm:#c05a3a;
+  }
+  *{box-sizing:border-box;}
+  html,body{background:var(--bg);color:var(--ink);margin:0;font-family:'IBM Plex Sans',sans-serif;}
+  body{min-height:100vh;}
+  body::before{
+    content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      linear-gradient(rgba(232,236,255,.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,236,255,.022) 1px, transparent 1px);
+    background-size:24px 24px;
+    mask-image:radial-gradient(ellipse 80% 70% at 50% 20%, #000 30%, transparent 90%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 20%, #000 30%, transparent 90%);
+  }
+  main{position:relative;z-index:1;}
+
+  /* CHROME */
+  .chrome{position:sticky;top:0;z-index:100;background:rgba(7,9,15,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--rule);}
+  .chrome-inner{max-width:1680px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 40px;gap:24px;}
+  .brand{display:flex;align-items:center;gap:14px;font-family:'IBM Plex Serif',serif;font-weight:300;font-size:15px;color:var(--ink);letter-spacing:-.005em;}
+  .brand .seal{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 32% 30%, #fff4c8 0%, #f4d98a 18%, #c8984a 45%, #6a4510 80%, #2a1c0a 100%);box-shadow:inset 0 0 6px rgba(0,0,0,.5), 0 0 0 1px rgba(244,217,138,.2);}
+  .brand em{font-style:italic;color:var(--ink-2);font-weight:300;}
+  .brand .sep{color:var(--ink-3);}
+  .chrome-meta{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;}
+  .chrome a.back{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;color:var(--ink-2);text-decoration:none;text-transform:uppercase;padding:6px 12px;border:1px solid var(--rule);border-radius:2px;}
+  .chrome a.back:hover{color:var(--gold-light);border-color:rgba(200,152,74,.4);}
+
+  .site-nav{max-width:1680px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;border-bottom:1px solid var(--rule);}
+  .site-nav .logo{display:flex;align-items:center;gap:12px;font-family:'IBM Plex Serif',serif;font-size:17px;color:var(--ink);letter-spacing:-.005em;}
+  .site-nav .logo .cog{width:28px;height:28px;}
+  .site-nav .logo small{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase;margin-left:6px;}
+  .site-nav .links{display:flex;gap:28px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);}
+  .site-nav .links a{color:inherit;text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent;transition:color .15s;}
+  .site-nav .links a.active{color:var(--ink);border-bottom-color:var(--gold);}
+  .site-nav .links a:hover{color:var(--gold-light);}
+  .site-nav .cta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;padding:9px 18px;border-radius:2px;background:linear-gradient(180deg,#f4d98a,#c8984a 50%,#8a6320);color:#2a1c0a;font-weight:500;box-shadow:inset 0 1px 0 rgba(255,255,255,.4);text-decoration:none;display:inline-block;}
+
+  /* MASTHEAD */
+  .masthead{max-width:1680px;margin:0 auto;padding:56px 40px 40px;border-bottom:2px solid var(--gold);position:relative;}
+  .masthead .row-top{display:flex;justify-content:space-between;align-items:flex-start;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.22em;color:var(--ink-3);text-transform:uppercase;margin-bottom:24px;}
+  .masthead .row-top .vol{color:var(--gold);}
+  .masthead .row-top .date b{color:var(--ink-2);font-weight:500;}
+  .masthead h1{font-family:'IBM Plex Serif',serif;font-weight:280;font-size:108px;line-height:.9;letter-spacing:-.035em;margin:0 0 22px;color:var(--ink);}
+  .masthead h1 em{font-style:italic;color:var(--gold-light);font-weight:280;}
+  .masthead .dek{font-family:'IBM Plex Serif',serif;font-style:italic;font-weight:300;font-size:22px;color:var(--ink-2);max-width:820px;line-height:1.45;margin:0 0 30px;}
+  .masthead .dek em{color:var(--gold-light);}
+  .masthead .meta-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--rule);padding-top:18px;}
+  .masthead .meta-row .cell{padding-right:20px;border-right:1px solid var(--rule);}
+  .masthead .meta-row .cell:last-child{border-right:0;}
+  .masthead .meta-row .k{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;}
+  .masthead .meta-row .v{font-family:'IBM Plex Serif',serif;font-weight:400;font-size:15px;color:var(--ink);line-height:1.35;}
+  .masthead .meta-row .v em{font-style:italic;color:var(--gold-light);}
+  .masthead .meta-row .v b{font-variant:small-caps;letter-spacing:.04em;font-weight:500;color:var(--ink);}
+
+  /* TIER HEADER */
+  .tier{max-width:1680px;margin:0 auto;padding:56px 40px 28px;}
+  .tier .num{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase;padding:4px 8px;border:1px solid rgba(200,152,74,.4);border-radius:2px;display:inline-block;margin-bottom:16px;}
+  .tier h2{font-family:'IBM Plex Serif',serif;font-weight:300;font-size:44px;margin:0 0 8px;letter-spacing:-.018em;color:var(--ink);line-height:1;}
+  .tier h2 em{font-style:italic;color:var(--gold-light);}
+  .tier .latin{font-family:'IBM Plex Serif',serif;font-style:italic;font-size:16px;color:var(--ink-2);font-weight:300;margin-bottom:24px;max-width:800px;line-height:1.5;}
+
+  /* INSTRUMENT */
+  .commons{max-width:1680px;margin:0 auto;padding:0 40px 32px;}
+  .tools-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .tools-grid.pair{grid-template-columns:repeat(2,1fr);}
+  .tool{border:1px solid var(--rule);background:rgba(17,21,35,.4);border-radius:2px;display:flex;flex-direction:column;overflow:hidden;position:relative;}
+  .tool .num{position:absolute;top:-1px;right:-1px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#2a1c0a;background:var(--gold);padding:4px 10px;z-index:2;}
+  .tool .mural{aspect-ratio:1/1;width:100%;background:#0a0d2a;position:relative;overflow:hidden;border-bottom:1px solid var(--rule);}
+  .tool.wide .mural{aspect-ratio:16/9;}
+  .tool .mural svg{display:block;width:100%;height:100%;}
+  .tool .body{padding:20px 22px 20px;display:flex;flex-direction:column;flex:1;}
+  .tool .type{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+  .tool h4{font-family:'IBM Plex Serif',serif;font-weight:400;font-size:21px;margin:0 0 3px;color:var(--ink);letter-spacing:-.005em;}
+  .tool h4 em{font-style:italic;color:var(--gold-light);}
+  .tool .sci{font-family:'IBM Plex Serif',serif;font-style:italic;font-size:12px;color:var(--ink-3);margin-bottom:14px;font-weight:300;}
+  .tool p{font-family:'IBM Plex Serif',serif;font-size:13.5px;line-height:1.5;color:var(--ink-2);margin:0 0 16px;font-weight:300;}
+  .tool p em{color:var(--ink);font-style:italic;}
+  .tool .specs{margin-top:auto;padding-top:14px;border-top:1px solid var(--rule);display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:var(--ink-3);text-transform:uppercase;}
+  .tool .specs .v{color:var(--gold-light);font-weight:500;margin-top:2px;font-family:'IBM Plex Serif',serif;font-style:italic;font-size:12px;letter-spacing:0;text-transform:none;}
+
+  /* COLOPHON */
+  .colophon{max-width:1680px;margin:0 auto;padding:48px 40px;display:flex;justify-content:space-between;gap:18px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);flex-wrap:wrap;border-top:1px solid var(--rule);}
+  .colophon b{color:var(--gold-light);font-weight:500;}
+  .colophon .right{text-align:right;}
+</style>
+</head>
+<body>
+
+<nav class="chrome">
+  <div class="chrome-inner">
+    <div class="brand">
+      <span class="seal" aria-hidden="true"></span>
+      <span>Liberation Labs</span>
+      <span class="sep">/</span>
+      <em>Phase 4 — Commons · Instruments &amp; Protocols</em>
+    </div>
+    <a class="back" href="phase-3.html">← Notebook</a>
+    <div class="chrome-meta">Apr · mmxxvi · rev. A</div>
+  </div>
+</nav>
+
+<nav class="site-nav">
+  <div class="logo">
+    <svg class="cog" viewBox="0 0 40 40" aria-hidden="true">
+      <defs>
+        <linearGradient id="nav-teeth" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffe9a8"/><stop offset="55%" stop-color="#c8984a"/><stop offset="100%" stop-color="#3a2a0a"/>
+        </linearGradient>
+      </defs>
+      <g transform="translate(20 20)">
+        <g fill="url(#nav-teeth)">
+          <g><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+          <g transform="rotate(30)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+          <g transform="rotate(60)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+          <g transform="rotate(90)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+          <g transform="rotate(120)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+          <g transform="rotate(150)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+          <g transform="rotate(180)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+          <g transform="rotate(210)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+          <g transform="rotate(240)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+          <g transform="rotate(270)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+          <g transform="rotate(300)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+          <g transform="rotate(330)"><rect x="-2.3" y="-18" width="4.6" height="5" rx=".5"/></g>
+        </g>
+        <circle r="14" fill="#c8984a"/>
+        <circle r="12.5" fill="#1A1F5A"/>
+        <g stroke="#f4d98a" stroke-width="1" fill="none" stroke-linecap="round" opacity=".9">
+          <path d="M-10 -6 L-4 -2 L2 -8 L8 -3"/>
+          <path d="M-9 5 L-3 3 L3 7 L9 4"/>
+          <path d="M-2 -11 L0 -5 L-3 0 L1 5 L-1 10"/>
+        </g>
+        <g fill="#f4d98a" font-family="IBM Plex Serif, serif" font-weight="500" font-style="italic">
+          <text x="0" y="3" text-anchor="middle" font-size="13">LL</text>
+        </g>
+      </g>
+    </svg>
+    <span>Liberation Labs <small>est. mmxxvi</small></span>
+  </div>
+  <div class="links">
+    <a href="phase-2b.html">Field</a>
+    <a href="phase-2b.html">Projects</a>
+    <a href="phase-3.html">Notebook</a>
+    <a class="active" href="phase-4.html">Commons</a>
+    <a href="phase-2b.html">Apply</a>
+  </div>
+  <a class="cta" href="phase-2b.html">Start a Project</a>
+</nav>
+
+<main>
+
+<header class="masthead">
+  <div class="row-top">
+    <div class="vol">Vol. I · Plate V · the Commons</div>
+    <div class="date">Instr. <b>i–viii · mmxxvi</b> · Liberation Labs Workshop</div>
+  </div>
+  <h1>The <em>Commons.</em></h1>
+  <p class="dek">Eight <em>instruments</em> released under the commons — MCP servers, browser extensions, a Bittensor protocol, an OSINT suite, a mesh-network deployment. Shared freely; <em>surveillance reversed</em>, cameras pointed up the hierarchy.</p>
+  <div class="meta-row">
+    <div class="cell">
+      <div class="k">Instruments</div>
+      <div class="v"><b>8 released</b><br/><em>MCP · extension · protocol · suite</em></div>
+    </div>
+    <div class="cell">
+      <div class="k">Licenses</div>
+      <div class="v"><b>MIT · Apache-2</b><br/><em>CC BY-NC · GPL</em></div>
+    </div>
+    <div class="cell">
+      <div class="k">Adoption</div>
+      <div class="v"><b>BlueSky · Mastodon</b><br/><em>nonprofit-first; X excluded</em></div>
+    </div>
+    <div class="cell">
+      <div class="k">Philosophy</div>
+      <div class="v"><b>anti-Palantir</b><br/><em>monitor those who hold power</em></div>
+    </div>
+  </div>
+</header>
+
+<!-- ========== TIER I: RESEARCH INFRASTRUCTURE ========== -->
+<section class="tier">
+  <div class="num">Tier I · Plate V — research infrastructure</div>
+  <h2>Research <em>infrastructure.</em></h2>
+  <div class="latin">instrumenta investigationis — the tools we built to do the work the work required</div>
+</section>
+<section class="commons">
+  <div class="tools-grid" id="grid-1"></div>
+</section>
+
+<!-- ========== TIER II: PUBLIC ACCOUNTABILITY ========== -->
+<section class="tier">
+  <div class="num">Tier II · Plate V — public accountability</div>
+  <h2>Public <em>accountability.</em></h2>
+  <div class="latin">contra-surveillatio — cameras turned up the hierarchy; disinformation detected in-line; police violence witnessed</div>
+</section>
+<section class="commons">
+  <div class="tools-grid" id="grid-2"></div>
+</section>
+
+<!-- ========== TIER III: MUTUAL AID OPERATIONS ========== -->
+<section class="tier">
+  <div class="num">Tier III · Plate V — mutual aid operations</div>
+  <h2>Mutual aid <em>operations.</em></h2>
+  <div class="latin">auxilium mutuum — production agents for the cooperative software stack nonprofits could not otherwise afford</div>
+</section>
+<section class="commons">
+  <div class="tools-grid pair" id="grid-3"></div>
+</section>
+
+<footer class="colophon">
+  <div>Liberation Labs <b>Field Guide</b> · Vol. I · Plate V · set in IBM Plex Serif</div>
+  <div class="right"><b>the commons</b> — aggregate instruments released under permissive license · <em style="font-family:'IBM Plex Serif',serif;font-style:italic;letter-spacing:0;text-transform:none;color:var(--ink-2);">surveillance, reversed</em></div>
+</footer>
+
+</main>
+
+<script>
+(function(){
+  // Shared mural frame
+  const base = (key, inner) => `
+    <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <radialGradient id="sun-${key}" cx=".5" cy=".4" r=".5">
+          <stop offset="0%" stop-color="#ffe9a8"/>
+          <stop offset="50%" stop-color="#c8984a" stop-opacity=".55"/>
+          <stop offset="100%" stop-color="#3a2a0a" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="200" height="200" fill="#0a0d2a"/>
+      ${inner}
+      <g stroke="#c8984a" stroke-width=".6" fill="none" opacity=".5">
+        <path d="M 8 8 L 20 8 M 8 8 L 8 20"/>
+        <path d="M 192 8 L 180 8 M 192 8 L 192 20"/>
+        <path d="M 8 192 L 20 192 M 8 192 L 8 180"/>
+        <path d="M 192 192 L 180 192 M 192 192 L 192 180"/>
+      </g>
+    </svg>`;
+
+  // Banner arch used in each mural
+  const banner = (label) => `
+    <g>
+      <path d="M 20 172 Q 100 158 180 172 L 180 188 Q 100 174 20 188 Z" fill="#c8984a"/>
+      <path d="M 20 172 Q 100 158 180 172" stroke="#ffe9a8" stroke-width=".8" fill="none" opacity=".6"/>
+      <text x="100" y="184" text-anchor="middle" font-family="IBM Plex Serif, serif" font-style="italic" font-weight="500" font-size="9" fill="#1a1205" letter-spacing="2">${label}</text>
+    </g>`;
+
+  const rays = (cx, cy) => `
+    <g fill="#1A1F5A" opacity=".85">
+      <polygon points="${cx},${cy} 20,0 34,0"/>
+      <polygon points="${cx},${cy} 60,0 74,0"/>
+      <polygon points="${cx},${cy} 126,0 140,0"/>
+      <polygon points="${cx},${cy} 166,0 180,0"/>
+      <polygon points="${cx},${cy} 0,34 0,20"/>
+      <polygon points="${cx},${cy} 200,34 200,20"/>
+    </g>`;
+
+  // ---------- TIER I: RESEARCH INFRASTRUCTURE ----------
+
+  // MindPrint — two hands pressing a seal
+  const mindprint = base('mp', `
+    <circle cx="100" cy="72" r="52" fill="url(#sun-mp)"/>
+    ${rays(100,72)}
+    <g>
+      <rect x="64" y="92" width="72" height="56" fill="#f4ecd6"/>
+      <rect x="64" y="92" width="72" height="56" fill="none" stroke="#c8984a" stroke-width="1"/>
+      <g stroke="#1A1F5A" stroke-width="1" opacity=".4">
+        <line x1="72" y1="104" x2="128" y2="104"/>
+        <line x1="72" y1="112" x2="128" y2="112"/>
+        <line x1="72" y1="120" x2="120" y2="120"/>
+        <line x1="72" y1="128" x2="124" y2="128"/>
+      </g>
+      <circle cx="100" cy="120" r="14" fill="#c8984a"/>
+      <circle cx="100" cy="120" r="10" fill="#1A1F5A"/>
+      <text x="100" y="124" text-anchor="middle" font-family="IBM Plex Serif, serif" font-weight="600" font-style="italic" font-size="9" fill="#f4d98a">LL</text>
+    </g>
+    <g fill="#f4ecd6">
+      <path d="M 38 128 L 38 96 Q 40 86 52 86 L 54 104 L 62 100 L 64 118 L 62 140 Z"/>
+      <path d="M 162 128 L 162 96 Q 160 86 148 86 L 146 104 L 138 100 L 136 118 L 138 140 Z"/>
+    </g>
+    <g fill="#d9cfb0">
+      <path d="M 38 128 L 38 96 Q 40 86 52 86 L 54 104 L 62 100 L 62 128 Z"/>
+      <path d="M 162 128 L 162 96 Q 160 86 148 86 L 146 104 L 138 100 L 138 128 Z"/>
+    </g>
+    <path d="M 32 200 L 32 134 L 64 134 L 64 200 Z" fill="#0f1436"/>
+    <path d="M 168 200 L 168 134 L 136 134 L 136 200 Z" fill="#0f1436"/>
+    ${banner('MINDPRINT · 121 bytes')}
+  `);
+
+  // Expanded Research — figure holding book aloft
+  const research = base('rs', `
+    <circle cx="100" cy="68" r="50" fill="url(#sun-rs)"/>
+    ${rays(100,68)}
+    <g stroke="#c8984a" stroke-width="1" fill="none" opacity=".35">
+      <path d="M 20 150 L 20 110 Q 20 90 40 90 Q 60 90 60 110 L 60 150"/>
+      <path d="M 140 150 L 140 110 Q 140 90 160 90 Q 180 90 180 110 L 180 150"/>
+    </g>
+    <g>
+      <path d="M 70 200 L 70 140 Q 72 120 86 110 Q 90 100 88 92
+               Q 78 88 78 78 Q 80 66 92 62 Q 108 60 118 70 Q 122 82 116 90
+               Q 118 104 114 114 Q 128 120 130 140 L 130 200 Z" fill="#0f1436"/>
+      <path d="M 88 118 L 104 115 L 110 150 L 100 200 L 88 200 Z" fill="#1e2656"/>
+      <path d="M 82 80 Q 82 66 92 62 Q 108 60 118 70 Q 120 84 112 92 Q 100 96 88 92 Z" fill="#f4ecd6"/>
+      <path d="M 78 80 Q 78 56 98 52 Q 118 52 124 72 L 120 68 Q 116 62 104 62 Q 90 64 84 76 Z" fill="#050716"/>
+      <path d="M 114 88 Q 128 78 138 60 Q 146 44 140 32 L 132 36 Q 134 46 128 58 Q 118 72 108 80 Z" fill="#1e2656"/>
+    </g>
+    <g transform="translate(140 28) rotate(-6)">
+      <path d="M -22 0 L -22 -16 L 0 -20 L 22 -16 L 22 0 L 0 -4 Z" fill="#f4ecd6" stroke="#c8984a" stroke-width="1"/>
+      <line x1="0" y1="-20" x2="0" y2="0" stroke="#c8984a" stroke-width=".8"/>
+      <g stroke="#1A1F5A" stroke-width=".6" opacity=".5">
+        <line x1="-18" y1="-11" x2="-5" y2="-13"/>
+        <line x1="-18" y1="-7" x2="-5" y2="-9"/>
+        <line x1="5" y1="-13" x2="18" y2="-11"/>
+        <line x1="5" y1="-9" x2="18" y2="-7"/>
+      </g>
+      <g stroke="#ffe9a8" stroke-width=".8" opacity=".7">
+        <line x1="0" y1="-20" x2="-6" y2="-30"/>
+        <line x1="0" y1="-20" x2="0" y2="-32"/>
+        <line x1="0" y1="-20" x2="6" y2="-30"/>
+      </g>
+    </g>
+    ${banner('EXPANDED · RESEARCH')}
+  `);
+
+  // Agent Memory — file cabinet with circuit traces
+  const memory = base('mm', `
+    <circle cx="100" cy="68" r="48" fill="url(#sun-mm)"/>
+    ${rays(100,68)}
+    <!-- figure tending a stack of memory drawers -->
+    <g transform="translate(70 80)">
+      <rect x="0" y="0" width="60" height="80" fill="#f4ecd6" stroke="#c8984a" stroke-width="1"/>
+      <line x1="0" y1="20" x2="60" y2="20" stroke="#c8984a" stroke-width=".8"/>
+      <line x1="0" y1="40" x2="60" y2="40" stroke="#c8984a" stroke-width=".8"/>
+      <line x1="0" y1="60" x2="60" y2="60" stroke="#c8984a" stroke-width=".8"/>
+      <circle cx="30" cy="10" r="2" fill="#c8984a"/>
+      <circle cx="30" cy="30" r="2" fill="#c8984a"/>
+      <circle cx="30" cy="50" r="2" fill="#c8984a"/>
+      <circle cx="30" cy="70" r="2" fill="#c8984a"/>
+      <!-- circuit traces emerging -->
+      <g stroke="#f4d98a" stroke-width="1" fill="none" opacity=".8">
+        <path d="M 60 30 L 72 30 L 72 20 L 82 20"/>
+        <path d="M 60 50 L 68 50 L 68 60 L 78 60"/>
+        <path d="M 0 30 L -12 30 L -12 40 L -22 40"/>
+        <path d="M 0 70 L -10 70 L -10 60 L -20 60"/>
+        <circle cx="82" cy="20" r="1.6" fill="#f4d98a"/>
+        <circle cx="78" cy="60" r="1.6" fill="#f4d98a"/>
+        <circle cx="-22" cy="40" r="1.6" fill="#f4d98a"/>
+        <circle cx="-20" cy="60" r="1.6" fill="#f4d98a"/>
+      </g>
+    </g>
+    ${banner('AGENT · MEMORY')}
+  `);
+
+  // Orchestrator Benchmarks — scales of justice with LLMs
+  const bench = base('bm', `
+    <circle cx="100" cy="62" r="46" fill="url(#sun-bm)"/>
+    ${rays(100,62)}
+    <!-- balance beam -->
+    <g stroke="#f4d98a" stroke-width="1.4" fill="none">
+      <line x1="100" y1="40" x2="100" y2="100"/>
+      <line x1="40" y1="60" x2="160" y2="60"/>
+      <!-- left pan -->
+      <line x1="40" y1="60" x2="30" y2="100"/>
+      <line x1="40" y1="60" x2="70" y2="100"/>
+      <path d="M 28 100 Q 50 110 72 100" fill="#1A1F5A"/>
+      <!-- right pan -->
+      <line x1="160" y1="60" x2="130" y2="100"/>
+      <line x1="160" y1="60" x2="170" y2="100"/>
+      <path d="M 128 100 Q 150 110 172 100" fill="#1A1F5A"/>
+      <!-- base -->
+      <path d="M 85 100 L 115 100 L 120 120 L 80 120 Z" fill="#c8984a" stroke="none"/>
+    </g>
+    <!-- models as tokens on pans -->
+    <g fill="#f4ecd6">
+      <circle cx="42" cy="92" r="4"/>
+      <circle cx="52" cy="94" r="4"/>
+      <circle cx="62" cy="92" r="4"/>
+      <circle cx="140" cy="94" r="4"/>
+      <circle cx="150" cy="92" r="4"/>
+    </g>
+    <!-- small scoreboard -->
+    <g fill="#f4d98a" font-family="IBM Plex Mono, monospace" font-size="6">
+      <text x="42" y="146">0.72</text>
+      <text x="88" y="146">0.88</text>
+      <text x="136" y="146">0.94</text>
+    </g>
+    ${banner('ORCHESTRATOR · BENCH')}
+  `);
+
+  // ---------- TIER II: PUBLIC ACCOUNTABILITY ----------
+
+  // Transparency Suite — camera up at building
+  const transparency = base('tr', `
+    <circle cx="60" cy="70" r="48" fill="url(#sun-tr)"/>
+    <g fill="#1A1F5A" opacity=".85">
+      <polygon points="60,70 0,0 12,0"/><polygon points="60,70 30,0 42,0"/>
+      <polygon points="60,70 0,30 0,18"/><polygon points="60,70 0,90 0,78"/>
+    </g>
+    <g>
+      <path d="M 120 200 L 120 40 L 180 24 L 180 200 Z" fill="#0f1436"/>
+      <path d="M 120 200 L 120 40 L 148 32 L 148 200 Z" fill="#1e2656"/>
+      <g fill="#c8984a" opacity=".35">
+        <rect x="126" y="48" width="6" height="8"/><rect x="138" y="46" width="6" height="8"/>
+        <rect x="156" y="42" width="6" height="8"/><rect x="168" y="40" width="6" height="8"/>
+        <rect x="126" y="72" width="6" height="8"/><rect x="138" y="70" width="6" height="8"/>
+        <rect x="156" y="66" width="6" height="8"/><rect x="168" y="64" width="6" height="8"/>
+        <rect x="126" y="96" width="6" height="8"/><rect x="138" y="94" width="6" height="8"/>
+        <rect x="156" y="90" width="6" height="8"/><rect x="168" y="88" width="6" height="8"/>
+        <rect x="126" y="120" width="6" height="8"/><rect x="156" y="114" width="6" height="8"/>
+      </g>
+      <line x1="120" y1="40" x2="180" y2="24" stroke="#c8984a" stroke-width="1"/>
+    </g>
+    <g>
+      <path d="M 20 200 L 20 150 Q 22 134 34 128 Q 36 120 32 114
+               Q 24 110 24 102 Q 26 92 36 90 Q 50 88 58 96 Q 62 106 58 112
+               Q 60 124 56 132 Q 70 138 74 152 L 78 200 Z" fill="#0f1436"/>
+      <path d="M 36 134 L 50 130 L 56 160 L 52 200 L 36 200 Z" fill="#1e2656"/>
+      <path d="M 26 104 Q 26 92 36 90 Q 50 88 58 96 Q 60 110 52 114 Q 40 116 30 110 Z" fill="#f4ecd6"/>
+      <path d="M 24 104 Q 24 80 44 76 Q 60 78 64 94 L 60 92 Q 56 86 46 86 Q 34 88 30 100 Z" fill="#050716"/>
+      <path d="M 52 114 L 78 90 L 92 70 L 86 64 L 74 80 L 54 104 Z" fill="#1e2656"/>
+    </g>
+    <g transform="translate(94 62) rotate(30)">
+      <rect x="-18" y="-10" width="32" height="20" fill="#c8984a" stroke="#ffe9a8" stroke-width="1"/>
+      <rect x="-14" y="-14" width="10" height="4" fill="#8a6320"/>
+      <circle cx="0" cy="0" r="7" fill="#1A1F5A" stroke="#ffe9a8" stroke-width="1"/>
+      <circle cx="0" cy="0" r="3" fill="#c8984a"/>
+      <g stroke="#ffe9a8" stroke-width="1" fill="none" opacity=".8">
+        <line x1="0" y1="-8" x2="0" y2="-18"/>
+        <line x1="-6" y1="-6" x2="-12" y2="-12"/>
+        <line x1="6" y1="-6" x2="12" y2="-12"/>
+      </g>
+    </g>
+    ${banner('CAMERAS · UP')}
+  `);
+
+  // TruthStrike — figure striking down falsehood (crossed-out scroll)
+  const truth = base('ts', `
+    <circle cx="100" cy="68" r="48" fill="url(#sun-ts)"/>
+    ${rays(100,68)}
+    <!-- figure -->
+    <g>
+      <path d="M 66 200 L 66 140 Q 70 120 84 110 Q 86 100 84 92
+               Q 74 88 74 78 Q 76 66 88 62 Q 104 60 114 70 Q 118 82 112 90
+               Q 114 104 110 114 Q 124 120 128 140 L 130 200 Z" fill="#0f1436"/>
+      <path d="M 84 118 L 100 115 L 106 150 L 98 200 L 84 200 Z" fill="#1e2656"/>
+      <path d="M 78 80 Q 78 66 88 62 Q 104 60 114 70 Q 116 84 108 92 Q 96 96 84 92 Z" fill="#f4ecd6"/>
+      <path d="M 74 80 Q 74 56 94 52 Q 114 52 120 72 L 116 68 Q 112 62 100 62 Q 86 64 80 76 Z" fill="#050716"/>
+      <!-- raised arm with stamp -->
+      <path d="M 110 88 Q 126 80 140 66 Q 150 54 146 44 L 138 48 Q 140 58 132 68 Q 122 80 108 88 Z" fill="#1e2656"/>
+    </g>
+    <!-- falsehood: scroll being stamped FALSE -->
+    <g transform="translate(150 40) rotate(-8)">
+      <rect x="-22" y="-14" width="44" height="28" fill="#f4ecd6" stroke="#c8984a" stroke-width=".8"/>
+      <g stroke="#1A1F5A" stroke-width=".6" opacity=".5">
+        <line x1="-18" y1="-8" x2="18" y2="-8"/>
+        <line x1="-18" y1="-3" x2="18" y2="-3"/>
+        <line x1="-18" y1="2" x2="18" y2="2"/>
+        <line x1="-18" y1="7" x2="14" y2="7"/>
+      </g>
+      <!-- red X stamp -->
+      <g stroke="#c05a3a" stroke-width="3" stroke-linecap="round">
+        <line x1="-18" y1="-12" x2="18" y2="12"/>
+        <line x1="18" y1="-12" x2="-18" y2="12"/>
+      </g>
+    </g>
+    ${banner('TRUTHSTRIKE')}
+  `);
+
+  // CopWatch — witnessing eye
+  const copwatch = base('cw', `
+    <circle cx="100" cy="70" r="48" fill="url(#sun-cw)"/>
+    ${rays(100,70)}
+    <!-- great EYE framed by eyelid arches -->
+    <g transform="translate(100 100)">
+      <!-- upper lid -->
+      <path d="M -56 0 Q 0 -40 56 0 Q 0 40 -56 0 Z" fill="#f4ecd6" stroke="#c8984a" stroke-width="1.2"/>
+      <!-- iris (indigo) -->
+      <circle r="22" fill="#1A1F5A" stroke="#c8984a" stroke-width="1"/>
+      <!-- iris detail rays -->
+      <g stroke="#f4d98a" stroke-width=".8" opacity=".8">
+        <line x1="0" y1="-18" x2="0" y2="-12"/>
+        <line x1="13" y1="-13" x2="9" y2="-9"/>
+        <line x1="18" y1="0" x2="12" y2="0"/>
+        <line x1="13" y1="13" x2="9" y2="9"/>
+        <line x1="0" y1="18" x2="0" y2="12"/>
+        <line x1="-13" y1="13" x2="-9" y2="9"/>
+        <line x1="-18" y1="0" x2="-12" y2="0"/>
+        <line x1="-13" y1="-13" x2="-9" y2="-9"/>
+      </g>
+      <!-- pupil -->
+      <circle r="8" fill="#050716"/>
+      <!-- catchlight -->
+      <circle cx="-3" cy="-3" r="2" fill="#ffe9a8"/>
+      <!-- sparkle rays outside eye -->
+      <g stroke="#f4d98a" stroke-width="1" opacity=".7">
+        <line x1="-68" y1="0" x2="-76" y2="0"/>
+        <line x1="68" y1="0" x2="76" y2="0"/>
+        <line x1="0" y1="-42" x2="0" y2="-50"/>
+        <line x1="0" y1="42" x2="0" y2="50"/>
+      </g>
+    </g>
+    ${banner('COPWATCH · WITNESS')}
+  `);
+
+  // MeshStrike — mesh tower + signal nodes
+  const mesh = base('ms', `
+    <circle cx="100" cy="62" r="44" fill="url(#sun-ms)"/>
+    ${rays(100,62)}
+    <!-- central mesh tower -->
+    <g>
+      <path d="M 90 160 L 100 60 L 110 160 Z" fill="#0f1436" stroke="#c8984a" stroke-width="1"/>
+      <!-- cross struts -->
+      <g stroke="#c8984a" stroke-width=".8">
+        <line x1="92" y1="80" x2="108" y2="80"/>
+        <line x1="93" y1="100" x2="107" y2="100"/>
+        <line x1="94" y1="120" x2="106" y2="120"/>
+        <line x1="95" y1="140" x2="105" y2="140"/>
+      </g>
+      <!-- antenna at top -->
+      <circle cx="100" cy="58" r="3" fill="#f4d98a"/>
+      <!-- signal rings -->
+      <g stroke="#f4d98a" fill="none">
+        <path d="M 70 50 Q 100 30 130 50" stroke-width="1.2" opacity=".8"/>
+        <path d="M 55 40 Q 100 10 145 40" stroke-width="1" opacity=".55"/>
+        <path d="M 40 32 Q 100 -4 160 32" stroke-width=".8" opacity=".3"/>
+      </g>
+    </g>
+    <!-- nodes scattered -->
+    <g fill="#f4d98a">
+      <circle cx="40" cy="120" r="3"/>
+      <circle cx="60" cy="150" r="3"/>
+      <circle cx="150" cy="130" r="3"/>
+      <circle cx="170" cy="100" r="3"/>
+      <circle cx="30" cy="90" r="3"/>
+    </g>
+    <!-- links (dashed) -->
+    <g stroke="#f4d98a" stroke-width=".6" stroke-dasharray="2 2" fill="none" opacity=".6">
+      <line x1="40" y1="120" x2="95" y2="150"/>
+      <line x1="60" y1="150" x2="100" y2="156"/>
+      <line x1="150" y1="130" x2="105" y2="150"/>
+      <line x1="170" y1="100" x2="108" y2="130"/>
+      <line x1="30" y1="90" x2="92" y2="120"/>
+    </g>
+    <!-- ground -->
+    <path d="M 20 160 L 180 160 L 180 168 L 20 168 Z" fill="#0f1436"/>
+    ${banner('MESHSTRIKE · OFFLINE')}
+  `);
+
+  // ---------- TIER III: MUTUAL AID ----------
+
+  // Social Media MCP — megaphone figure
+  const social = base('sm', `
+    <circle cx="110" cy="72" r="52" fill="url(#sun-sm)"/>
+    <g fill="#1A1F5A" opacity=".85">
+      <polygon points="110,72 20,0 34,0"/><polygon points="110,72 60,0 74,0"/>
+      <polygon points="110,72 126,0 140,0"/><polygon points="110,72 166,0 180,0"/>
+      <polygon points="110,72 200,40 200,26"/><polygon points="110,72 200,80 200,64"/>
+    </g>
+    <g>
+      <path d="M 40 200 L 40 140 Q 44 122 58 112 Q 60 104 56 96
+               Q 46 92 46 82 Q 48 70 60 66 Q 76 64 86 74 Q 90 86 84 94
+               Q 86 108 82 118 Q 94 126 96 140 L 98 200 Z" fill="#0f1436"/>
+      <path d="M 58 122 L 74 118 L 80 150 L 74 200 L 58 200 Z" fill="#1e2656"/>
+      <path d="M 48 84 Q 48 70 60 66 Q 76 64 86 74 Q 88 88 80 96 Q 66 98 56 92 Z" fill="#f4ecd6"/>
+      <path d="M 46 84 Q 46 58 68 56 Q 88 58 92 76 L 88 72 Q 82 66 70 66 Q 58 68 52 80 Z" fill="#050716"/>
+      <path d="M 82 100 L 108 92 L 130 88 L 128 100 L 108 106 L 86 112 Z" fill="#1e2656"/>
+    </g>
+    <g transform="translate(128 94)">
+      <path d="M 0 -8 L 36 -20 L 36 20 L 0 8 Z" fill="#c8984a" stroke="#ffe9a8" stroke-width="1"/>
+      <rect x="-10" y="-6" width="12" height="12" fill="#8a6320" stroke="#ffe9a8" stroke-width=".8"/>
+      <g stroke="#ffe9a8" stroke-width="1" fill="none" opacity=".8">
+        <path d="M 40 -28 L 56 -34"/>
+        <path d="M 42 0 L 62 0"/>
+        <path d="M 40 28 L 56 34"/>
+        <path d="M 44 -14 L 60 -18"/>
+        <path d="M 44 14 L 60 18"/>
+      </g>
+    </g>
+    <g fill="#f4d98a">
+      <circle cx="186" cy="66" r="2"/>
+      <circle cx="190" cy="90" r="2"/>
+      <circle cx="182" cy="110" r="2"/>
+    </g>
+    ${banner('SOCIAL MEDIA MCP')}
+  `);
+
+  // Marketplace Skills Suite — workbench with tools laid out
+  const marketplace = base('mk', `
+    <circle cx="100" cy="62" r="48" fill="url(#sun-mk)"/>
+    ${rays(100,62)}
+    <!-- workbench -->
+    <g>
+      <rect x="20" y="130" width="160" height="8" fill="#c8984a"/>
+      <rect x="24" y="138" width="152" height="22" fill="#0f1436" stroke="#c8984a" stroke-width=".8"/>
+      <!-- drawer handles -->
+      <g fill="#c8984a">
+        <rect x="56" y="146" width="8" height="2"/>
+        <rect x="96" y="146" width="8" height="2"/>
+        <rect x="136" y="146" width="8" height="2"/>
+      </g>
+    </g>
+    <!-- tools laid out across top -->
+    <g>
+      <!-- wrench -->
+      <g transform="translate(50 110) rotate(-15)">
+        <rect x="-2" y="-18" width="4" height="30" fill="#f4d98a"/>
+        <circle cx="0" cy="-20" r="6" fill="none" stroke="#f4d98a" stroke-width="2"/>
+      </g>
+      <!-- gear -->
+      <g transform="translate(90 100)">
+        <circle r="8" fill="none" stroke="#f4d98a" stroke-width="1.5"/>
+        <g fill="#f4d98a">
+          <rect x="-1.2" y="-12" width="2.4" height="3"/>
+          <rect x="-1.2" y="9" width="2.4" height="3"/>
+          <rect x="-12" y="-1.2" width="3" height="2.4"/>
+          <rect x="9" y="-1.2" width="3" height="2.4"/>
+        </g>
+        <circle r="2" fill="#c8984a"/>
+      </g>
+      <!-- hammer -->
+      <g transform="translate(125 108) rotate(10)">
+        <rect x="-2" y="-6" width="4" height="20" fill="#f4ecd6"/>
+        <rect x="-10" y="-14" width="20" height="8" fill="#c8984a"/>
+      </g>
+      <!-- compiler / terminal -->
+      <g transform="translate(160 108)">
+        <rect x="-12" y="-10" width="24" height="20" fill="#1e2656" stroke="#f4d98a" stroke-width="1"/>
+        <g fill="#f4d98a">
+          <rect x="-9" y="-6" width="2" height="2"/>
+          <rect x="-5" y="-6" width="6" height="2"/>
+          <rect x="-9" y="-2" width="10" height="2"/>
+          <rect x="-9" y="2" width="4" height="2"/>
+          <rect x="-3" y="2" width="8" height="2"/>
+        </g>
+      </g>
+    </g>
+    <!-- hanging banner -->
+    ${banner('MARKETPLACE · SKILLS')}
+  `);
+
+  const t1 = [
+    { type:'Protocol · Bittensor SN', title:'<em>MindPrint</em>',
+      sci:'proof of mind — 121-byte geometric attestation',
+      desc:'Verifiable inference for sovereign compute. Every model has working memory with a <em>measurable shape</em>; MindPrint reads that shape and compresses it into a 121-byte proof validators can check without re-running inference.',
+      specs:[['Proof size','121 bytes'],['Detection','0.999 AUROC'],['Extraction','23 ms'],['Status','patent pending']],
+      mural: mindprint
+    },
+    { type:'Instrument · MCP server', title:'<em>Expanded</em> Research',
+      sci:'seventeen tools across S2 · OpenAlex · PubMed',
+      desc:'Unified programmatic access to three major academic APIs. <em>240M+ scholarly works</em>, citation graphs, MeSH-indexed biomedical literature, rate-limited and polite. Built for autonomous literature review.',
+      specs:[['Tools','17'],['APIs','3'],['Coverage','240M works'],['License','MIT']],
+      mural: research
+    },
+    { type:'Library · Python', title:'Agent <em>Memory</em>',
+      sci:'persistence architectures for long-lived agents',
+      desc:'Reference memory architectures for AI agents — <em>production-grade</em> systems for long-horizon identity continuity, retrieval, and episodic compression. Shared with the wider MCP ecosystem.',
+      specs:[['Stacks','SQLite · Vector'],['Integrations','MCP · CLI'],['Status','active'],['License','Apache 2.0']],
+      mural: memory
+    },
+    { type:'Benchmark · Framework', title:'<em>Orchestrator</em> Bench',
+      sci:'LLM-as-orchestrator evaluation, Kintsugi derivative',
+      desc:'Evaluates <em>agentic orchestration</em>: can a model plan multi-step tasks, delegate, and recover? Scored across seven architectures; extracted from the Kintsugi self-evolving substrate.',
+      specs:[['Models','7 arch'],['Scale','0.5B–70B'],['Derivation','Kintsugi'],['License','MIT']],
+      mural: bench
+    }
+  ];
+
+  const t2 = [
+    { type:'Suite · Five skills', title:'Transparency <em>Suite</em>',
+      sci:'cameras, pointed up the hierarchy',
+      desc:'Anti-Palantir OSINT: facility lease investigation, vendor concentration analysis, cost allocation review, FOIA templates, Legistar + OpenFEC scraping. <em>Surveillance reversed</em> — monitoring those who hold power, not citizens.',
+      specs:[['Skills','5'],['Scope','gov + grants'],['Philosophy','anti-Palantir'],['License','MIT']],
+      mural: transparency
+    },
+    { type:'Extension · Browser', title:'<em>TruthStrike</em>',
+      sci:'disinformation detection, in-line',
+      desc:'Browser extension that surfaces counter-narratives beside suspected disinformation in real time. Keeps receipts, links to primary sources, flags <em>propaganda patterns</em> as you read them.',
+      specs:[['Platform','Chrome · FF'],['Mode','real-time'],['Provenance','linked'],['License','MIT']],
+      mural: truth
+    },
+    { type:'System · Evidence pipeline', title:'<em>CopWatch</em>',
+      sci:'AI-assisted detection and preservation of police violence',
+      desc:'Detects police-violence signatures in livestreams and uploaded footage; auto-preserves evidence with chain-of-custody metadata. <em>Witness-first architecture</em> — hashed, redundantly archived, movement-lawyer ready.',
+      specs:[['Input','stream · upload'],['Chain','SHA-256'],['Archive','IPFS + S3'],['License','Apache 2.0']],
+      mural: copwatch
+    },
+    { type:'Deployment · Meshtastic', title:'<em>MeshStrike</em>',
+      sci:'counter-propaganda for mesh networks',
+      desc:'TruthStrike for the mesh: disinformation rebuttals delivered over LoRa when the internet is cut. Built for protest, disaster response, and <em>communications suppression</em> scenarios.',
+      specs:[['Radio','LoRa'],['Range','kilometers'],['Offline','yes'],['License','GPL-3.0']],
+      mural: mesh
+    }
+  ];
+
+  const t3 = [
+    { type:'Instrument · MCP server', title:'<em>Social Media</em> MCP',
+      sci:'content pipeline for nonprofits — ideation to analytics',
+      desc:'Full nonprofit social-media pipeline: ideation, drafting, approval queue, scheduling, cross-platform posting, analytics. Live on BlueSky and Mastodon; <em>X / Twitter excluded by policy.</em>',
+      specs:[['Platforms','BlueSky · Mastodon'],['Queue','Google Sheets'],['Auto','n8n workflows'],['License','MIT']],
+      mural: social
+    },
+    { type:'Suite · Production agents', title:'<em>Marketplace</em> Skills',
+      sci:'battle-tested specialists for real-world software engineering',
+      desc:'A suite of production-ready specialist agents shared as a commons: code review, refactoring, migration, documentation, testing. <em>Software engineering labor, socialized.</em>',
+      specs:[['Specialists','6+'],['Target','nonprofits · coops'],['Integration','MCP · CLI'],['License','MIT']],
+      mural: marketplace
+    }
+  ];
+
+  const renderTools = (list) => list.map((t,i) => `
+    <article class="tool">
+      <div class="num">INSTR · ${String(i+1).padStart(2,'0')}</div>
+      <div class="mural">${t.mural}</div>
+      <div class="body">
+        <div class="type">${t.type}</div>
+        <h4>${t.title}</h4>
+        <div class="sci">${t.sci}</div>
+        <p>${t.desc}</p>
+        <div class="specs">
+          ${t.specs.map(([k,v]) => `<div><div>${k}</div><div class="v">${v}</div></div>`).join('')}
+        </div>
+      </div>
+    </article>
+  `).join('');
+
+  document.getElementById('grid-1').innerHTML = renderTools(t1);
+  document.getElementById('grid-2').innerHTML = renderTools(t2);
+  document.getElementById('grid-3').innerHTML = renderTools(t3);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=1480"/>
+<title>Liberation Labs — Field Guide · Phase 2</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    /* Kintsugi ceramic grounds */
+    --ceramic-void:#07070a;
+    --ceramic-black:#0d0d11;
+    --ceramic-charcoal:#171720;
+    --ceramic-panel:#1c1d28;
+    --ceramic-raised:#252634;
+    --ceramic-rule:rgba(244,217,138,.12);
+    --ceramic-rule-2:rgba(244,217,138,.22);
+
+    /* Molten gold vein system */
+    --vein-deep:#5a3a10;
+    --vein-amber:#a5761f;
+    --vein-gold:#c8984a;
+    --vein-light:#f4d98a;
+    --vein-bright:#ffe9a8;
+    --vein-highlight:#fff4c8;
+
+    /* Cool accents */
+    --indigo-deep:#0d1b2a;
+    --indigo:#1a2f4a;
+    --indigo-cosmic:#1a1f5a;
+    --indigo-electric:#2b4fa0;
+
+    /* Type */
+    --ink:#e8ecf5;
+    --ink-2:#98a0b8;
+    --ink-3:#5c6178;
+    --ink-4:#3a3d50;
+
+    /* Semantic */
+    --ok:#7ab89a;
+    --warn:#d4a84a;
+    --err:#c8604a;
+    --info:#6a8cc8;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--ceramic-void);color:var(--ink);}
+  body{
+    font-family:'IBM Plex Serif',serif;font-weight:300;
+    min-height:100vh;
+    /* subtle kintsugi vignette + graph paper */
+    background:
+      radial-gradient(1600px 900px at 20% -10%, rgba(26,31,90,.18) 0%, transparent 55%),
+      radial-gradient(900px 600px at 110% 110%, rgba(200,152,74,.08) 0%, transparent 60%),
+      var(--ceramic-void);
+  }
+  body::before{
+    content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:
+      linear-gradient(rgba(232,236,255,.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,236,255,.02) 1px, transparent 1px);
+    background-size:32px 32px;
+    mask-image:radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 90%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 90%);
+  }
+
+  /* ============ CHROME ============ */
+  .chrome{
+    position:sticky;top:0;z-index:100;
+    background:rgba(7,7,10,.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--ceramic-rule);
+  }
+  .chrome-inner{
+    max-width:1480px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;
+    padding:18px 44px;gap:24px;
+  }
+  .chrome-brand{display:flex;align-items:center;gap:14px;font-family:'IBM Plex Serif',serif;font-size:15px;color:var(--ink);}
+  .chrome-brand .seal{
+    width:26px;height:26px;border-radius:50%;
+    background:
+      radial-gradient(circle at 32% 28%, #fff4c8 0%, #f4d98a 22%, #c8984a 48%, #6a4510 82%, #2a1c0a 100%);
+    box-shadow:inset 0 0 6px rgba(0,0,0,.55), 0 0 0 1px rgba(244,217,138,.25);
+    position:relative;flex-shrink:0;
+  }
+  .chrome-brand .seal::after{content:'';position:absolute;inset:4px;border-radius:50%;border:1px solid rgba(42,28,10,.4);}
+  .chrome-brand em{font-style:italic;color:var(--ink-2);font-weight:300;}
+  .chrome-brand span.sep{color:var(--ink-4);margin:0 2px;}
+  .chrome-brand small{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--vein-gold);text-transform:uppercase;margin-left:4px;}
+
+  .tabs{display:flex;gap:2px;padding:4px;border:1px solid var(--ceramic-rule);background:rgba(255,255,255,.02);border-radius:2px;}
+  .tab{
+    appearance:none;border:0;background:transparent;color:var(--ink-2);cursor:pointer;
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+    padding:10px 16px;border-radius:2px;
+    display:flex;align-items:center;gap:9px;transition:color .18s, background .18s;
+  }
+  .tab:hover{color:var(--ink);}
+  .tab.is-active{
+    background:linear-gradient(180deg, rgba(42,28,10,.7) 0%, rgba(26,16,5,.7) 100%);
+    color:var(--vein-light);
+    box-shadow:inset 0 1px 0 rgba(244,217,138,.2), 0 1px 0 rgba(0,0,0,.4);
+  }
+  .tab .rn{font-size:9.5px;color:var(--ink-4);letter-spacing:.18em;}
+  .tab.is-active .rn{color:var(--vein-gold);}
+  .chrome-meta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:var(--ink-3);text-transform:uppercase;}
+
+  /* ============ PAGE FRAME ============ */
+  main{position:relative;z-index:1;}
+  .page{display:none;max-width:1480px;margin:0 auto;padding:64px 44px 140px;}
+  .page.is-active{display:block;}
+
+  /* Shared plate header */
+  .plate-hd{
+    display:flex;align-items:baseline;gap:22px;
+    padding:24px 0 18px;margin-bottom:36px;border-top:1px solid var(--ceramic-rule);
+  }
+  .plate-hd .num{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.22em;
+    color:var(--vein-gold);text-transform:uppercase;padding:4px 10px;
+    border:1px solid rgba(200,152,74,.4);border-radius:2px;
+  }
+  .plate-hd h2{
+    font-family:'IBM Plex Serif',serif;font-weight:300;font-size:30px;margin:0;
+    letter-spacing:-.01em;color:var(--ink);
+  }
+  .plate-hd h2 em{font-style:italic;color:var(--vein-light);font-weight:300;}
+  .plate-hd .latin{
+    font-family:'IBM Plex Serif',serif;font-style:italic;font-size:14.5px;color:var(--ink-2);
+    font-weight:300;margin-left:auto;
+  }
+
+  /* Shared journal masthead */
+  .journal-mast{
+    padding:44px 0 16px;border-bottom:2px solid var(--vein-gold);margin-bottom:2px;
+    display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:end;
+  }
+  .journal-mast::after{content:'';grid-column:1/-1;height:1px;background:var(--vein-gold);margin-top:4px;}
+  .journal-mast .mark{display:flex;align-items:center;gap:18px;}
+  .journal-mast .seal{
+    width:64px;height:64px;border-radius:50%;
+    background:radial-gradient(circle at 32% 28%, #fff4c8 0%, #f4d98a 20%, #c8984a 48%, #6a4510 82%, #2a1c0a 100%);
+    box-shadow:inset 0 0 14px rgba(0,0,0,.65), 0 0 0 1px rgba(244,217,138,.25);position:relative;flex-shrink:0;
+  }
+  .journal-mast .seal::after{content:'';position:absolute;inset:9px;border-radius:50%;border:1px solid rgba(42,28,10,.55);}
+  .journal-mast h1{
+    font-family:'IBM Plex Serif',serif;font-weight:300;font-size:40px;line-height:1;margin:0 0 6px;
+    letter-spacing:-.01em;
+  }
+  .journal-mast h1 em{font-style:italic;color:var(--vein-light);}
+  .journal-mast .sub{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--ink-2);text-transform:uppercase;}
+  .journal-mast .meta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;text-align:right;line-height:1.9;}
+  .journal-mast .meta b{color:var(--ink);font-weight:500;}
+
+  /* registration crosshairs */
+  .regmark{position:absolute;width:14px;height:14px;opacity:.55;pointer-events:none;}
+  .regmark::before,.regmark::after{content:'';position:absolute;background:var(--vein-gold);}
+  .regmark::before{left:50%;top:0;bottom:0;width:1px;transform:translateX(-.5px);}
+  .regmark::after{top:50%;left:0;right:0;height:1px;transform:translateY(-.5px);}
+
+  /* Utility */
+  .rule-gold{height:1px;background:linear-gradient(90deg, transparent 0%, var(--vein-gold) 15%, var(--vein-light) 50%, var(--vein-gold) 85%, transparent 100%);opacity:.5;}
+  a{color:inherit;}
+</style>
+</head>
+<body>
+
+<nav class="chrome">
+  <div class="chrome-inner">
+    <div class="chrome-brand">
+      <span class="seal"></span>
+      <span>Liberation Labs</span>
+      <span class="sep">/</span>
+      <em>Field Guide · Phase II</em>
+      <small>vol. i, no. 02</small>
+    </div>
+    <div class="tabs" role="tablist" id="tabs">
+      <button class="tab is-active" data-dir="intro"><span class="rn">§</span>Intro</button>
+      <button class="tab" data-dir="logo"><span class="rn">I</span>Logo</button>
+      <button class="tab" data-dir="type"><span class="rn">II</span>Type</button>
+      <button class="tab" data-dir="color"><span class="rn">III</span>Color</button>
+      <button class="tab" data-dir="components"><span class="rn">IV</span>Components</button>
+      <button class="tab" data-dir="home"><span class="rn">V</span>Homepage</button>
+    </div>
+    <div class="chrome-meta">iv · mmxxvi</div>
+  </div>
+</nav>
+
+<main>
+  <section class="page is-active" data-dir="intro" id="page-intro"></section>
+  <section class="page" data-dir="logo" id="page-logo"></section>
+  <section class="page" data-dir="type" id="page-type"></section>
+  <section class="page" data-dir="color" id="page-color"></section>
+  <section class="page" data-dir="components" id="page-components"></section>
+  <section class="page" data-dir="home" id="page-home"></section>
+</main>
+
+<script>
+  const KEY='liblabs_p2';
+  const tabs=document.querySelectorAll('.tab');
+  const pages=document.querySelectorAll('.page');
+  function show(d){
+    tabs.forEach(t=>t.classList.toggle('is-active', t.dataset.dir===d));
+    pages.forEach(p=>p.classList.toggle('is-active', p.dataset.dir===d));
+    localStorage.setItem(KEY,d);
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>show(t.dataset.dir)));
+  const s=localStorage.getItem(KEY); if(s) show(s);
+</script>
+
+<!-- INTRO -->
+<script>
+(function(){
+  const root=document.getElementById('page-intro');
+  root.innerHTML=`
+  <header class="journal-mast">
+    <div class="mark">
+      <div class="seal"></div>
+      <div>
+        <h1>Liberation Labs <em>Field Guide</em></h1>
+        <div class="sub">Phase II · Applied Identity System</div>
+      </div>
+    </div>
+    <div></div>
+    <div class="meta">
+      <div><b>Vol. I, No. 02</b></div>
+      <div>Apr · mmxxvi</div>
+      <div>Palette: <b>Kintsugi</b></div>
+    </div>
+  </header>
+
+  <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:64px;margin-top:64px;">
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;color:var(--vein-gold);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px;">
+        <span style="width:22px;height:1px;background:var(--vein-gold);"></span>
+        Introduction to the Guide
+      </div>
+      <h2 style="font-family:'IBM Plex Serif',serif;font-weight:280;font-size:68px;line-height:1;margin:0 0 28px;letter-spacing:-.025em;color:var(--ink);">
+        A system for <em style="font-style:italic;color:var(--vein-light);font-weight:280;">repair</em>.
+      </h2>
+      <div style="column-count:2;column-gap:32px;font-size:15.5px;line-height:1.7;color:var(--ink);font-weight:300;">
+        <p style="margin:0 0 14px;break-inside:avoid;">
+          <span style="font-size:58px;line-height:.9;float:left;padding:8px 10px 0 0;color:var(--vein-light);font-weight:300;">T</span>his volume codifies the visual system for Liberation Labs: a <em style="font-style:italic;color:var(--vein-light);">worker-owned cooperative</em> building AI infrastructure for communities whose values come first. The identity is constructed as a scientific field guide — a tradition that has earned trust across centuries of natural history — and grounded in a <strong style="font-weight:500;color:var(--ink);font-variant:small-caps;letter-spacing:.06em;">kintsugi palette</strong>: deep ceramic darks, repaired with molten gold.
+        </p>
+        <p style="margin:0 0 14px;break-inside:avoid;">
+          The metaphor is operational, not decorative. Infrastructure has been broken for many of the communities we serve — broken by extraction, surveillance, carelessness. Gold is the record of <em style="font-style:italic;color:var(--vein-light);">repair</em>: present only where the seams show, luminous where people are rejoined. The cool indigos are kept as a reminder of scale — the night sky behind the bowl.
+        </p>
+        <p style="margin:0;break-inside:avoid;">
+          What follows are five plates — logo, type, color, components, and a complete homepage — each plate rigorous enough to act as a source-of-truth for applied work.
+        </p>
+      </div>
+    </div>
+
+    <aside style="border:1px solid var(--ceramic-rule);background:rgba(28,29,40,.4);padding:28px 30px;border-radius:2px;position:relative;align-self:start;">
+      <div style="position:absolute;top:-1px;right:-1px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#2a1c0a;background:var(--vein-gold);padding:5px 11px;">Contents</div>
+      <h4 style="font-family:'IBM Plex Serif',serif;font-style:italic;font-weight:400;font-size:18px;margin:8px 0 22px;color:var(--ink);">In this volume</h4>
+      ${[
+        ['I','Logo','de signo — mark, cog, lockups','logo'],
+        ['II','Type','de characteribus — six-level hierarchy','type'],
+        ['III','Color','pigmenta — kintsugi palette','color'],
+        ['IV','Components','apparatus — UI in the field register','components'],
+        ['V','Homepage','frons publica — applied specimen','home'],
+      ].map(([n,t,l,d])=>`
+        <button data-goto="${d}" style="all:unset;cursor:pointer;display:grid;grid-template-columns:28px 1fr auto;gap:14px;align-items:baseline;padding:14px 0;border-top:1px solid var(--ceramic-rule);width:100%;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;color:var(--vein-gold);">${n}</span>
+          <span>
+            <div style="font-family:'IBM Plex Serif',serif;font-size:16px;color:var(--ink);">${t}</div>
+            <div style="font-family:'IBM Plex Serif',serif;font-style:italic;font-size:12.5px;color:var(--ink-2);margin-top:2px;">${l}</div>
+          </span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--vein-gold);">→</span>
+        </button>`).join('')}
+    </aside>
+  </div>
+
+  <div style="margin-top:96px;padding:36px 0;border-top:1px solid var(--ceramic-rule);border-bottom:1px solid var(--ceramic-rule);text-align:center;">
+    <p style="font-family:'IBM Plex Serif',serif;font-style:italic;font-weight:300;font-size:30px;line-height:1.3;margin:0;max-width:920px;margin-inline:auto;color:var(--ink);letter-spacing:-.005em;">
+      “Infrastructure is a kind of <em style="color:var(--vein-light);">writing</em>. If we build it, we are writing down what we believe — and who we expect to be accountable to.”
+    </p>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.22em;color:var(--ink-3);text-transform:uppercase;margin-top:22px;">— from the Commons Charter</div>
+  </div>`;
+  root.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelector('.tab[data-dir="'+b.dataset.goto+'"]').click();
+  }));
+})();
+</script>
+
+<!-- PLATE I — LOGO -->
+<script>
+(function(){
+  const root=document.getElementById('page-logo');
+  root.innerHTML=`
+  <div class="plate-hd">
+    <span class="num">Plate I</span>
+    <h2>Mark &amp; <em>lockup system</em></h2>
+    <span class="latin">de signo — signum fabricae liberationis</span>
+  </div>
+
+  <!-- WORDMARK + PRIMARY LOCKUP -->
+  <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:44px;margin-bottom:56px;">
+    <div style="border:1px solid var(--ceramic-rule);background:linear-gradient(180deg, rgba(28,29,40,.4) 0%, rgba(13,13,17,.7) 100%);padding:56px 48px;position:relative;border-radius:2px;min-height:360px;display:flex;flex-direction:column;justify-content:center;">
+      <span class="regmark" style="top:10px;left:10px"></span>
+      <span class="regmark" style="top:10px;right:10px"></span>
+      <span class="regmark" style="bottom:10px;left:10px"></span>
+      <span class="regmark" style="bottom:10px;right:10px"></span>
+      <div style="position:absolute;top:14px;right:18px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;">Primary lockup · horizontal</div>
+      <div style="display:flex;align-items:center;gap:22px;">
+        <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true">
+          <defs>
+            <radialGradient id="logo-seal-a" cx=".32" cy=".28">
+              <stop offset="0%" stop-color="#fff4c8"/><stop offset="22%" stop-color="#f4d98a"/>
+              <stop offset="50%" stop-color="#c8984a"/><stop offset="82%" stop-color="#6a4510"/><stop offset="100%" stop-color="#2a1c0a"/>
+            </radialGradient>
+          </defs>
+          <circle cx="32" cy="32" r="28" fill="url(#logo-seal-a)"/>
+          <circle cx="32" cy="32" r="22" fill="none" stroke="rgba(42,28,10,.6)"/>
+          <!-- LL monogram inside -->
+          <text x="32" y="40" text-anchor="middle" font-family="IBM Plex Serif" font-style="italic" font-weight="300" font-size="22" fill="#2a1c0a">LL</text>
+        </svg>
+        <div>
+          <div style="font-family:'IBM Plex Serif',serif;font-weight:300;font-size:42px;line-height:1;letter-spacing:-.015em;color:var(--ink);">Liberation Labs</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.32em;color:var(--vein-gold);text-transform:uppercase;margin-top:10px;">Worker-owned · est. mmxxvi</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;gap:14px;">
+      <div style="border:1px solid var(--ceramic-rule);background:rgba(28,29,40,.4);padding:22px 26px;border-radius:2px;position:relative;">
+        <div style="position:absolute;top:-1px;right:-1px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#2a1c0a;background:var(--vein-gold);padding:4px 10px;">Stacked</div>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;">
+          <svg width="40" height="40" viewBox="0 0 64 64" aria-hidden="true"><use href="#"/><circle cx="32" cy="32" r="28" fill="url(#logo-seal-a)"/><circle cx="32" cy="32" r="22" fill="none" stroke="rgba(42,28,10,.6)"/><text x="32" y="40" text-anchor="middle" font-family="IBM Plex Serif" font-style="italic" font-weight="300" font-size="22" fill="#2a1c0a">LL</text></svg>
+          <div style="font-family:'IBM Plex Serif',serif;font-weight:300;font-size:26px;line-height:1;letter-spacing:-.01em;color:var(--ink);">Liberation Labs</div>
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--ceramic-rule);background:rgba(28,29,40,.4);padding:16px 22px;border-radius:2px;position:relative;display:flex;align-items:center;justify-content:space-between;gap:18px;">
+        <div style="position:absolute;top:-1px;right:-1px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#2a1c0a;background:var(--vein-gold);padding:4px 10px;">Nav / favicon</div>
+        <div style="display:flex;align-items:center;gap:10px;padding-right:20px;">
+          <svg width="22" height="22" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28" fill="url(#logo-seal-a)"/><circle cx="32" cy="32" r="22" fill="none" stroke="rgba(42,28,10,.6)"/><text x="32" y="40" text-anchor="middle" font-family="IBM Plex Serif" font-style="italic" font-weight="300" font-size="22" fill="#2a1c0a">LL</text></svg>
+          <div style="font-family:'IBM Plex Serif',serif;font-weight:400;font-size:16px;color:var(--ink);letter-spacing:-.005em;">Liberation Labs</div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;">22px</div>
+      </div>
+
+      <div style="border:1px solid var(--ceramic-rule);background:rgba(28,29,40,.4);padding:16px 22px;border-radius:2px;position:relative;display:flex;align-items:center;justify-content:space-between;gap:18px;">
+        <div style="position:absolute;top:-1px;right:-1px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#2a1c0a;background:var(--vein-gold);padding:4px 10px;">Favicon · 16px</div>
+        <div style="display:flex;align-items:center;gap:14px;">
+          <svg width="16" height="16" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="url(#logo-seal-a)"/><text x="32" y="42" text-anchor="middle" font-family="IBM Plex Serif" font-style="italic" font-weight="400" font-size="26" fill="#2a1c0a">L</text></svg>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-2);letter-spacing:.1em;">Seal only — monogram drops</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MONOCHROME VARIANTS -->
+  <div class="plate-hd" style="margin-top:40px;">
+    <span class="num">I.b</span>
+    <h2>Monochrome <em>variants</em></h2>
+    <span class="latin">for reproduction on any ground</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+    ${[
+      {bg:'var(--ceramic-void)',label:'Gold on void',fill:'gold',ink:'var(--vein-light)',tag:'default'},
+      {bg:'#f5f2ea',label:'Black on paper',fill:'black',ink:'#0d0d11',tag:'print · light'},
+      {bg:'var(--ceramic-void)',label:'White on void',fill:'white',ink:'#e8ecf5',tag:'reversed'},
+      {bg:'linear-gradient(135deg,#5a3a10 0%,#c8984a 50%,#f4d98a 100%)',label:'Knockout',fill:'knock',ink:'#2a1c0a',tag:'gold ground'},
+    ].map((v,i)=>`
+      <div style="border:1px solid var(--ceramic-rule);background:${v.bg};padding:36px 24px;border-radius:2px;position:relative;min-height:170px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
+        <div style="position:absolute;top:8px;left:8px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:${v.fill==='black'||v.fill==='knock'?'rgba(13,13,17,.7)':'var(--ink-3)'};text-transform:uppercase;">${String.fromCharCode(9398+i)}</div>
+        <svg width="36" height="36" viewBox="0 0 64 64">
+          ${v.fill==='gold'?'<circle cx="32" cy="32" r="28" fill="url(#logo-seal-a)"/><text x="32" y="40" text-anchor="middle" font-family="IBM Plex Serif" font-style="italic" font-weight="300" font-size="22" fill="#2a1c0a">LL</text>':''}
+          ${v.fill==='black'?'<circle cx="32" cy="32" r="28" fill="#0d0d11"/><text x="32" y="40" text-anchor="middle" font-family="IBM Plex Serif" font-style="italic" font-weight="300" font-size="22" fill="#f5f2ea">LL</text>':''}
+          ${v.fill==='white'?'<circle cx="32" cy="32" r="28" fill="#e8ecf5"/><text x="32" y="40" text-anchor="middle" font-family="IBM Plex Serif" font-style="italic" font-weight="300" font-size="22" fill="#0d0d11"/>LL</text>':''}
+          ${v.fill==='knock'?'<circle cx="32" cy="32" r="28" fill="none" stroke="#2a1c0a" stroke-width="2"/><text x="32" y="40" text-anchor="middle" font-family="IBM Plex Serif" font-style="italic" font-weight="300" font-size="22" fill="#2a1c0a">LL</text>':''}
+        </svg>
+        <div style="font-family:'IBM Plex Serif',serif;font-style:italic;font-size:13px;color:${v.ink};">${v.label}</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;color:${v.fill==='black'||v.fill==='knock'?'rgba(13,13,17,.6)':'var(--ink-3)'};text-transform:uppercase;">${v.tag}</div>
+      </div>`).join('')}
+  </div>
+
+  <!-- PLATE VII — COG TECHNICAL ILLUSTRATION -->
+  <div class="plate-hd" style="margin-top:72px;">
+    <span class="num">Plate VII</span>
+    <h2>Mechanism of <em>Liberation</em></h2>
+    <span class="latin">the cog, redrawn as technical specimen</span>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1.3fr .7fr;gap:32px;">
+    <div style="border:1px solid var(--ceramic-rule-2);background:linear-gradient(180deg, rgba(23,23,32,.6), rgba(7,7,10,.9));padding:24px;border-radius:2px;position:relative;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--ceramic-rule);margin-bottom:14px;">
+        <div style="font-family:'IBM Plex Serif',serif;font-style:italic;font-size:14.5px;color:var(--ink);"><b style="font-style:normal;color:var(--vein-light);margin-right:8px;">Fig. VII</b>Rota liberationis — cross-section, ventral view</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;">scale 1:1 · coll. iv.mmxxvi</div>
+      </div>
+
+      <svg viewBox="0 0 680 520" style="width:100%;height:auto;display:block;">
+        <defs>
+          <radialGradient id="cog-gold" cx=".3" cy=".3">
+            <stop offset="0%" stop-color="#ffe9a8"/><stop offset="45%" stop-color="#f4d98a"/>
+            <stop offset="80%" stop-color="#c8984a"/><stop offset="100%" stop-color="#3a2a0a"/>
+          </radialGradient>
+          <linearGradient id="cog-vein" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#8a6320" stop-opacity=".15"/>
+            <stop offset="50%" stop-color="#f4d98a"/>
+            <stop offset="100%" stop-color="#8a6320" stop-opacity=".15"/>
+          </linearGradient>
+        </defs>
+
+        <!-- graticule -->
+        <g stroke="rgba(232,236,255,.04)">
+          ${[60,120,180,240,300,360,420,480].map(y=>`<line x1="40" x2="640" y1="${y}" y2="${y}"/>`).join('')}
+          ${[80,160,240,320,400,480,560,640].map(x=>`<line y1="40" y2="480" x1="${x}" x2="${x}"/>`).join('')}
+        </g>
+
+        <!-- scale bar -->
+        <g font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#c8984a" letter-spacing=".1em">
+          <line x1="40" y1="495" x2="160" y2="495" stroke="#c8984a"/>
+          <line x1="40" y1="491" x2="40" y2="499" stroke="#c8984a"/>
+          <line x1="160" y1="491" x2="160" y2="499" stroke="#c8984a"/>
+          <text x="40" y="511">0 —— 1 UNIT</text>
+          <text x="540" y="511" text-anchor="start">n.b. — teeth = 12</text>
+        </g>
+
+        <!-- cog teeth (12-tooth gear around cx 340 cy 260) -->
+        <g transform="translate(340 260)">
+          <g stroke="url(#cog-vein)" stroke-width="1.2" fill="none">
+            ${Array.from({length:12}).map((_,i)=>{
+              const a=(i/12)*Math.PI*2-Math.PI/2;
+              const a1=a-0.11, a2=a+0.11;
+              const r1=160, r2=190;
+              const x1=Math.cos(a1)*r1, y1=Math.sin(a1)*r1;
+              const x2=Math.cos(a1)*r2, y2=Math.sin(a1)*r2;
+              const x3=Math.cos(a2)*r2, y3=Math.sin(a2)*r2;
+              const x4=Math.cos(a2)*r1, y4=Math.sin(a2)*r1;
+              return `<path d="M ${x1.toFixed(1)} ${y1.toFixed(1)} L ${x2.toFixed(1)} ${y2.toFixed(1)} L ${x3.toFixed(1)} ${y3.toFixed(1)} L ${x4.toFixed(1)} ${y4.toFixed(1)} Z"/>`;
+            }).join('')}
+          </g>
+          <!-- outer ring -->
+          <circle r="160" fill="none" stroke="#c8984a" stroke-width="1.2"/>
+          <!-- inner body ring -->
+          <circle r="130" fill="none" stroke="#c8984a" stroke-width=".6"/>
+          <!-- spoke struts -->
+          <g stroke="#c8984a" stroke-width=".6" fill="none">
+            <line x1="-130" y1="0" x2="-50" y2="0"/>
+            <line x1="130" y1="0" x2="50" y2="0"/>
+            <line x1="0" y1="-130" x2="0" y2="-50"/>
+            <line x1="0" y1="130" x2="0" y2="50"/>
+            <line x1="-92" y1="-92" x2="-36" y2="-36"/>
+            <line x1="92" y1="92" x2="36" y2="36"/>
+            <line x1="92" y1="-92" x2="36" y2="-36"/>
+            <line x1="-92" y1="92" x2="-36" y2="36"/>
+          </g>
+          <!-- hub with LL -->
+          <circle r="50" fill="none" stroke="#f4d98a" stroke-width="1"/>
+          <circle r="36" fill="url(#cog-gold)"/>
+          <text text-anchor="middle" y="11" font-family="IBM Plex Serif" font-style="italic" font-weight="300" font-size="30" fill="#2a1c0a">LL</text>
+          <!-- circuit-trace pattern between outer and inner ring, in gold kintsugi veins -->
+          <g stroke="url(#cog-vein)" stroke-width=".5" fill="none" opacity=".8">
+            <path d="M -115 -20 L -90 -20 L -90 -50 L -60 -50"/>
+            <path d="M 115 20 L 90 20 L 90 50 L 60 50"/>
+            <path d="M -20 -115 L -20 -90 L -60 -90 L -60 -60"/>
+            <path d="M 20 115 L 20 90 L 60 90 L 60 60"/>
+            <path d="M -115 20 L -90 20 L -90 60 L -50 60"/>
+            <path d="M 115 -20 L 90 -20 L 90 -60 L 50 -60"/>
+          </g>
+          <!-- small node dots along traces -->
+          <g fill="#f4d98a">
+            <circle cx="-90" cy="-20" r="2"/><circle cx="-90" cy="-50" r="2"/><circle cx="-60" cy="-50" r="2"/>
+            <circle cx="90" cy="20" r="2"/><circle cx="90" cy="50" r="2"/><circle cx="60" cy="50" r="2"/>
+            <circle cx="-20" cy="-90" r="2"/><circle cx="-60" cy="-90" r="2"/><circle cx="-60" cy="-60" r="2"/>
+            <circle cx="20" cy="90" r="2"/><circle cx="60" cy="90" r="2"/><circle cx="60" cy="60" r="2"/>
+            <circle cx="-90" cy="20" r="2"/><circle cx="-90" cy="60" r="2"/><circle cx="-50" cy="60" r="2"/>
+            <circle cx="90" cy="-20" r="2"/><circle cx="90" cy="-60" r="2"/><circle cx="50" cy="-60" r="2"/>
+          </g>
+        </g>
+
+        <!-- leader lines + labels -->
+        <g stroke="rgba(200,152,74,.5)" stroke-width=".6" fill="none">
+          <line x1="340" y1="70" x2="340" y2="40"/>
+          <line x1="340" y1="40" x2="560" y2="40"/>
+          <line x1="510" y1="260" x2="620" y2="260"/>
+          <line x1="340" y1="480" x2="620" y2="480"/>
+          <line x1="170" y1="260" x2="60" y2="260"/>
+          <line x1="214" y1="143" x2="60" y2="110"/>
+          <line x1="380" y1="260" x2="500" y2="160"/>
+        </g>
+        <g font-family="IBM Plex Serif, serif" font-style="italic" font-size="12" fill="#e8ecf5">
+          <text x="560" y="44">① crown · 12 teeth <tspan font-family="IBM Plex Mono, monospace" font-style="normal" fill="#c8984a" font-size="9" dx="4">i</tspan></text>
+          <text x="625" y="264">② outer ring <tspan font-family="IBM Plex Mono, monospace" font-style="normal" fill="#c8984a" font-size="9" dx="4">ii</tspan></text>
+          <text x="625" y="484">③ trace network · gold <tspan font-family="IBM Plex Mono, monospace" font-style="normal" fill="#c8984a" font-size="9" dx="4">iii</tspan></text>
+          <text x="56" y="264" text-anchor="end">bearing ring ④ <tspan font-family="IBM Plex Mono, monospace" font-style="normal" fill="#c8984a" font-size="9" dx="4">iv</tspan></text>
+          <text x="56" y="114" text-anchor="end">spoke ⑤ <tspan font-family="IBM Plex Mono, monospace" font-style="normal" fill="#c8984a" font-size="9" dx="4">v</tspan></text>
+          <text x="505" y="162">hub · LL ⑥ <tspan font-family="IBM Plex Mono, monospace" font-style="normal" fill="#c8984a" font-size="9" dx="4">vi</tspan></text>
+        </g>
+      </svg>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="border:1px solid var(--ceramic-rule);background:rgba(28,29,40,.4);padding:22px 24px;border-radius:2px;position:relative;">
+        <div style="position:absolute;top:-1px;right:-1px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#2a1c0a;background:var(--vein-gold);padding:4px 10px;">Etymology</div>
+        <h4 style="font-family:'IBM Plex Serif',serif;font-style:italic;font-weight:400;font-size:18px;margin:4px 0 10px;color:var(--ink);">Rota liberationis</h4>
+        <p style="font-family:'IBM Plex Serif',serif;font-size:14px;line-height:1.55;color:var(--ink);font-weight:300;margin:0 0 12px;">A twelve-toothed gear redrawn from the original WPA-era cog, now observed as a <em style="font-style:italic;color:var(--vein-light);">mechanism</em>: crown, outer ring, circuit-trace network, bearing ring, spokes, and hub.</p>
+        <p style="font-family:'IBM Plex Serif',serif;font-size:14px;line-height:1.55;color:var(--ink);font-weight:300;margin:0;">Retained as an auxiliary symbol to the seal — used for product plates, technical documentation, and the Mechanism section of the Charter.</p>
+      </div>
+
+      <div style="border:1px solid var(--ceramic-rule);background:rgba(28,29,40,.4);padding:20px 24px;border-radius:2px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--vein-gold);margin-bottom:12px;">Specimen card</div>
+        <dl style="margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;">
+          <dt style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;padding-top:3px;">Kingdom</dt><dd style="margin:0;font-family:'IBM Plex Serif',serif;font-size:14px;color:var(--ink);">Cooperativa</dd>
+          <dt style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;padding-top:3px;">Order</dt><dd style="margin:0;font-family:'IBM Plex Serif',serif;font-size:14px;color:var(--ink);font-style:italic;">Mutualis</dd>
+          <dt style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;padding-top:3px;">Teeth</dt><dd style="margin:0;font-family:'IBM Plex Serif',serif;font-size:14px;color:var(--ink);">XII</dd>
+          <dt style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;padding-top:3px;">Pigment</dt><dd style="margin:0;font-family:'IBM Plex Serif',serif;font-size:14px;color:var(--vein-light);font-style:italic;">Aurum laminatum</dd>
+          <dt style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;padding-top:3px;">Coll.</dt><dd style="margin:0;font-family:'IBM Plex Serif',serif;font-size:14px;color:var(--ink);">iv · mmxxvi</dd>
+        </dl>
+      </div>
+    </div>
+  </div>`;
+})();
+</script>
+
+<!-- PLATE II — TYPE -->
+<script>
+(function(){
+  const root=document.getElementById('page-type');
+  root.innerHTML=`
+  <div class="plate-hd">
+    <span class="num">Plate II</span>
+    <h2>Type as <em>instrument</em></h2>
+    <span class="latin">de characteribus — sex gradus</span>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1.4fr .6fr;gap:32px;">
+    <!-- Six-level specimen stack -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      ${[
+        {num:'01',label:'Display — hero',face:'IBM Plex Serif · 280 · -.025em',sample:'AI that belongs to the <em style="font-style:italic;color:var(--vein-light);">many</em>.',size:'72/70',use:'Hero headlines, plate titles, one per view'},
+        {num:'02',label:'Section — H2',face:'IBM Plex Serif · 300 · italic accent',sample:'A system for <em style="font-style:italic;color:var(--vein-light);">repair</em>.',size:'30/34',use:'Plate openers, page sections'},
+        {num:'03',label:'Subhead — H3',face:'IBM Plex Serif · italic 400',sample:'Mechanism of liberation',size:'20/26',italic:true,use:'Latin binomials, figure titles'},
+        {num:'04',label:'Body',face:'IBM Plex Serif · 300',sample:'Infrastructure is a kind of writing. If we build it, we are writing down what we believe, and who we expect to be accountable to.',size:'15.5/24',body:true,use:'Long-form editorial reading'},
+        {num:'05',label:'Caption · Mono',face:'IBM Plex Mono · 400 · .16em tracking',sample:'PLATE VII · FIG. 01 · COLL. IV · MMXXVI',size:'10.5 · caps',mono:true,use:'Plate numbers, metadata, kickers'},
+        {num:'06',label:'Code · VALUES.json',face:'IBM Plex Mono · 400',sample:'<span style="color:var(--ink-3);">// runtime</span><br/>{ <span style="color:var(--vein-light);">"consent"</span>: true, <span style="color:var(--vein-light);">"repair"</span>: true }',size:'13/22',code:true,use:'Runtime constraints, config, docs'},
+      ].map((s,i)=>`
+        <div style="border:1px solid var(--ceramic-rule);background:rgba(28,29,40,.4);padding:26px 30px;border-radius:2px;position:relative;">
+          <div style="position:absolute;top:14px;right:18px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;color:var(--ink-3);text-transform:uppercase;">${s.size}</div>
+          <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:16px;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--vein-gold);text-transform:uppercase;padding:3px 8px;border:1px solid rgba(200,152,74,.4);">${s.num}</span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:var(--ink-2);text-transform:uppercase;">${s.label}</span>
+          </div>
+          <div style="${s.body?'font-family:IBM Plex Serif,serif;font-size:15.5px;line-height:1.55;font-weight:300;color:var(--ink);max-width:720px;':s.italic?'font-family:IBM Plex Serif,serif;font-style:italic;font-weight:400;font-size:24px;color:var(--vein-light);':s.mono?'font-family:IBM Plex Mono,monospace;font-size:12px;letter-spacing:.16em;color:var(--ink);text-transform:uppercase;':s.code?'font-family:IBM Plex Mono,monospace;font-size:13px;line-height:1.8;color:var(--ink);':'font-family:IBM Plex Serif,serif;font-weight:280;font-size:58px;line-height:1;letter-spacing:-.025em;color:var(--ink);'}">${s.sample}</div>
+          <div style="display:flex;justify-content:space-between;gap:18px;margin-top:18px;padding-top:14px;border-top:1px solid var(--ceramic-rule);font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;">
+            <span>${s.face}</span><span>Use: ${s.use}</span>
+          </div>
+        </div>`).join('')}
+    </div>
+
+    <aside style="align-self:start;display:flex;flex-direction:column;gap:14px;">
+      <div style="border:1px solid var(--ceramic-rule);background:rgba(28,29,40,.4);padding:22px 24px;border-radius:2px;position:relative;">
+        <div style="position:absolute;top:-1px;right:-1px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#2a1c0a;background:var(--vein-gold);padding:4px 10px;">Stack</div>
+        <h4 style="font-family:'IBM Plex Serif',serif;font-style:italic;font-weight:400;font-size:18px;margin:4px 0 14px;color:var(--ink);">Three faces, one voice</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;font-family:'IBM Plex Serif',serif;font-size:14px;color:var(--ink);font-weight:300;">
+          <div><b style="font-weight:500;">IBM Plex Serif</b> — display, body, italic accent</div>
+          <div><b style="font-weight:500;">IBM Plex Sans</b> — interface, forms, data</div>
+          <div><b style="font-weight:500;">IBM Plex Mono</b> — metadata, code, VALUES.json</div>
+        </div>
+        <div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--ceramic-rule);font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;line-height:1.7;">
+          Open-source · libre<br/>Excellent Latin support<br/>Stable across platforms
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--ceramic-rule);background:rgba(28,29,40,.4);padding:22px 24px;border-radius:2px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--vein-gold);margin-bottom:14px;">Principles</div>
+        <ol style="margin:0;padding:0 0 0 18px;font-family:'IBM Plex Serif',serif;font-size:13.5px;line-height:1.6;color:var(--ink);font-weight:300;">
+          <li style="margin-bottom:10px;">Italic is reserved for <em style="color:var(--vein-light);">emphasis</em> and Latin — never decorative.</li>
+          <li style="margin-bottom:10px;">Small caps for <span style="font-variant:small-caps;letter-spacing:.06em;">institutional nouns</span>.</li>
+          <li style="margin-bottom:10px;">Body at 15.5px minimum; never below 13.</li>
+          <li>Tracking tight on display (-.025em), wide on mono (.16em).</li>
+        </ol>
+      </div>
+    </aside>
+  </div>`;
+})();
+</script>
+
+<!-- PLATE III — COLOR -->
+<script>
+(function(){
+  const root=document.getElementById('page-color');
+  root.innerHTML=`
+  <div class="plate-hd">
+    <span class="num">Plate III</span>
+    <h2>Pigments of the <em>repair</em></h2>
+    <span class="latin">pigmenta kintsugi — ceramica auroque</span>
+  </div>
+
+  <!-- KINTSUGI BOWL: illustrative plate showing how the palette relates -->
+  <div style="display:grid;grid-template-columns:1.1fr .9fr;gap:32px;margin-bottom:48px;">
+    <div style="border:1px solid var(--ceramic-rule-2);background:linear-gradient(180deg, rgba(23,23,32,.6), rgba(7,7,10,.9));padding:24px;border-radius:2px;position:relative;min-height:460px;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--ceramic-rule);margin-bottom:14px;">
+        <div style="font-family:'IBM Plex Serif',serif;font-style:italic;font-size:14.5px;color:var(--ink);"><b style="font-style:normal;color:var(--vein-light);margin-right:8px;">Fig. III.α</b>Vas repairum — the kintsugi bowl</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;">low-light study</div>
+      </div>
+      <svg viewBox="0 0 560 380" style="width:100%;height:auto;">
+        <defs>
+          <radialGradient id="bowl-body" cx=".5" cy=".4">
+            <stop offset="0%" stop-color="#252634"/><stop offset="60%" stop-color="#171720"/><stop offset="100%" stop-color="#0d0d11"/>
+          </radialGradient>
+          <linearGradient id="bowl-gold" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#8a6320" stop-opacity=".2"/>
+            <stop offset="50%" stop-color="#f4d98a"/>
+            <stop offset="100%" stop-color="#8a6320" stop-opacity=".2"/>
+          </linearGradient>
+          <radialGradient id="bowl-halo" cx=".5" cy=".5"><stop offset="0%" stop-color="#1a1f5a" stop-opacity=".55"/><stop offset="100%" stop-color="#0d0d11" stop-opacity="0"/></radialGradient>
+        </defs>
+        <!-- indigo halo behind -->
+        <ellipse cx="280" cy="200" rx="260" ry="170" fill="url(#bowl-halo)"/>
+        <!-- bowl silhouette -->
+        <path d="M 110 180 Q 110 290 280 310 Q 450 290 450 180 Q 450 160 280 160 Q 110 160 110 180 Z" fill="url(#bowl-body)" stroke="rgba(244,217,138,.15)" stroke-width=".8"/>
+        <!-- inner rim -->
+        <ellipse cx="280" cy="180" rx="170" ry="22" fill="none" stroke="rgba(244,217,138,.12)" stroke-width=".6"/>
+
+        <!-- kintsugi cracks in gold -->
+        <g stroke="url(#bowl-gold)" stroke-width="1.6" fill="none">
+          <path d="M 160 190 Q 180 230 200 245 Q 225 255 240 280 Q 258 300 280 308"/>
+          <path d="M 280 170 Q 285 205 300 225 Q 320 245 340 275 Q 360 295 400 295"/>
+          <path d="M 240 280 Q 260 275 280 265" stroke-width="1"/>
+          <path d="M 300 225 Q 330 215 360 220" stroke-width="1"/>
+          <path d="M 400 180 Q 390 210 390 240" stroke-width="1"/>
+          <path d="M 170 175 Q 165 190 160 210" stroke-width=".7"/>
+        </g>
+
+        <!-- gold nodes where cracks intersect -->
+        <g fill="#f4d98a">
+          <circle cx="160" cy="190" r="3"/>
+          <circle cx="200" cy="245" r="2.5"/>
+          <circle cx="240" cy="280" r="3"/>
+          <circle cx="280" cy="308" r="3.5"/>
+          <circle cx="300" cy="225" r="2.5"/>
+          <circle cx="340" cy="275" r="2.5"/>
+          <circle cx="400" cy="295" r="3"/>
+        </g>
+
+        <!-- sprout from center (nod to existing brand art) -->
+        <g stroke="#c8984a" stroke-width="1" fill="none">
+          <path d="M 280 170 Q 280 140 285 120 Q 290 105 287 90"/>
+          <path d="M 287 108 Q 300 102 310 96"/>
+          <path d="M 284 130 Q 270 124 262 118"/>
+        </g>
+        <circle cx="287" cy="88" r="2.5" fill="#f4d98a"/>
+        <circle cx="311" cy="94" r="1.8" fill="#f4d98a"/>
+        <circle cx="261" cy="117" r="1.8" fill="#f4d98a"/>
+
+        <!-- caption -->
+        <g font-family="IBM Plex Serif, serif" font-style="italic" font-size="11" fill="#e8ecf5">
+          <text x="280" y="360" text-anchor="middle">what was broken is <tspan fill="#f4d98a">rejoined</tspan>, and the seams are made visible.</text>
+        </g>
+      </svg>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;justify-content:space-between;">
+      <div style="border:1px solid var(--ceramic-rule);background:rgba(28,29,40,.4);padding:24px 26px;border-radius:2px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--vein-gold);margin-bottom:12px;">Operating principle</div>
+        <h4 style="font-family:'IBM Plex Serif',serif;font-style:italic;font-weight:400;font-size:22px;margin:0 0 12px;color:var(--ink);">Ceramic &amp; vein.</h4>
+        <p style="font-family:'IBM Plex Serif',serif;font-size:14px;line-height:1.6;color:var(--ink);font-weight:300;margin:0;">
+          The palette is read as a <em style="font-style:italic;color:var(--vein-light);">low-light kintsugi bowl</em>: a dark ceramic ground, scored with molten gold where broken pieces have been rejoined. The cool indigos are the night behind the object. Cool is backdrop; gold is <em style="font-style:italic;color:var(--vein-light);">record of repair</em>.
+        </p>
+      </div>
+      <div style="border:1px solid var(--ceramic-rule);background:rgba(28,29,40,.4);padding:22px 26px;border-radius:2px;">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--vein-gold);margin-bottom:10px;">Rules of use</div>
+        <ul style="margin:0;padding-left:18px;font-family:'IBM Plex Serif',serif;font-size:13.5px;line-height:1.65;color:var(--ink);font-weight:300;">
+          <li>Gold occupies ≤ 8% of any composition.</li>
+          <li>Gold never sits on indigo — always on ceramic ground.</li>
+          <li>Semantic colors lean desaturated; no pure reds/greens.</li>
+          <li>Body type uses cool white, never true white.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERAMIC GROUNDS -->
+  <div class="plate-hd"><span class="num">III.a</span><h2>Ceramic <em>grounds</em></h2><span class="latin">fundamenta — ii species</span></div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:36px;">
+    ${[
+      ['Void','#07070A','Nox profunda','Canvas, full-bleed'],
+      ['Ceramic','#0D0D11','Atramentum','Default surface'],
+      ['Charcoal','#171720','Carbo','Elevated panels'],
+    ].map(([n,hex,lat,use])=>`
+      <div style="border:1px solid var(--ceramic-rule);border-radius:2px;overflow:hidden;">
+        <div style="height:150px;background:${hex};position:relative;">
+          <span class="regmark" style="top:10px;left:10px"></span>
+        </div>
+        <div style="padding:14px 18px;background:rgba(13,13,17,.6);">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;">
+            <div style="font-family:'IBM Plex Serif',serif;font-weight:400;font-size:15px;color:var(--ink);">${n}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink-3);letter-spacing:.08em;">${hex}</div>
+          </div>
+          <div style="font-family:'IBM Plex Serif',serif;font-style:italic;font-size:12.5px;color:var(--vein-light);margin-top:2px;">${lat}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:var(--ink-3);text-transform:uppercase;margin-top:6px;">${use}</div>
+        </div>
+      </div>`).join('')}
+  </div>
+
+  <!-- GOLD VEIN SYSTEM -->
+  <div class="plate-hd"><span class="num">III.b</span><h2>Gold <em>vein</em> system</h2><span class="latin">aurum laminatum — iv gradus + gradient</span></div>
+  <div style="display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:14px;margin-bottom:36px;">
+    <div style="border:1px solid var(--ceramic-rule-2);border-radius:2px;overflow:hidden;min-height:240px;display:flex;flex-direction:column;">
+      <div style="flex:1;background:linear-gradient(138deg, #3a2a0a 0%, #8a6320 20%, #c8984a 38%, #f4d98a 52%, #d4a84a 66%, #8a5f1a 82%, #2a1c0a 100%);position:relative;">
+        <div style="position:absolute;inset:0;background:linear-gradient(155deg, rgba(255,255,255,.35) 0%, transparent 28%, transparent 55%, rgba(255,255,255,.2) 62%, transparent 82%);mix-blend-mode:overlay;"></div>
+      </div>
+      <div style="padding:16px 18px;background:rgba(13,13,17,.6);">
+        <div style="font-family:'IBM Plex Serif',serif;font-weight:400;font-size:15px;color:var(--ink);">Molten vein</div>
+        <div style="font-family:'IBM Plex Serif',serif;font-style:italic;font-size:12.5px;color:var(--vein-light);margin-top:2px;">Aurum liquidum — gradient</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--ink-3);letter-spacing:.08em;margin-top:6px;">specular · hero fills</div>
+      </div>
+    </div>
+    ${[
+      ['Deep','#5A3A10','Vena profunda','shadow vein'],
+      ['Amber','#A5761F','Vena vetus','body gold'],
+      ['Gold','#C8984A','Aurum','primary'],
+      ['Bright','#F4D98A','Aurum clarum','highlights'],
+    ].map(([n,hex,lat,use])=>`
+      <div style="border:1px solid var(--ceramic-rule);border-radius:2px;overflow:hidden;">
+        <div style="height:150px;background:${hex};"></div>
+        <div style="padding:12px 14px;background:rgba(13,13,17,.6);">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;">
+            <div style="font-family:'IBM Plex Serif',serif;font-weight:400;font-size:14px;color:var(--ink);">${n}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--ink-3);letter-spacing:.06em;">${hex}</div>
+          </div>
+          <div style="font-family:'IBM Plex Serif',serif;font-style:italic;font-size:11.5px;color:var(--vein-light);margin-top:2px;">${lat}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--ink-3);text-transform:uppercase;margin-top:4px;">${use}</div>
+        </div>
+      </div>`).join('')}
+  </div>
+
+  <!-- COSMIC ACCENTS -->
+  <div class="plate-hd"><span class="num">III.c</span><h2>Cosmic <em>accents</em></h2><span class="latin">caeruleum noctis — secondary</span></div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:36px;">
+    ${[
+      ['Indigo Deep','#0D1B2A','Caeruleum profundum','deep backdrops'],
+      ['Indigo','#1A2F4A','Indigo cosmica','panels'],
+      ['Cosmic','#1A1F5A','Nox stellata','halos'],
+      ['Electric','#2B4FA0','Caeruleum vivum','interactive focus'],
+    ].map(([n,hex,lat,use])=>`
+      <div style="border:1px solid var(--ceramic-rule);border-radius:2px;overflow:hidden;">
+        <div style="height:130px;background:${hex};"></div>
+        <div style="padding:12px 14px;background:rgba(13,13,17,.6);">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;">
+            <div style="font-family:'IBM Plex Serif',serif;font-weight:400;font-size:14px;color:var(--ink);">${n}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--ink-3);letter-spacing:.06em;">${hex}</div>
+          </div>
+          <div style="font-family:'IBM Plex Serif',serif;font-style:italic;font-size:11.5px;color:var(--vein-light);margin-top:2px;">${lat}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--ink-3);text-transform:uppercase;margin-top:4px;">${use}</div>
+        </div>
+      </div>`).join('')}
+  </div>
+
+  <!-- SEMANTIC -->
+  <div class="plate-hd"><span class="num">III.d</span><h2>Semantic <em>signals</em></h2><span class="latin">signa — status · statum · erratum</span></div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+    ${[
+      ['Success','#7AB89A','Vernum','repair complete'],
+      ['Warning','#D4A84A','Cautio','gold · of course'],
+      ['Error','#C8604A','Erratum','fractured'],
+      ['Info','#6A8CC8','Notum','note'],
+    ].map(([n,hex,lat,use])=>`
+      <div style="border:1px solid var(--ceramic-rule);border-radius:2px;overflow:hidden;">
+        <div style="height:110px;background:${hex};display:flex;align-items:center;justify-content:center;">
+          <div style="width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.2);"></div>
+        </div>
+        <div style="padding:12px 14px;background:rgba(13,13,17,.6);">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;">
+            <div style="font-family:'IBM Plex Serif',serif;font-weight:400;font-size:14px;color:var(--ink);">${n}</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--ink-3);letter-spacing:.06em;">${hex}</div>
+          </div>
+          <div style="font-family:'IBM Plex Serif',serif;font-style:italic;font-size:11.5px;color:var(--vein-light);margin-top:2px;">${lat}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.1em;color:var(--ink-3);text-transform:uppercase;margin-top:4px;">${use}</div>
+        </div>
+      </div>`).join('')}
+  </div>`;
+})();
+</script>
+
+<!-- PLATE IV — COMPONENTS -->
+<script>
+(function(){
+  const root=document.getElementById('page-components');
+  // Shared component styles (scoped to page-components)
+  const projects=[
+    {name:'Kintsugi', latin:'Kintsugi restoratio', tag:'Flagship · mutual aid', desc:'Self-evolving AI for mutual aid networks. Learns the coalition\s values from VALUES.json and evolves within them.', status:'Live · Free tier', no:'I'},
+    {name:'Emet', latin:'Emet veritas', tag:'Investigative intelligence', desc:'Editorial-grade research assistance for journalists. Document triage, entity linking, primary-source verification.', status:'Beta · Partner', no:'II'},
+    {name:'Recovery Support Agent', latin:'Custos recuperationis', tag:'Trauma-informed AI', desc:'A patient, consent-first conversational agent for recovery support networks. Privacy-preserving by default.', status:'Alpha · Invited', no:'III'},
+    {name:'CopWatch / TruthStrike', latin:'Vigilia publica', tag:'Civic accountability', desc:'Watchdog tooling for organizers: footage triage, records FOIA, pattern surfacing across jurisdictions.', status:'Field trial', no:'IV'},
+  ];
+
+  root.innerHTML=`
+  <div class="plate-hd">
+    <span class="num">Plate IV</span>
+    <h2>Apparatus of the <em>system</em></h2>
+    <span class="latin">de instrumentis — UI in register</span>
+  </div>
+
+  <style>
+    #page-components .panel{border:1px solid var(--ceramic-rule);background:rgba(28,29,40,.4);border-radius:2px;padding:24px 28px;position:relative;}
+    #page-components .panel-tag{position:absolute;top:-1px;right:-1px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:#2a1c0a;background:var(--vein-gold);padding:4px 10px;}
+    #page-components .panel h4{font-family:'IBM Plex Serif',serif;font-style:italic;font-weight:400;font-size:17px;margin:8px 0 18px;color:var(--ink);}
+
+    /* BUTTONS */
+    #page-components .btn{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:13px 22px;border-radius:2px;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:10px;}
+    #page-components .btn.primary{
+      background:linear-gradient(180deg, #f4d98a 0%, #c8984a 50%, #8a6320 100%);color:#2a1c0a;font-weight:500;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.4), 0 1px 0 rgba(0,0,0,.3);position:relative;overflow:hidden;
+    }
+    #page-components .btn.primary::after{content:'';position:absolute;inset:0;background:linear-gradient(155deg, rgba(255,255,255,.4) 0%, transparent 30%, transparent 60%, rgba(255,255,255,.2) 68%, transparent 85%);mix-blend-mode:overlay;pointer-events:none;}
+    #page-components .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ceramic-rule-2);}
+    #page-components .btn.link{background:transparent;color:var(--vein-light);padding:13px 0;border-bottom:1px solid var(--vein-gold);border-radius:0;}
+
+    /* NAVBAR */
+    #page-components .navbar{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border:1px solid var(--ceramic-rule);background:rgba(13,13,17,.8);border-radius:2px;}
+    #page-components .navbar .logo{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Serif',serif;font-size:16px;color:var(--ink);}
+    #page-components .navbar .logo .s{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 32% 30%, #fff4c8 0%, #f4d98a 20%, #c8984a 48%, #6a4510 82%, #2a1c0a 100%);box-shadow:inset 0 0 4px rgba(0,0,0,.5);}
+    #page-components .navbar .links{display:flex;gap:22px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);}
+    #page-components .navbar .links a{text-decoration:none;color:inherit;padding-bottom:3px;border-bottom:1px solid transparent;}
+    #page-components .navbar .links a.active{color:var(--ink);border-bottom-color:var(--vein-gold);}
+
+    /* PROJECT CARD */
+    #page-components .card{
+      border:1px solid var(--ceramic-rule);background:linear-gradient(180deg, rgba(28,29,40,.5), rgba(13,13,17,.7));
+      border-radius:2px;padding:24px 26px 22px;position:relative;overflow:hidden;display:flex;flex-direction:column;
+    }
+    #page-components .card::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:1px;
+      background:linear-gradient(90deg, transparent 0%, var(--vein-gold) 25%, var(--vein-light) 50%, var(--vein-gold) 75%, transparent 100%);
+      opacity:.4;
+    }
+    #page-components .card .pno{
+      position:absolute;top:16px;right:20px;
+      font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;color:var(--vein-gold);text-transform:uppercase;
+    }
+    #page-components .card .ctag{
+      font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase;margin-bottom:10px;
+    }
+    #page-components .card h3{font-family:'IBM Plex Serif',serif;font-weight:300;font-size:26px;margin:0 0 2px;letter-spacing:-.01em;color:var(--ink);}
+    #page-components .card .lt{font-family:'IBM Plex Serif',serif;font-style:italic;font-size:13.5px;color:var(--vein-light);font-weight:400;margin-bottom:12px;}
+    #page-components .card p{font-family:'IBM Plex Serif',serif;font-size:14px;line-height:1.55;color:var(--ink);font-weight:300;margin:0 0 18px;flex:1;}
+    #page-components .card .foot{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--ceramic-rule);font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;}
+    #page-components .card .foot .arr{color:var(--vein-light);}
+
+    /* FIELD LABEL / SECTION HEADER */
+    #page-components .secfield{display:flex;align-items:baseline;gap:18px;padding:14px 0;border-top:1px solid var(--ceramic-rule);border-bottom:1px solid var(--ceramic-rule);}
+    #page-components .secfield .no{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;color:var(--vein-gold);text-transform:uppercase;padding:3px 8px;border:1px solid rgba(200,152,74,.4);}
+    #page-components .secfield h3{font-family:'IBM Plex Serif',serif;font-weight:300;font-size:20px;margin:0;color:var(--ink);}
+    #page-components .secfield h3 em{font-style:italic;color:var(--vein-light);}
+    #page-components .secfield .lat{font-family:'IBM Plex Serif',serif;font-style:italic;font-size:13px;color:var(--ink-2);margin-left:auto;}
+
+    /* PLATE FRAME (container for featured illustration) */
+    #page-components .pframe{border:1px solid var(--ceramic-rule-2);background:linear-gradient(180deg, rgba(23,23,32,.6), rgba(7,7,10,.9));padding:18px;border-radius:2px;position:relative;}
+    #page-components .pframe .phead{display:flex;align-items:baseline;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--ceramic-rule);margin-bottom:12px;}
+    #page-components .pframe .ptitle{font-family:'IBM Plex Serif',serif;font-style:italic;font-size:13px;color:var(--ink);}
+    #page-components .pframe .ptitle b{font-style:normal;color:var(--vein-light);margin-right:6px;font-weight:500;}
+    #page-components .pframe .pmeta{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;}
+
+    /* INPUT */
+    #page-components .input{display:flex;flex-direction:column;gap:6px;}
+    #page-components .input label{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.18em;color:var(--vein-gold);text-transform:uppercase;}
+    #page-components .input input,#page-components .input textarea{
+      font-family:'IBM Plex Serif',serif;font-size:14px;color:var(--ink);font-weight:300;
+      background:rgba(7,7,10,.7);border:1px solid var(--ceramic-rule);padding:12px 14px;border-radius:2px;outline:none;
+    }
+    #page-components .input input:focus{border-color:var(--vein-gold);}
+
+    /* BADGE */
+    #page-components .badge{
+      display:inline-flex;align-items:center;gap:7px;padding:4px 10px;border-radius:2px;
+      font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+      border:1px solid var(--ceramic-rule-2);color:var(--ink);
+    }
+    #page-components .badge.gold{color:var(--vein-light);border-color:rgba(200,152,74,.5);background:rgba(200,152,74,.08);}
+    #page-components .badge.ok{color:#9acfb3;border-color:rgba(122,184,154,.4);background:rgba(122,184,154,.08);}
+    #page-components .badge.warn{color:#e5c683;border-color:rgba(212,168,74,.4);background:rgba(212,168,74,.08);}
+    #page-components .badge .dot{width:5px;height:5px;border-radius:50%;background:currentColor;}
+  </style>
+
+  <!-- BUTTONS -->
+  <div class="panel" style="margin-bottom:14px;">
+    <span class="panel-tag">IV · a — Buttons</span>
+    <h4>Controls · vocatio</h4>
+    <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
+      <button class="btn primary">Apply — it's free <span style="color:#2a1c0a;opacity:.6;">→</span></button>
+      <button class="btn ghost">Read the Charter</button>
+      <button class="btn link">View as plate →</button>
+      <span style="width:1px;height:32px;background:var(--ceramic-rule);"></span>
+      <span class="badge gold"><span class="dot"></span>Free tier</span>
+      <span class="badge ok"><span class="dot"></span>Open</span>
+      <span class="badge warn"><span class="dot"></span>Partner</span>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <div class="panel" style="margin-bottom:14px;">
+    <span class="panel-tag">IV · b — Navbar</span>
+    <h4>Primary navigation</h4>
+    <div class="navbar">
+      <div class="logo"><span class="s"></span> Liberation Labs <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase;margin-left:6px;">est. mmxxvi</span></div>
+      <div class="links">
+        <a class="active">Field</a><a>Projects</a><a>Notebook</a><a>Commons</a><a>Apply</a>
+      </div>
+      <button class="btn primary" style="padding:10px 18px;">Start a Project</button>
+    </div>
+  </div>
+
+  <!-- SECTION FIELDS -->
+  <div class="panel" style="margin-bottom:14px;">
+    <span class="panel-tag">IV · c — Section headers</span>
+    <h4>Plate &amp; section registers</h4>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div class="secfield"><span class="no">Plate V</span><h3>Our <em>projects</em></h3><span class="lat">opera — iv species currently under cultivation</span></div>
+      <div class="secfield"><span class="no">§ III.a</span><h3>The <em>Commons</em> Charter</h3><span class="lat">carta publica — one page, one commitment</span></div>
+      <div class="secfield"><span class="no">Appendix</span><h3>VALUES<em>.json</em></h3><span class="lat">constraints at runtime</span></div>
+    </div>
+  </div>
+
+  <!-- PROJECT CARDS -->
+  <div class="panel" style="margin-bottom:14px;">
+    <span class="panel-tag">IV · d — Project cards</span>
+    <h4>Specimen card · iv variants</h4>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+      ${projects.map(p=>`
+        <div class="card">
+          <div class="pno">${p.no}</div>
+          <div class="ctag">${p.tag}</div>
+          <h3>${p.name}</h3>
+          <div class="lt">${p.latin}</div>
+          <p>${p.desc}</p>
+          <div class="foot"><span>${p.status}</span><span class="arr">Open plate →</span></div>
+        </div>`).join('')}
+    </div>
+  </div>
+
+  <!-- PLATE FRAME + FORM -->
+  <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:14px;">
+    <div class="panel">
+      <span class="panel-tag">IV · e — Illustration frame</span>
+      <h4>Plate frame — for featured imagery</h4>
+      <div class="pframe">
+        <div class="phead">
+          <div class="ptitle"><b>Fig. α</b>Hyphae auratum — detail of rejoining</div>
+          <div class="pmeta">scale 1:1 · coll. iv.mmxxvi</div>
+        </div>
+        <svg viewBox="0 0 520 220" style="width:100%;height:auto;">
+          <defs>
+            <radialGradient id="f4-n" cx=".3" cy=".3"><stop offset="0%" stop-color="#ffe9a8"/><stop offset="45%" stop-color="#f4d98a"/><stop offset="85%" stop-color="#c8984a"/><stop offset="100%" stop-color="#3a2a0a"/></radialGradient>
+            <linearGradient id="f4-v" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#8a6320" stop-opacity=".15"/><stop offset="50%" stop-color="#f4d98a"/><stop offset="100%" stop-color="#8a6320" stop-opacity=".15"/></linearGradient>
+          </defs>
+          <g stroke="rgba(232,236,255,.04)">
+            ${[40,80,120,160].map(y=>`<line x1="20" x2="500" y1="${y}" y2="${y}"/>`).join('')}
+          </g>
+          <g stroke="url(#f4-v)" stroke-width="1" fill="none">
+            <path d="M60 160 Q 130 40 200 100 T 360 80 T 460 140"/>
+            <path d="M60 160 Q 150 180 240 130 T 400 150"/>
+            <path d="M200 100 L 200 60"/>
+            <path d="M360 80 L 360 40"/>
+          </g>
+          <g fill="url(#f4-n)">
+            <circle cx="60" cy="160" r="4"/><circle cx="200" cy="100" r="5"/>
+            <circle cx="360" cy="80" r="5"/><circle cx="460" cy="140" r="4"/>
+            <circle cx="240" cy="130" r="3"/><circle cx="400" cy="150" r="3"/>
+            <circle cx="200" cy="60" r="2.5"/><circle cx="360" cy="40" r="2.5"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="panel">
+      <span class="panel-tag">IV · f — Form</span>
+      <h4>Apply — intake fragment</h4>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div class="input"><label>Organization</label><input placeholder="Portland Mutual Aid Coalition" value="Portland Mutual Aid Coalition"/></div>
+        <div class="input"><label>Mission alignment — in one sentence</label><input placeholder="We distribute food and rent support..." value="We coordinate food, rent support, and tenant defense for 200+ households."/></div>
+        <div class="input"><label>VALUES.json · constraints</label>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.8;color:var(--ink);background:rgba(7,7,10,.7);border:1px solid var(--ceramic-rule);padding:12px 14px;border-radius:2px;">
+            { <span style="color:var(--vein-light);">"consent"</span>: <span style="color:var(--ink);">true</span>,<br/>&nbsp;&nbsp;<span style="color:var(--vein-light);">"extraction"</span>: <span style="color:var(--ink);">forbidden</span> }
+          </div>
+        </div>
+        <button class="btn primary" style="align-self:flex-start;">Submit application →</button>
+      </div>
+    </div>
+  </div>`;
+})();
+</script>
+
+<!-- PLATE V — HOMEPAGE -->
+<script>
+(function(){
+  const root=document.getElementById('page-home');
+  const projects=[
+    {name:'Kintsugi', latin:'K. restoratio', tag:'Mutual aid', desc:'Self-evolving AI that learns a coalition\s values from VALUES.json and evolves within them.', status:'Live · Free', no:'I'},
+    {name:'Emet', latin:'E. veritas', tag:'Journalism', desc:'Editorial-grade research assistance. Entity linking, document triage, primary-source verification.', status:'Beta', no:'II'},
+    {name:'Recovery Agent', latin:'Custos recuperationis', tag:'Trauma-informed', desc:'A patient, consent-first conversational agent for recovery support networks.', status:'Alpha', no:'III'},
+    {name:'CopWatch', latin:'Vigilia publica', tag:'Civic watchdog', desc:'Footage triage, FOIA, and pattern surfacing across jurisdictions for organizers.', status:'Field trial', no:'IV'},
+  ];
+  root.innerHTML=`
+  <div class="plate-hd">
+    <span class="num">Plate V</span>
+    <h2>Home — <em>frons publica</em></h2>
+    <span class="latin">liberationlabs.coop — applied specimen</span>
+  </div>
+
+  <style>
+    #page-home .site{
+      border:1px solid var(--ceramic-rule-2);border-radius:2px;overflow:hidden;
+      background:var(--ceramic-void);position:relative;
+      box-shadow:0 24px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(244,217,138,.04);
+    }
+    #page-home .br-chrome{
+      padding:12px 18px;border-bottom:1px solid var(--ceramic-rule);
+      display:flex;align-items:center;gap:10px;
+      font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink-3);
+    }
+    #page-home .br-chrome .dot{width:7px;height:7px;border-radius:50%;background:#26293a;}
+    #page-home .br-chrome .url{margin-left:14px;padding:5px 14px;border:1px solid var(--ceramic-rule);border-radius:2px;background:rgba(255,255,255,.02);}
+    #page-home .br-chrome .right{margin-left:auto;display:flex;gap:18px;letter-spacing:.14em;text-transform:uppercase;}
+
+    /* Nav */
+    #page-home .nav{display:flex;align-items:center;justify-content:space-between;padding:20px 52px;border-bottom:1px solid var(--ceramic-rule);}
+    #page-home .nav .logo{display:flex;align-items:center;gap:12px;font-family:'IBM Plex Serif',serif;font-size:17px;color:var(--ink);letter-spacing:-.005em;}
+    #page-home .nav .logo .s{width:24px;height:24px;border-radius:50%;background:radial-gradient(circle at 32% 30%, #fff4c8 0%, #f4d98a 20%, #c8984a 48%, #6a4510 82%, #2a1c0a 100%);box-shadow:inset 0 0 5px rgba(0,0,0,.55);}
+    #page-home .nav .logo small{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase;margin-left:4px;}
+    #page-home .nav .links{display:flex;gap:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);}
+    #page-home .nav .links a{text-decoration:none;color:inherit;padding-bottom:3px;border-bottom:1px solid transparent;}
+    #page-home .nav .links a.active{color:var(--ink);border-bottom-color:var(--vein-gold);}
+    #page-home .nav .cta{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;padding:10px 18px;border-radius:2px;background:linear-gradient(180deg, #f4d98a 0%, #c8984a 50%, #8a6320 100%);color:#2a1c0a;font-weight:500;box-shadow:inset 0 1px 0 rgba(255,255,255,.4), 0 1px 0 rgba(0,0,0,.3);position:relative;overflow:hidden;}
+    #page-home .nav .cta::after{content:'';position:absolute;inset:0;background:linear-gradient(155deg, rgba(255,255,255,.4) 0%, transparent 30%, transparent 60%, rgba(255,255,255,.2) 68%, transparent 85%);mix-blend-mode:overlay;pointer-events:none;}
+
+    /* Hero */
+    #page-home .hero{position:relative;padding:56px 52px 64px;display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center;background:radial-gradient(1100px 600px at 75% 40%, rgba(200,152,74,.08) 0%, transparent 55%), radial-gradient(900px 500px at 15% 110%, rgba(26,31,90,.28) 0%, transparent 60%);}
+    #page-home .hero .kicker{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;color:var(--vein-gold);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:12px;}
+    #page-home .hero .kicker::before{content:'';width:22px;height:1px;background:var(--vein-gold);}
+    #page-home .hero .latin{font-family:'IBM Plex Serif',serif;font-style:italic;font-weight:300;font-size:15px;color:var(--ink-2);margin-bottom:24px;}
+    #page-home .hero h1{font-family:'IBM Plex Serif',serif;font-weight:280;font-size:82px;line-height:.96;letter-spacing:-.03em;margin:0 0 28px;color:var(--ink);}
+    #page-home .hero h1 em{font-style:italic;color:var(--vein-light);font-weight:280;}
+    #page-home .hero .sub{font-family:'IBM Plex Serif',serif;font-size:17px;line-height:1.55;color:var(--ink);max-width:500px;margin:0 0 32px;font-weight:300;}
+    #page-home .hero .sub em{font-style:italic;color:var(--vein-light);}
+    #page-home .hero .field{border:1px solid var(--ceramic-rule);background:rgba(28,29,40,.35);border-radius:2px;padding:18px 22px;margin-bottom:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative;}
+    #page-home .hero .field::before{content:'Field record';position:absolute;top:-9px;left:14px;background:var(--ceramic-void);padding:0 8px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--vein-gold);text-transform:uppercase;}
+    #page-home .hero .field .k{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;color:var(--ink-3);text-transform:uppercase;margin-bottom:3px;}
+    #page-home .hero .field .v{font-family:'IBM Plex Serif',serif;font-style:italic;font-size:14.5px;color:var(--ink);font-weight:300;}
+    #page-home .hero .field .v b{color:var(--vein-light);font-style:normal;font-weight:500;}
+    #page-home .hero .actions{display:flex;gap:12px;align-items:center;}
+
+    /* Hero plate — kintsugi mycelium */
+    #page-home .hero-plate{border:1px solid var(--ceramic-rule-2);background:linear-gradient(180deg, rgba(23,23,32,.5), rgba(7,7,10,.9));padding:16px;border-radius:2px;position:relative;}
+    #page-home .hero-plate .ph{display:flex;align-items:baseline;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--ceramic-rule);margin-bottom:10px;}
+    #page-home .hero-plate .ph .t{font-family:'IBM Plex Serif',serif;font-style:italic;font-size:13px;color:var(--ink);}
+    #page-home .hero-plate .ph .t b{font-style:normal;color:var(--vein-light);margin-right:6px;font-weight:500;}
+    #page-home .hero-plate .ph .m{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;}
+    #page-home .hero-plate .legend{margin-top:10px;padding-top:10px;border-top:1px solid var(--ceramic-rule);display:grid;grid-template-columns:repeat(3,1fr);gap:6px 18px;}
+    #page-home .hero-plate .legend .e{display:flex;gap:7px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.06em;color:var(--ink-2);}
+    #page-home .hero-plate .legend .e .n{color:var(--vein-gold);font-weight:500;}
+
+    /* Thesis band */
+    #page-home .thesis{padding:64px 52px;border-top:1px solid var(--ceramic-rule);border-bottom:1px solid var(--ceramic-rule);display:grid;grid-template-columns:auto 1fr;gap:52px;align-items:start;background:rgba(13,13,17,.5);}
+    #page-home .thesis .pno{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.22em;color:var(--vein-gold);text-transform:uppercase;white-space:nowrap;padding-top:4px;}
+    #page-home .thesis p{font-family:'IBM Plex Serif',serif;font-style:italic;font-weight:300;font-size:28px;line-height:1.35;color:var(--ink);margin:0;letter-spacing:-.005em;max-width:960px;}
+    #page-home .thesis p em{color:var(--vein-light);}
+    #page-home .thesis .by{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase;margin-top:14px;}
+
+    /* Projects */
+    #page-home .proj{padding:72px 52px;}
+    #page-home .proj .secfield{display:flex;align-items:baseline;gap:18px;padding:14px 0;border-top:1px solid var(--ceramic-rule);border-bottom:1px solid var(--ceramic-rule);margin-bottom:28px;}
+    #page-home .proj .secfield .no{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;color:var(--vein-gold);text-transform:uppercase;padding:3px 8px;border:1px solid rgba(200,152,74,.4);}
+    #page-home .proj .secfield h3{font-family:'IBM Plex Serif',serif;font-weight:300;font-size:26px;margin:0;color:var(--ink);letter-spacing:-.005em;}
+    #page-home .proj .secfield h3 em{font-style:italic;color:var(--vein-light);}
+    #page-home .proj .secfield .lat{font-family:'IBM Plex Serif',serif;font-style:italic;font-size:14px;color:var(--ink-2);margin-left:auto;}
+    #page-home .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+    #page-home .card{border:1px solid var(--ceramic-rule);background:linear-gradient(180deg, rgba(28,29,40,.5), rgba(13,13,17,.7));border-radius:2px;padding:22px 22px 20px;position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:280px;}
+    #page-home .card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg, transparent 0%, var(--vein-gold) 25%, var(--vein-light) 50%, var(--vein-gold) 75%, transparent 100%);opacity:.4;}
+    #page-home .card .pno{position:absolute;top:14px;right:18px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.22em;color:var(--vein-gold);text-transform:uppercase;}
+    #page-home .card .tag{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase;margin-bottom:10px;}
+    #page-home .card h3{font-family:'IBM Plex Serif',serif;font-weight:300;font-size:24px;margin:0 0 2px;letter-spacing:-.01em;color:var(--ink);}
+    #page-home .card .lt{font-family:'IBM Plex Serif',serif;font-style:italic;font-size:12.5px;color:var(--vein-light);font-weight:400;margin-bottom:12px;}
+    #page-home .card p{font-family:'IBM Plex Serif',serif;font-size:13.5px;line-height:1.55;color:var(--ink);font-weight:300;margin:0 0 18px;flex:1;}
+    #page-home .card .foot{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--ceramic-rule);font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;}
+    #page-home .card .foot .arr{color:var(--vein-light);}
+
+    /* VALUES strip */
+    #page-home .valstrip{padding:56px 52px;border-top:1px solid var(--ceramic-rule);display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+    #page-home .valstrip .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.22em;color:var(--vein-gold);text-transform:uppercase;margin-bottom:14px;}
+    #page-home .valstrip h3{font-family:'IBM Plex Serif',serif;font-weight:300;font-size:36px;line-height:1.05;margin:0 0 18px;letter-spacing:-.015em;color:var(--ink);}
+    #page-home .valstrip h3 em{font-style:italic;color:var(--vein-light);}
+    #page-home .valstrip p{font-family:'IBM Plex Serif',serif;font-size:15.5px;line-height:1.6;color:var(--ink);font-weight:300;margin:0 0 20px;}
+    #page-home .valstrip pre{font-family:'IBM Plex Mono',monospace;font-size:13.5px;line-height:1.9;color:var(--ink);margin:0;background:rgba(7,7,10,.7);border:1px solid var(--ceramic-rule);padding:22px 26px;border-radius:2px;position:relative;}
+    #page-home .valstrip pre::before{content:'VALUES.json';position:absolute;top:-9px;left:16px;background:var(--ceramic-void);padding:0 8px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--vein-gold);text-transform:uppercase;}
+    #page-home .valstrip pre .k{color:var(--vein-light);}
+    #page-home .valstrip pre .c{color:var(--ink-3);}
+
+    /* Footer */
+    #page-home .foot-strip{padding:36px 52px;border-top:2px solid var(--vein-gold);background:rgba(13,13,17,.6);display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);}
+    #page-home .foot-strip b{color:var(--vein-light);font-weight:500;}
+  </style>
+
+  <div class="site">
+    <div class="br-chrome">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="url">liberationlabs.coop</span>
+      <span class="right"><span>Field</span><span>Notebook</span><span>Apply</span></span>
+    </div>
+
+    <nav class="nav">
+      <div class="logo"><span class="s"></span> Liberation Labs <small>est. mmxxvi</small></div>
+      <div class="links">
+        <a class="active">Field</a><a>Projects</a><a>Research</a><a>Commons</a><a>Apply</a>
+      </div>
+      <span class="cta">Start a Project</span>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <div class="kicker">Worker-Owned Cooperative · Plate V, Fig. 01</div>
+        <div class="latin">de infrastructura communi — an observation</div>
+        <h1>AI that belongs to the <em>many</em>,<br/>not the few.</h1>
+        <p class="sub">Self-evolving AI infrastructure for communities whose <em>values come first</em>. Free for mission-aligned organizations.</p>
+        <div class="field">
+          <div><div class="k">Structure</div><div class="v"><b>Worker-owned</b><br/>cooperative</div></div>
+          <div><div class="k">License</div><div class="v"><b>Dual</b><br/>free · enterprise</div></div>
+          <div><div class="k">Habit</div><div class="v"><b>Nocturnal</b><br/>open, patient</div></div>
+        </div>
+        <div class="actions">
+          <button style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:14px 22px;border-radius:2px;border:0;cursor:pointer;background:linear-gradient(180deg, #f4d98a 0%, #c8984a 50%, #8a6320 100%);color:#2a1c0a;font-weight:500;box-shadow:inset 0 1px 0 rgba(255,255,255,.4), 0 1px 0 rgba(0,0,0,.3);">Apply — it's free</button>
+          <button style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:14px 22px;border-radius:2px;cursor:pointer;background:transparent;color:var(--ink);border:1px solid var(--ceramic-rule-2);">Read the Charter</button>
+        </div>
+      </div>
+
+      <div class="hero-plate">
+        <div class="ph">
+          <div class="t"><b>Fig. 01</b>Vas repairum — kintsugi network (detail)</div>
+          <div class="m">coll. iv.mmxxvi · 1:1</div>
+        </div>
+        <svg viewBox="0 0 520 440" style="width:100%;height:auto;">
+          <defs>
+            <radialGradient id="h-bowl" cx=".5" cy=".4"><stop offset="0%" stop-color="#252634"/><stop offset="60%" stop-color="#171720"/><stop offset="100%" stop-color="#07070a"/></radialGradient>
+            <linearGradient id="h-v" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#8a6320" stop-opacity=".15"/><stop offset="50%" stop-color="#f4d98a"/><stop offset="100%" stop-color="#8a6320" stop-opacity=".15"/></linearGradient>
+            <radialGradient id="h-n" cx=".3" cy=".3"><stop offset="0%" stop-color="#ffe9a8"/><stop offset="45%" stop-color="#f4d98a"/><stop offset="85%" stop-color="#c8984a"/><stop offset="100%" stop-color="#3a2a0a"/></radialGradient>
+            <radialGradient id="h-halo" cx=".5" cy=".5"><stop offset="0%" stop-color="#1a1f5a" stop-opacity=".45"/><stop offset="100%" stop-color="#07070a" stop-opacity="0"/></radialGradient>
+          </defs>
+          <!-- halo -->
+          <ellipse cx="260" cy="220" rx="250" ry="180" fill="url(#h-halo)"/>
+          <!-- graticule -->
+          <g stroke="rgba(232,236,255,.04)">
+            ${[40,80,120,160,200,240,280,320,360].map(y=>`<line x1="20" x2="500" y1="${y}" y2="${y}"/>`).join('')}
+            ${[40,100,160,220,280,340,400,460].map(x=>`<line y1="20" y2="400" x1="${x}" x2="${x}"/>`).join('')}
+          </g>
+          <!-- scale -->
+          <g font-family="IBM Plex Mono, monospace" font-size="8.5" fill="#c8984a" letter-spacing=".1em">
+            <line x1="20" y1="415" x2="120" y2="415" stroke="#c8984a"/>
+            <text x="20" y="431">0 —— 1 UNIT</text>
+          </g>
+          <!-- rhizome filaments (gold kintsugi veins) -->
+          <g stroke="url(#h-v)" stroke-width="1.1" fill="none" opacity=".95">
+            <path d="M 100 90 Q 180 140 260 200"/>
+            <path d="M 420 100 Q 340 150 260 200"/>
+            <path d="M 70 230 Q 170 220 260 200"/>
+            <path d="M 450 230 Q 360 220 260 200"/>
+            <path d="M 130 350 Q 200 290 260 200"/>
+            <path d="M 400 350 Q 340 290 260 200"/>
+            <path d="M 260 60 L 260 200"/>
+            <path d="M 260 380 L 260 200"/>
+            <!-- outer ring -->
+            <path d="M 100 90 Q 260 30 420 100"/>
+            <path d="M 420 100 Q 490 160 450 230"/>
+            <path d="M 450 230 Q 490 310 400 350"/>
+            <path d="M 400 350 Q 260 410 130 350"/>
+            <path d="M 130 350 Q 50 310 70 230"/>
+            <path d="M 70 230 Q 50 160 100 90"/>
+            <!-- secondary branching -->
+            <path d="M 100 90 Q 70 170 70 230" stroke-opacity=".45"/>
+            <path d="M 420 100 Q 450 170 450 230" stroke-opacity=".45"/>
+            <path d="M 70 230 Q 90 300 130 350" stroke-opacity=".45"/>
+            <path d="M 450 230 Q 430 300 400 350" stroke-opacity=".45"/>
+          </g>
+          <!-- nodes -->
+          <circle cx="260" cy="200" r="8" fill="url(#h-n)"/>
+          <circle cx="100" cy="90" r="5" fill="url(#h-n)"/>
+          <circle cx="420" cy="100" r="5" fill="url(#h-n)"/>
+          <circle cx="70" cy="230" r="5" fill="url(#h-n)"/>
+          <circle cx="450" cy="230" r="5" fill="url(#h-n)"/>
+          <circle cx="130" cy="350" r="5" fill="url(#h-n)"/>
+          <circle cx="400" cy="350" r="5" fill="url(#h-n)"/>
+          <circle cx="260" cy="60" r="3.5" fill="url(#h-n)"/>
+          <circle cx="260" cy="380" r="3.5" fill="url(#h-n)"/>
+          <!-- small callouts -->
+          <g stroke="rgba(200,152,74,.45)" stroke-width=".5">
+            <line x1="268" y1="198" x2="340" y2="168"/>
+          </g>
+          <g font-family="IBM Plex Serif, serif" font-style="italic" font-size="10.5" fill="#e8ecf5">
+            <text x="342" y="170">① core node <tspan font-family="IBM Plex Mono, monospace" font-style="normal" fill="#c8984a" font-size="8" dx="4">core</tspan></text>
+          </g>
+        </svg>
+        <div class="legend">
+          <div class="e"><span class="n">①</span>core node — runtime</div>
+          <div class="e"><span class="n">②</span>cooperative member</div>
+          <div class="e"><span class="n">③</span>mutual aid · free tier</div>
+          <div class="e"><span class="n">④</span>nonprofit · free tier</div>
+          <div class="e"><span class="n">⑤</span>advocacy · free tier</div>
+          <div class="e"><span class="n">⑥</span>research · partner</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="thesis">
+      <div class="pno">Plate V · Thesis</div>
+      <div>
+        <p>“Infrastructure is a kind of <em>writing</em>. If we build it, we are writing down what we believe — and who we expect to be accountable to. So we write it <em>in gold</em>, where the seams are.”</p>
+        <div class="by">— from the Commons Charter, i.i</div>
+      </div>
+    </section>
+
+    <section class="proj">
+      <div class="secfield">
+        <span class="no">Plate V · b</span>
+        <h3>Our <em>projects</em></h3>
+        <span class="lat">opera — iv species currently under cultivation</span>
+      </div>
+      <div class="cards">
+        ${projects.map(p=>`
+          <div class="card">
+            <div class="pno">${p.no}</div>
+            <div class="tag">${p.tag}</div>
+            <h3>${p.name}</h3>
+            <div class="lt">${p.latin}</div>
+            <p>${p.desc}</p>
+            <div class="foot"><span>${p.status}</span><span class="arr">Open plate →</span></div>
+          </div>`).join('')}
+      </div>
+    </section>
+
+    <section class="valstrip">
+      <div>
+        <div class="eyebrow">Plate V · c — Operating constraint</div>
+        <h3>Your <em>values</em>, at runtime.</h3>
+        <p>Every deployment ships with a <em style="font-style:italic;color:var(--vein-light);">VALUES.json</em> — a set of constraints your community authors and owns. The system is not asked to be good in the abstract; it is asked to act inside your boundaries, and it is audited against them.</p>
+        <button style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:13px 22px;border-radius:2px;cursor:pointer;background:transparent;color:var(--ink);border:1px solid var(--ceramic-rule-2);">Read the spec →</button>
+      </div>
+      <pre><span class="c">// runtime constraints · authored by you</span>
+{
+  <span class="k">"consent"</span>:      required,
+  <span class="k">"extraction"</span>:   forbidden,
+  <span class="k">"repair"</span>:       default,
+  <span class="k">"transparency"</span>: audited,
+  <span class="k">"jurisdiction"</span>: ["portland-mutual-aid"]
+}</pre>
+    </section>
+
+    <footer class="foot-strip">
+      <span>Liberation Labs <b>Cooperative</b> · est. mmxxvi</span>
+      <span>The Commons · Notebook · Apply · Contact</span>
+      <span>© <b>mmxxvi</b> · worker-owned</span>
+    </footer>
+  </div>`;
+})();
+</script>
+
+</body>
+</html>
