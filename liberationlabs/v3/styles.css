@@ -366,9 +366,15 @@ footer.colophon{max-width:1480px;margin:0 auto;padding:48px 40px 32px;border-top
   .manifesto blockquote{font-size:36px;}
   .author-wrap .text .collab{grid-template-columns:1fr;}
 }
+/* mobile menu toggle */
+.menu-toggle{display:none;background:none;border:1px solid var(--rule-gold);color:var(--gold);padding:6px 12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border-radius:2px;}
+.menu-toggle:hover{background:rgba(200,152,74,.1);}
 @media (max-width:680px){
   .topbar-inner{padding:14px 20px;flex-wrap:wrap;gap:14px;}
-  .links{display:none;}
+  .menu-toggle{display:block;}
+  .links{display:none;width:100%;flex-direction:column;gap:16px;padding:16px 0 8px;border-top:1px solid var(--rule);}
+  .links.open{display:flex;}
+  .topbar .cta{display:none;}
   .masthead{padding:40px 20px 28px;}
   .masthead h1{font-size:56px;}
   .plate{padding:60px 20px 0;}
