@@ -366,6 +366,17 @@ footer.colophon{max-width:1480px;margin:0 auto;padding:48px 40px 32px;border-top
   .manifesto blockquote{font-size:36px;}
   .author-wrap .text .collab{grid-template-columns:1fr;}
 }
+/* hide decorative Latin/plate elements — clean, direct, mobile-friendly */
+.plate-head .num{display:none;}
+.plate-head .title .sub{display:none;}
+.plate-head .meta{display:none;}
+.plate-head{grid-template-columns:1fr;gap:0;padding-bottom:14px;}
+.sci{display:none;}
+.latin{display:none;}
+.masthead .vol{display:none;}
+.masthead .row-top{display:none;}
+.hero-index-eyebrow{display:none;}
+
 /* mobile menu toggle */
 .menu-toggle{display:none;background:none;border:1px solid var(--rule-gold);color:var(--gold);padding:6px 12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border-radius:2px;}
 .menu-toggle:hover{background:rgba(200,152,74,.1);}
